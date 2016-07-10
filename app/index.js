@@ -1,9 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import SearchBox from './components/search';
+
 class HelloWorld extends React.Component {
   render() {
-    return <h1>Hello, world!</h1>;
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+        <SearchBox fun={'Playlist Name'} />
+      </div>
+    );
   }
 }
 
