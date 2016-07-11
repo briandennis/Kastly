@@ -6,6 +6,8 @@ import SearchBox from './components/search';
 import PlaylistsContainer from './components/playlistsContainer';
 import Spinner from 'react-spinner';
 
+//this is a test
+
 require('./index.scss');
 
 class Root extends React.Component {
