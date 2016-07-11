@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/briandennis/Test#readme",
   "dependencies": {
+    "axios": "^0.12.0",
     "react": "^15.2.1",
-    "react-dom": "^15.2.1"
+    "react-dom": "^15.2.1",
+    "react-spinner": "^0.2.6"
   },
   "devDependencies": {
     "babel-core": "^6.10.4",
