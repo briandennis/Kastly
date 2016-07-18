@@ -6,4 +6,4 @@ module.exports =
 
   .get( '/', require('./routes/index') )
 
-  .get( '/search/:term', require('./routes/search') );
+  .get( '/search/', require('./routes/search') );
