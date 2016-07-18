@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SpotifyService from './spotifyService.js';
+import Api from './apiService.js';
 
 import SearchBox from './components/search';
 import PlaylistsContainer from './components/playlistsContainer';
 import Spinner from 'react-spinner';
-
-//this is a test
 
 require('./index.scss');
 
@@ -25,12 +23,14 @@ class Root extends React.Component {
 
   search(query) {
     this.setState({ loading: true });
-    SpotifyService.get(query).then((response) => {
-      if (!response.error) {
-        console.log('got here!');
-        this.setState({ playlists: response.data.playlists.items, loading: false});
-      }
-    });
+    Api.search(query)
+      .then((response) => {
+        if (!response.error) {
+          console.log('got here!');
+          console.log(response);
+          this.setState({ playlists: response.data.playlists.items, loading: false});
+        }
+      });
   }
 
   render() {
