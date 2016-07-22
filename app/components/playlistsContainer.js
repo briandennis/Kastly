@@ -24,7 +24,7 @@ export default function PlaylistsContainer(props) {
   });
 
   return (
-    <div>
+    <div id="playlistContainer">
       {playlists}
     </div>
   );

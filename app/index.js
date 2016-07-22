@@ -32,6 +32,9 @@ class Root extends React.Component {
         console.log('State updated!');
         this.setState({ casts });
       })
+      .catch( () => {
+        this.setState({ casts: [], error: true });
+      });
   }
 
   render() {
