@@ -41,7 +41,7 @@ class Root extends React.Component {
     console.log("rendering!");
     return (
       <div>
-        <h1>Playlist Search</h1>
+        <h1>Podcast Search</h1>
         <SearchBox searchHandler={this.search} default={'Playlist Name'} />
         <PlaylistsContainer casts={this.state.casts} />
         {this.state.loading ? <Spinner /> : ''}
