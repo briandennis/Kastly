@@ -13,24 +13,25 @@ class Root extends React.Component {
   constructor(props) {
     super(props);
 
+    console.log('Constructing!');
+
     this.state = {
-      playlists: [],
+      casts: [],
       loading: false,
+      error: false,
     };
 
     this.search = this.search.bind(this);
   }
 
   search(query) {
+    console.log('called...');
     this.setState({ loading: true });
     Api.search(query)
-      .then((response) => {
-        if (!response.error) {
-          console.log('got here!');
-          console.log(response);
-          this.setState({ playlists: response.data.playlists.items, loading: false});
-        }
-      });
+      .then( (casts) => {
+        console.log('State updated!');
+        this.setState({ casts });
+      })
   }
 
   render() {
@@ -39,7 +40,7 @@ class Root extends React.Component {
       <div>
         <h1>Playlist Search</h1>
         <SearchBox searchHandler={this.search} default={'Playlist Name'} />
-        <PlaylistsContainer playlists={this.state.playlists} />
+        <PlaylistsContainer casts={this.state.casts} />
         {this.state.loading ? <Spinner /> : ''}
       </div>
     );

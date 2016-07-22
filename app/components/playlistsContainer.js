@@ -3,30 +3,25 @@ import React from 'react';
 function Playlist (props) {
   return (
     <div>
-      <img src={props.image} height="50"/>
+      <img src={props.image} height="100"/>
       <a href={props.url}><h2>{props.name}</h2></a>
-      <p> Tracks: {props.count} </p>
     </div>
   );
 }
 
 export default function PlaylistsContainer(props) {
-  const playlists = props.playlists.map((curr, index) => {
-    const playlist =  {
+  const playlists = props.casts.map((curr, index) => {
+    const cast =  {
       key: index,
-      name: curr.name,
-      image: curr.images[0].url,
-      trackCount: curr.tracks.total,
-      url: curr.href,
+      name: curr.title,
+      image: curr.logo,
+      url: curr.feed,
     };
 
-    return <Playlist key={playlist.key} name={playlist.name}
-                      image={playlist.image}
-                      count={playlist.trackCount}
-                      url={playlist.count} />;
+    return <Playlist key={cast.key} name={cast.name}
+                      image={cast.image}
+                      url={cast.feed} />;
   });
-
-  console.log('IN playlist container');
 
   return (
     <div>
