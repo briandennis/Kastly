@@ -2,7 +2,7 @@ import React from 'react';
 
 function Playlist (props) {
   return (
-    <div className="tile">
+    <div className="tile column">
       <div className="card">
         <div className="card-image">
           <figure className="image is-1by1">
@@ -11,7 +11,7 @@ function Playlist (props) {
         </div>
         <div className="card-content">
           <div className="content">
-            <a href={props.url}><h2>{props.name}</h2></a>
+            <a href={props.url}><h2 className="title is-3">{props.name}</h2></a>
           </div>
         </div>
       </div>
@@ -34,7 +34,7 @@ export default function PlaylistsContainer(props) {
   });
 
   return (
-    <div id="playlistContainer">
+    <div id="playlistContainer" className="columns is-multiline">
       {playlists}
     </div>
   );

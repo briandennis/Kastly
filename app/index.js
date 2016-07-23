@@ -40,11 +40,19 @@ class Root extends React.Component {
   render() {
     console.log("rendering!");
     return (
-      <div>
-        <h1>Podcast Search</h1>
-        <SearchBox searchHandler={this.search} default={'Playlist Name'} />
-        <PlaylistsContainer casts={this.state.casts} />
-        {this.state.loading ? <Spinner /> : ''}
+      <div id="appContainer" className="columns is-multiline">
+        <div id="title" className="column is-12">
+          <h1 className='title is-1'>Podcast Search</h1>
+        </div>
+        <div className="column">
+          <div className="columns">
+            <SearchBox searchHandler={this.search} default={'Playlist Name'} />
+          </div>
+        </div>
+        <div className="column">
+          <PlaylistsContainer casts={this.state.casts} />
+          {this.state.loading ? <Spinner /> : ''}
+        </div>
       </div>
     );
   }

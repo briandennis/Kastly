@@ -1,9 +1,27 @@
 body {
-  background: #823832;
+}
+
+#appContainer {
+  margin: 0;
+  padding:  25px 0;
+  width: 100vw;
+
+  #title {
+    text-align: center;
+  }
 }
 
 .searchContainer {
-  background: blue;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#searchForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 #playlistContainer {

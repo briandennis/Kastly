@@ -18,10 +18,16 @@ export default class SearchBox extends React.Component {
 
   render() {
     return (
-      <div className="searchContainer">
-        <form onSubmit={this.submit}>
-          <input name="search" type="text" placeholder={this.props.default}></input>
-          <button type="submit">Search</button>
+      <div className="searchContainer column">
+        <form id="searchForm" onSubmit={this.submit}>
+          <div className="columns">
+            <div className="column">
+              <input className="input" name="search" type="text" placeholder={this.props.default}></input>
+            </div>
+            <div className="column">
+              <button className="button is-info" type="submit">Search</button>
+            </div>
+          </div>
         </form>
       </div>
     );
