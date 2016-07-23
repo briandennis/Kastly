@@ -1,17 +1,19 @@
 import React from 'react';
 
-function Playlist (props) {
+function Podcast (props) {
   return (
     <div className="tile column">
-      <div className="card">
+      <div className="card" onClick={props.callback(props.cast.key)}>
         <div className="card-image">
           <figure className="image is-1by1">
-            <img src={props.image}/>
+            <img src={props.cast.image}/>
           </figure>
         </div>
         <div className="card-content">
           <div className="content">
-            <a href={props.url}><h2 className="title is-3">{props.name}</h2></a>
+            <a href={props.cast.url}>
+              <h2 className="title is-3">{props.cast.name}</h2>  
+            </a>
           </div>
         </div>
       </div>
@@ -28,9 +30,7 @@ export default function PlaylistsContainer(props) {
       url: curr.feed,
     };
 
-    return <Playlist key={cast.key} name={cast.name}
-                      image={cast.image}
-                      url={cast.feed} />;
+    return <Podcast cast={cast} callback={this.props.callback} />;
   });
 
   return (

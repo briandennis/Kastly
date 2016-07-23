@@ -22,6 +22,7 @@ class Root extends React.Component {
     };
 
     this.search = this.search.bind(this);
+    this.getCasts = this.getCasts.bind(this);
   }
 
   search(query) {
@@ -37,6 +38,13 @@ class Root extends React.Component {
       });
   }
 
+  getCasts(id) {
+    var cast = this.state.casts.filter( (cast) => cast.id = id);
+    if (this.casts.length) {
+      
+    }
+  }
+
   render() {
     console.log("rendering!");
     return (
@@ -50,7 +58,7 @@ class Root extends React.Component {
           </div>
         </div>
         <div className="column">
-          <PlaylistsContainer casts={this.state.casts} />
+          <PlaylistsContainer callback={this.getCasts} casts={this.state.casts} />
           {this.state.loading ? <Spinner /> : ''}
         </div>
       </div>
