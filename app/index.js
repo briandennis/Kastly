@@ -13,8 +13,6 @@ class Root extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log('Constructing!');
-
     this.state = {
       casts: [],
       loading: false,
@@ -26,11 +24,9 @@ class Root extends React.Component {
   }
 
   search(query) {
-    console.log('called...');
     this.setState({ loading: true });
     Api.search(query)
       .then( (casts) => {
-        console.log('State updated!');
         this.setState({ casts });
       })
       .catch( () => {
@@ -39,14 +35,22 @@ class Root extends React.Component {
   }
 
   getCasts(id) {
-    var cast = this.state.casts.filter( (cast) => cast.id = id);
-    if (this.casts.length) {
-      
+    console.log(id);
+    let casts = this.state.casts.filter( (cast) => (cast.id == id) );
+    console.log(casts);
+    if (casts.length) {
+      console.log('trying..');
+      Api.getPodcast(casts[0].url)
+      .then( (data) => {
+        console.log(data);
+      })
+      .catch( (error) => {
+        console.log('error');
+      });
     }
   }
 
   render() {
-    console.log("rendering!");
     return (
       <div id="appContainer" className="columns is-multiline">
         <div id="title" className="column is-12">

@@ -30,10 +30,17 @@ Api.search = (query) => {
   });
 };
 
-Api.getPodcast = (feed) => {
-  feednami.load('http://feeds.feedburner.com/dancarlin/commonsense?format=xml', (result) => {
-    console.log(result);
-  });
+Api.getPodcast = (url) => {
+  console.log('getting podcast..');
+  return new Promise( (resolve, reject) =>{
+    feednami.load(url, (result, error) => {
+
+      if (error) reject(error);
+
+      reolve(result);
+
+    });
+  })
 };
 
 export default Api;
