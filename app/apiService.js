@@ -6,13 +6,13 @@ Api.search = (query) => {
   return new Promise((resolve, reject) => {
 
     const baseUrl = 'http://localhost:8000/search?term=';
-    const urlizedQuery = query.split(' ').join('-');
+    const urlizedQuery = encodeURIComponent(query);
     const url = baseUrl + urlizedQuery;
 
     axios.get(url)
       .then( (res) => {
-        let itunesObj = res.data.data;
-        if(!itunesObj.error) {
+        const itunesObj = res.data.data;
+        if(!itunesObj.error && itunesObj.results.length) {
           resolve(itunesObj.results.map( (result) => ({
             id: result.collectionId,
             artist: result.artistName,
@@ -31,13 +31,15 @@ Api.search = (query) => {
 };
 
 Api.getPodcast = (url) => {
-  console.log('getting podcast..');
+  console.log(url);
   return new Promise( (resolve, reject) =>{
-    feednami.load(url, (result, error) => {
+    feednami.load(url, (result) => {
 
-      if (error) reject(error);
+      console.log(result);
 
-      reolve(result);
+      if (result.error) reject();
+
+      resolve(result);
 
     });
   })

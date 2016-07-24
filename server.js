@@ -1,6 +1,6 @@
 const express = require('express');
 const http = require('http');
-const router = require('./backend/router');
+const router = require('./api/router');
 const swig = require('swig');
 
 const port = process.env.PORT || 8000;

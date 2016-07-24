@@ -24,6 +24,7 @@
     "node-fetch": "^1.5.3",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
+    "react-router": "^2.6.0",
     "react-spinner": "^0.2.6",
     "swig": "^1.4.2"
   },
