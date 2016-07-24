@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
   const toJson = (res) => res.json();
 
   const baseUrl = 'https://itunes.apple.com/search?entity=podcast&media=podcast&term=';
-  const query = encodeURIComponent(req.query.term);
+  const query = req.query.term;
 
   const url = baseUrl + query;
 
