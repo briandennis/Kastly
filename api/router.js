@@ -1,9 +1,13 @@
 const Express = require('express');
 
-module.exports =
+module.exports = (passport) => {
 
-  Express.Router()
+  return Express.Router()
 
   .get( '/', require('./routes/index') )
 
   .get( '/search/', require('./routes/search') );
+
+  .get('/login/twitter', require('./routes/loginTwitter')(passport) );
+
+}

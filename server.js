@@ -27,6 +27,19 @@ passport.use(new TwitterStrategy({
   }
 ));
 
+passport.serializeUser( (user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser( (id, done) => {
+  models.User.findById(id).then( (user) => {
+    done(null, user);
+  })
+});
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Set static directory
 app.use(express.static('static'));
 
@@ -43,7 +56,7 @@ app.use( (req, res, next) => {
 });
 
 // set up routes
-app.use(router);
+app.use(router(passport));
 
 // initialize DB and listen when ready
 models.sequelize.sync().then( () => {
