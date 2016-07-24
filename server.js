@@ -2,12 +2,15 @@ const express = require('express');
 const http = require('http');
 const router = require('./api/router');
 const swig = require('swig');
+const models = require('./models');
 
 const port = process.env.PORT || 8000;
 const app = express(http);
 
+// Set static directory
 app.use(express.static('static'));
 
+// Set templating engine
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', `${__dirname}/templates`);
@@ -19,10 +22,11 @@ app.use( (req, res, next) => {
   next();
 });
 
-app.use(express.static('static'));
-
 // set up routes
 app.use(router);
 
-app.listen(8000);
-console.log(`Ready for business on port ${port}`);
+// initialize DB and listen when ready
+models.sequelize.sync().then( () => {
+  app.listen(port);
+  console.log(`Ready for business on port ${port}`);
+});
