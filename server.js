@@ -1,6 +1,6 @@
-const express   = require('express');
 const http      = require('http');
 const path      = require('path');
+const express   = require('express');
 const router    = require('./api/router');
 const swig      = require('swig');
 const models    = require('./models');
@@ -13,13 +13,16 @@ const app = express(http);
 
 // configure passport
 passport.use(new TwitterStrategy({
-    consumerKey: TWITTER_CONSUMER_KEY,
-    consumerSecret: TWITTER_CONSUMER_SECRET,
-    callbackURL: "http://127.0.0.1:3000/auth/twitter/callback"
-  },
-  function(token, tokenSecret, profile, cb) {
-    User.findOrCreate({ twitterId: profile.id }, function (err, user) {
-      return cb(err, user);
+    consumerKey: config.TWITTER_KEY,
+    consumerSecret: config.TWITTER_SECRET,
+    callbackURL: path.join(config.HOST, 'auth', 'twitter', 'callback')
+  }, (token, tokenSecret, profile, cb) => {
+    models.User.findOrCreate({
+      where: { twitterId: profile.id },
+      default: { name: profile.name }
+    }).spread( (user, created) => {
+      console.log(user);
+      console.log('Success!');
     });
   }
 ));
