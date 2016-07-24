@@ -1,2 +1,4 @@
 node_modules/*
-build/*
+static/js/build/*
+npm-debug.log
+.env
