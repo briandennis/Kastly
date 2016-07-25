@@ -11,11 +11,15 @@ const TwitterStrategy = require('passport-twitter');
 const port = process.env.PORT || 8000;
 const app = express(http);
 
+app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+
+console.log(config.HOST + path.join('auth', 'twitter', 'callback'));
+
 // configure passport
 passport.use(new TwitterStrategy({
     consumerKey: config.TWITTER_KEY,
     consumerSecret: config.TWITTER_SECRET,
-    callbackURL: path.join(config.HOST, 'auth', 'twitter', 'callback')
+    callbackURL: config.HOST +  path.join('auth', 'twitter', 'callback')
   }, (token, tokenSecret, profile, cb) => {
     models.User.findOrCreate({
       where: { twitterId: profile.id },
@@ -23,6 +27,7 @@ passport.use(new TwitterStrategy({
     }).spread( (user, created) => {
       console.log(user);
       console.log('Success!');
+      return(user);
     });
   }
 ));

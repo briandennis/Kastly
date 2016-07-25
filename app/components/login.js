@@ -30,7 +30,7 @@ class Login extends React.Component {
             <button className="delete"></button>
           </header>
           <section className="modal-card-body">
-            <p> Hello, world! </p>
+            <a href="/login/twitter"> Login With Twitter </a> 
           </section>
           <footer className="modal-card-foot">
             <a className="button is-primary">Save changes</a>

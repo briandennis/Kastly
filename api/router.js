@@ -6,8 +6,14 @@ module.exports = (passport) => {
 
   .get( '/', require('./routes/index') )
 
-  .get( '/search/', require('./routes/search') );
+  .get( '/search/', require('./routes/search') )
 
-  .get('/login/twitter', require('./routes/loginTwitter')(passport) );
+  .get('/login/twitter', passport.authenticate('twitter'),
+        require('./routes/loginTwitter')(passport) )
+  .get('/auth/twitter/callback',
+  passport.authenticate('twitter', { failureRedirect: '/' }),
+  function(req, res) {
+    res.redirect('/#discover');
+  });
 
-}
+};

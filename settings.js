@@ -1,7 +1,7 @@
 const settings = {};
 
 // Domain
-settings.HOST = process.env.HOST || 'http://localhost:8000';
+settings.HOST = process.env.HOST || 'http://localhost:8000/';
 
 // DB
 settings.DB_NAME = process.env.DB_NAME || 'kastly';
