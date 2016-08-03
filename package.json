@@ -22,15 +22,14 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "express-session": "^1.14.0",
+    "mongoose": "^4.5.8",
     "node-fetch": "^1.5.3",
     "passport": "^0.3.2",
     "passport-twitter": "^1.0.4",
-    "pg": "^6.0.3",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-router": "^2.6.0",
     "react-spinner": "^0.2.6",
-    "sequelize": "^3.23.6",
     "swig": "^1.4.2"
   },
   "devDependencies": {
