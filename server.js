@@ -3,17 +3,21 @@ const path              = require('path');
 const express           = require('express');
 const router            = require('./api/router');
 const swig              = require('swig');
-const models            = require('./models');
+const mongoose          = require('mongoose');
 const config             = require('./settings');
 const passport          = require('./passportConfig')( require('passport') );
 
 const port = process.env.PORT || 8000;
 const app = express(http);
 
+// configure db
+mongoose.connect(path.join(config.DB_LINK, config.DB_NAME));
+const db = mongoose.connection;
+
+// configure session
 app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 
-console.log(config.HOST + path.join('auth', 'twitter', 'callback'));
-
+// add passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -35,8 +39,7 @@ app.use( (req, res, next) => {
 // set up routes
 app.use(router(passport));
 
-// initialize DB and listen when ready
-models.sequelize.sync().then( () => {
+db.on('error', console.error.bind(console, 'connection error: '));
+db.once('open', function() {
   app.listen(port);
-  console.log(`Ready for business on port ${port}`);
 });

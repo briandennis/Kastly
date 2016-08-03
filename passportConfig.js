@@ -1,9 +1,8 @@
 const path              = require( 'path' );
-const models            = require('./models');
 const config             = require( './settings' );
 const TwitterStrategy   = require( 'passport-twitter' );
 
-module.exports = (passport) => {
+module.exports = (passport, db) => {
 
   // configure passport
   passport.use(new TwitterStrategy({
@@ -11,14 +10,16 @@ module.exports = (passport) => {
       consumerSecret: config.TWITTER_SECRET,
       callbackURL: config.HOST +  path.join( 'auth', 'twitter', 'callback' )
     }, (token, tokenSecret, profile, cb) => {
-      models.User.findOrCreate({
+      
+      // old method
+      /*models.User.findOrCreate({
         where: { twitterId: profile.id },
         default: { name: profile.name }
       }).spread( (user, created) => {
         console.log(user);
         console.log('Success!');
         cb(null, user);
-      });
+      }); */
     }
   ));
 
