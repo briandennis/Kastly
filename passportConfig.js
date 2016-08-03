@@ -1,6 +1,7 @@
 const path              = require( 'path' );
 const config             = require( './settings' );
 const TwitterStrategy   = require( 'passport-twitter' );
+const User              = require('./models/user');
 
 module.exports = (passport, db) => {
 
@@ -10,7 +11,15 @@ module.exports = (passport, db) => {
       consumerSecret: config.TWITTER_SECRET,
       callbackURL: config.HOST +  path.join( 'auth', 'twitter', 'callback' )
     }, (token, tokenSecret, profile, cb) => {
-      
+
+      User.findOrCreate({ twitterId: profile.id }, ( err, user, created) => {
+        if ( !err ) {
+          cb(null, user);
+        } else{
+          cb(err);
+        }
+      });
+
       // old method
       /*models.User.findOrCreate({
         where: { twitterId: profile.id },

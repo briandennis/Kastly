@@ -6,6 +6,7 @@ const UserSchema = new Schema({
   name: { type: String, default: '' },
   email: { type: String, default: '' },
   username: { type: String, default: '' },
+  image: { type: String, default: '' },
   twitterId: { type: String, default: '' }
 });
 
