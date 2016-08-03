@@ -1,12 +1,11 @@
-const http      = require('http');
-const path      = require('path');
-const express   = require('express');
-const router    = require('./api/router');
-const swig      = require('swig');
-const models    = require('./models');
-const config     = require('./settings');
-const passport  = require('passport');
-const TwitterStrategy = require('passport-twitter');
+const http              = require('http');
+const path              = require('path');
+const express           = require('express');
+const router            = require('./api/router');
+const swig              = require('swig');
+const models            = require('./models');
+const config             = require('./settings');
+const passport          = require('./passportConfig')( require('passport') );
 
 const port = process.env.PORT || 8000;
 const app = express(http);
@@ -14,33 +13,6 @@ const app = express(http);
 app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 
 console.log(config.HOST + path.join('auth', 'twitter', 'callback'));
-
-// configure passport
-passport.use(new TwitterStrategy({
-    consumerKey: config.TWITTER_KEY,
-    consumerSecret: config.TWITTER_SECRET,
-    callbackURL: config.HOST +  path.join('auth', 'twitter', 'callback')
-  }, (token, tokenSecret, profile, cb) => {
-    models.User.findOrCreate({
-      where: { twitterId: profile.id },
-      default: { name: profile.name }
-    }).spread( (user, created) => {
-      console.log(user);
-      console.log('Success!');
-      return(user);
-    });
-  }
-));
-
-passport.serializeUser( (user, done) => {
-  done(null, user.id);
-});
-
-passport.deserializeUser( (id, done) => {
-  models.User.findById(id).then( (user) => {
-    done(null, user);
-  })
-});
 
 app.use(passport.initialize());
 app.use(passport.session());
