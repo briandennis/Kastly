@@ -14,7 +14,16 @@ module.exports = (passport, db) => {
 
       User.findOrCreate({ twitterId: profile.id }, ( err, user, created) => {
         if ( !err ) {
-          cb(null, user);
+          if (created) {
+            user.name = profile.name;
+            user.image = profile.profile_image_url;
+            user.username = profile.screen_name;
+            user.save().then( () => {
+              cb(null,user);
+            });
+          } else {
+            cb(null, user);
+          }
         } else{
           cb(err);
         }
@@ -37,9 +46,11 @@ module.exports = (passport, db) => {
   });
 
   passport.deserializeUser( (id, done) => {
-    models.User.findById(id).then( (user) => {
+    User.findOne({ id }).then( (user) => {
       done(null, user);
-    })
+    }).catch( (err) => {
+      done(err);
+    });
   });
 
   return passport;

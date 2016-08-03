@@ -11,7 +11,7 @@ const port = process.env.PORT || 8000;
 const app = express(http);
 
 // configure db
-mongoose.connect(path.join(config.DB_LINK, config.DB_NAME));
+mongoose.connect(`${config.DB_LINK}/${config.DB_NAME}`);
 const db = mongoose.connection;
 
 // configure session
@@ -42,4 +42,5 @@ app.use(router(passport));
 db.on('error', console.error.bind(console, 'connection error: '));
 db.once('open', function() {
   app.listen(port);
+  console.log(`Ready for business on ${port}`);
 });

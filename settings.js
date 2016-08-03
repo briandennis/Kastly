@@ -5,7 +5,7 @@ settings.HOST = process.env.HOST || 'http://localhost:8000/';
 
 // DB
 settings.DB_NAME = process.env.DB_NAME || 'kastly';
-settings.DB_LINK = process.env.DB_LINK || 'mongodb://localhost/';
+settings.DB_LINK = process.env.DB_LINK || 'mongodb://localhost';
 
 // Twitter API keys
 settings.TWITTER_KEY = process.env.TWITTER_KEY || '';
