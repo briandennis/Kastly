@@ -1,6 +1,6 @@
 module.exports = (passport) => {
 
   return (req, res, next) => {
-    console.log('got here!');
+    console.log('Logging in');
   }
 };
