@@ -15,7 +15,11 @@ mongoose.connect(`${config.DB_LINK}/${config.DB_NAME}`);
 const db = mongoose.connection;
 
 // configure session
-app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+app.use(require('express-session')({
+  secret: 'temp-secret',
+  resave: true,
+  saveUninitialized: true
+}));
 
 // add passport middleware
 app.use(passport.initialize());

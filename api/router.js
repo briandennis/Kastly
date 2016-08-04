@@ -13,7 +13,12 @@ module.exports = (passport) => {
   .get('/auth/twitter/callback',
   passport.authenticate('twitter', { failureRedirect: '/' }),
   function(req, res) {
-    res.redirect('/#discover');
-  });
+    req.session.user = req.user;
+    req.session.save( ( err ) => {
+      res.redirect('/');
+    });
+  })
+
+  .get('/logout', require('./routes/logout'));
 
 };
