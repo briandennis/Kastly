@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "production": "webpack -p",
-    "serve": " concurrently \"nodemon server.js\" \"webpack --watch\""
+    "serve": " concurrently \"nodemon server.js --watch api\" \"webpack --watch\""
   },
   "repository": {
     "type": "git",

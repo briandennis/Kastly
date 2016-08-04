@@ -1,6 +1,6 @@
-const path              = require( 'path' );
-const config             = require( './settings' );
-const TwitterStrategy   = require( 'passport-twitter' );
+const path              = require('path');
+const config             = require('./settings');
+const TwitterStrategy   = require('passport-twitter');
 const User              = require('./models/user');
 
 module.exports = (passport, db) => {
@@ -12,12 +12,14 @@ module.exports = (passport, db) => {
       callbackURL: config.HOST +  path.join( 'auth', 'twitter', 'callback' )
     }, (token, tokenSecret, profile, cb) => {
 
-      User.findOrCreate({ twitterId: profile.id }, ( err, user, created) => {
+      User.findOrCreate({ twitterId: profile.id }, ( err, user, created ) => {
         if ( !err ) {
-          if (created) {
-            user.name = profile.name;
-            user.image = profile.profile_image_url;
-            user.username = profile.screen_name;
+          const profileObj = profile._json;
+          console.log(created);
+          if ( created ) {
+            user.name = profileObj.name;
+            user.image = profileObj.profile_image_url.replace('normal', 'bigger');
+            user.username = profileObj.screen_name;
             user.save().then( () => {
               cb(null,user);
             });
@@ -28,16 +30,6 @@ module.exports = (passport, db) => {
           cb(err);
         }
       });
-
-      // old method
-      /*models.User.findOrCreate({
-        where: { twitterId: profile.id },
-        default: { name: profile.name }
-      }).spread( (user, created) => {
-        console.log(user);
-        console.log('Success!');
-        cb(null, user);
-      }); */
     }
   ));
 
