@@ -19,6 +19,10 @@ module.exports = (passport) => {
     });
   })
 
-  .get('/logout', require('./routes/logout'));
+  .get('/logout', require('./routes/logout'))
+
+  .get('/api/user', (req, res, next) => {
+    res.send({ name: 'brian', username: 'briandennis'});
+  });
 
 };
