@@ -27,7 +27,7 @@ export default function user( state = initialState, action ) {
         error: action.error
       });
 
-    case default:
+    default:
 
       return state;
   }
