@@ -8,9 +8,9 @@ module.exports = (passport) => {
 
   return Express.Router()
 
-  .use('/api', testRouter)
+  .use('/api', require('./routes/api')() )
 
-  .get( '/', require('./routes/index') )
+  .get( '/', require('./routes/home') )
 
   .get( '/search/', require('./routes/search') )
 
