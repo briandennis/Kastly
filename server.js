@@ -1,7 +1,8 @@
 const http              = require('http');
 const path              = require('path');
 const express           = require('express');
-const router            = require('./api/router');
+const morgan            = require('morgan');
+const router            = require('./backend/router');
 const swig              = require('swig');
 const mongoose          = require('mongoose');
 const config             = require('./settings');
@@ -42,6 +43,9 @@ app.use( (req, res, next) => {
 
 // set up routes
 app.use(router(passport));
+
+// log requests
+app.use(morgan('tiny'));
 
 db.on('error', console.error.bind(console, 'connection error: '));
 db.once('open', function() {

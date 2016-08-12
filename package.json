@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "production": "webpack -p",
-    "serve": " concurrently \"nodemon server.js --watch passportConfig.js --watch api --watch templates \" \"webpack --watch\""
+    "serve": " concurrently \"nodemon server.js --watch passportConfig.js --watch backend --watch templates \" \"webpack --watch\""
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "express-session": "^1.14.0",
     "mongoose": "^4.5.8",
     "mongoose-findorcreate": "^0.1.2",
+    "morgan": "^1.7.0",
     "node-fetch": "^1.5.3",
     "nodemon": "^1.10.0",
     "passport": "^0.3.2",
