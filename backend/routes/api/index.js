@@ -1,13 +1,9 @@
 const Express = require('express');
 
-module.exports = function () {
+module.exports = Express.Router()
 
-  var router = Express.Router();
-
-  router.get('/', (req, res) => {
+  .get('/', (req, res) => {
     res.send('omg!');
-  });
+  })
 
-  return router;
-
-};
+  .get('/user/:userId?', require('./user'));
