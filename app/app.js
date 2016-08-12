@@ -14,6 +14,7 @@ class App extends React.Component {
 
     axios.get('/api/user')
       .then( (response) => {
+        console.log(response);
         Actions.setUser(true, response.data);
       }).catch( (err) => {
         Actions.setUser(false, null, err);
