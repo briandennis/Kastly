@@ -5,10 +5,10 @@ module.exports = (req, res, next) => {
   const fail = () => res.status(404).send('Bad Request');
   const toJson = (res) => res.json();
 
-  if (!req.castId) fail();
+  if (!req.params.castId) fail();
 
   const baseUrl = 'https://itunes.apple.com/lookup?term=';
-  const query = req.castId;
+  const query = req.params.castId;
 
   const url = baseUrl + query;
 
