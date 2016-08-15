@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "production": "webpack -p",
-    "serve": " concurrently \"nodemon server.js --watch passportConfig.js --watch backend --watch templates \" \"rollup app/index.js --output static/js/build/bundle.js --watch\""
+    "serve": " concurrently \"nodemon server.js --watch passportConfig.js --watch backend --watch templates \" \"webpack --watch\""
   },
   "repository": {
     "type": "git",
@@ -49,7 +49,6 @@
     "css-loader": "^0.23.1",
     "html-webpack-plugin": "^2.22.0",
     "node-sass": "^3.8.0",
-    "rollup": "^0.34.8",
     "rollup-watch": "^2.5.0",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",

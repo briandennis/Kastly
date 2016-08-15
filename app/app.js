@@ -3,6 +3,7 @@ import React from 'react';
 import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 
 import * as Actions from './actions';
+
 import Discover from './pages/discover';
 import Home from './pages/home';
 import Podcast from './pages/podcast';

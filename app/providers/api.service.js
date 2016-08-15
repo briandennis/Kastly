@@ -14,7 +14,7 @@ const getCastsFromFeed = (url) => new promise( (resolve, reject) => {
   }
 });
 
-PodcastService = {
+const PodcastService = {
 
   get( podcastId ) {
     getEpisodes = (cast) => {
@@ -43,4 +43,6 @@ PodcastService = {
   }
 };
 
-export Test = {};
+export {
+  PodcastService
+};
