@@ -27,7 +27,7 @@ class App extends React.Component {
     return (
       <Router history={hashHistory}>
         <Route path="/" component={Home}></Route>
-        <Route path="/podcast" component={Podcast}></Route>
+        <Route path="/podcast/:castId" component={Podcast}></Route>
         <Route path="/discover" component={Discover}></Route>
       </Router>
     );
