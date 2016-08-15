@@ -5,6 +5,8 @@ module.exports = (req, res, next) => {
   const fail = () => res.status(404).send('Bad Request');
   const toJson = (res) => res.json();
 
+  if (!req.query.term) fail();
+
   const baseUrl = 'https://itunes.apple.com/search?entity=podcast&media=podcast&term=';
   const query = req.query.term;
 
@@ -12,7 +14,6 @@ module.exports = (req, res, next) => {
 
   fetch(url)
     .then(toJson)
-
     .then( (data) => {
       res.send({ error: false, data });
     })

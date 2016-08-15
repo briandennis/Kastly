@@ -8,5 +8,5 @@ module.exports = (db) => {
     })
     .get('/user/:userId?', require('./user'))
 
-    .get( '/cast/:castId?', require('./cast')(db) );
+    .get( '/cast/:castId?', require('./cast') );
 }
