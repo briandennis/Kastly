@@ -7,7 +7,7 @@ module.exports = (req, res, next) => {
 
   if (!req.params.castId) fail();
 
-  const baseUrl = 'https://itunes.apple.com/lookup?term=';
+  const baseUrl = 'https://itunes.apple.com/lookup?id=';
   const query = req.params.castId;
 
   const url = baseUrl + query;
