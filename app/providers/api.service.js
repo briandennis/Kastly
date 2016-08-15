@@ -1,0 +1,5 @@
+const Podcast = {
+  get( podcastId ) {
+    
+  }
+};
