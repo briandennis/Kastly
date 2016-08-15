@@ -42,7 +42,7 @@ app.use( (req, res, next) => {
 });
 
 // set up routes
-app.use(router(passport));
+app.use(router(passport, db));
 
 // log requests
 app.use(morgan('tiny'));

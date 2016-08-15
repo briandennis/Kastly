@@ -4,7 +4,8 @@ import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 
 import * as Actions from './actions';
 import Discover from './pages/discover';
-import Home from './pages/home'
+import Home from './pages/home';
+import Podcast from './pages/podcast';
 
 class App extends React.Component {
 
@@ -25,6 +26,7 @@ class App extends React.Component {
     return (
       <Router history={hashHistory}>
         <Route path="/" component={Home}></Route>
+        <Route path="/podcast" component={Podcast}></Route>
         <Route path="/discover" component={Discover}></Route>
       </Router>
     );

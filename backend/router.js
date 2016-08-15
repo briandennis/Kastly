@@ -1,6 +1,6 @@
 const Express = require('express');
 
-module.exports = (passport) => {
+module.exports = (passport, db) => {
 
   const secure = passport.authenticate('twitter', {
     failureRedirect: '/'
@@ -8,7 +8,7 @@ module.exports = (passport) => {
 
   return Express.Router()
 
-  .use('/api', require('./routes/api'))
+  .use('/api', require('./routes/api')(db))
 
   .get( '/', require('./routes/home') )
 
