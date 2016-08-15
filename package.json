@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "production": "webpack -p",
-    "serve": " concurrently \"nodemon server.js --watch passportConfig.js --watch backend --watch templates \" \"webpack --watch\""
+    "serve": " concurrently \"nodemon server.js --watch passportConfig.js --watch backend --watch templates \" \"rollup app/index.js --output static/js/build/bundle.js --watch\""
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,7 @@
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-es2015-destructuring": "^6.9.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.11.5",
     "babel-polyfill": "^6.9.1",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.11.1",
@@ -48,6 +49,8 @@
     "css-loader": "^0.23.1",
     "html-webpack-plugin": "^2.22.0",
     "node-sass": "^3.8.0",
+    "rollup": "^0.34.8",
+    "rollup-watch": "^2.5.0",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
