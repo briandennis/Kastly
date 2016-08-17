@@ -1,4 +1,4 @@
-const host = 'localhost:8000';
+const host = 'http://localhost:8000';
 
 const getCastsFromFeed = (url) => {
   return new promise( (resolve, reject) => {
@@ -29,18 +29,23 @@ const PodcastService = {
       })
     };
 
-    if (!podcastId) return null;
-
     return new Promise( (resolve, reject) => {
-      axios.get(`${host}/api/podcast/${podcastId}`)
-        .then( (result) => {
-          if (result.resultCount) {
-            return result.data[0];
-          }
-        })
-        .then( (cast) => {
-          getEpisodes(cast);
-        });
+      if (!podcastId) {
+        reject('No podcast provided.');
+      } else {
+        axios.get(`${host}/api/podcast/${podcastId}`)
+          .then( (result) => {
+            if (result.resultCount) {
+              return result.data[0];
+            }
+          })
+          .then( (cast) => {
+            getEpisodes(cast)
+          })
+          .then( (cast) => {
+            resolve(cast);
+          });
+      }
     });
   }
 };

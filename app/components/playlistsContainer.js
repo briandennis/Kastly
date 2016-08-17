@@ -15,7 +15,7 @@ function Podcast (props) {
         </div>
         <div className="card-content">
           <div className="content">
-            <Link to={`/podcast/${window.encodeURIComponent(props.cast.url)}`}>
+            <Link to={`/podcast/${props.cast.id}`}>
               <h2 className="title is-3">{props.cast.name}</h2>
             </Link>
           </div>
