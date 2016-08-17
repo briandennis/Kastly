@@ -43,7 +43,25 @@ const PodcastService = {
             return getEpisodes(cast)
           })
           .then( (cast) => {
-            resolve(cast);
+
+            const formatEpisodes = (episodes) => {
+              return episodes.map( (episode) => {
+                const { date, title, description} = episode;
+                return {
+                  date,
+                  title,
+                  description,
+                  link: episode.enclosures ? episode.enclosures[0].url : []
+                };
+              });
+            };
+            resolve({
+              id: cast.collectionId,
+              name: cast.collectionName,
+              image: cast.artworkUrl600 || cast.artworkUrl100,
+              genre: cast.primaryGenreName,
+              episodes: cast.episodes ? formatEpisodes(cast.episodes) : []
+            });
           });
       }
     });
