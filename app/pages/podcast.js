@@ -6,7 +6,8 @@ class Podcast extends React.Component {
 
   componentWillMount() {
     PodcastService.get(this.props.params.castId)
-      .then()
+      .then( (cast) => {
+      })
   }
 
   render() {

@@ -1,7 +1,7 @@
 const host = 'http://localhost:8000';
 
 const getCastsFromFeed = (url) => {
-  return new promise( (resolve, reject) => {
+  return new Promise( (resolve, reject) => {
     if (url) {
       feednami.load(url, (result) => {
         if (result.error) {
@@ -33,14 +33,17 @@ const PodcastService = {
       if (!podcastId) {
         reject('No podcast provided.');
       } else {
-        axios.get(`${host}/api/podcast/${podcastId}`)
+        axios.get(`${host}/api/cast/${podcastId}`)
           .then( (result) => {
-            if (result.resultCount) {
-              return result.data[0];
+            if (result.data && result.data.data && result.data.data.resultCount) {
+              return result.data.data.results[0];
             }
           })
           .then( (cast) => {
             getEpisodes(cast)
+            .then( (cast) => {
+              console.log(cast);
+            })
           })
           .then( (cast) => {
             resolve(cast);
