@@ -40,10 +40,7 @@ const PodcastService = {
             }
           })
           .then( (cast) => {
-            getEpisodes(cast)
-            .then( (cast) => {
-              console.log(cast);
-            })
+            return getEpisodes(cast)
           })
           .then( (cast) => {
             resolve(cast);
