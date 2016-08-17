@@ -1,4 +1,5 @@
 body {
+  font-size: calc( 1em + 1vw);
 }
 
 #appContainer {
@@ -55,6 +56,16 @@ body {
   height: 7.8%;
   top: -3.9%;
   left: -10%;
+}
+
+#podcastPage {
+  margin-top: 30px;
+
+  .logo-container {
+    .logo {
+      height: 300px;
+    }
+  }
 }
 
 @keyframes react-spinner_spin {
