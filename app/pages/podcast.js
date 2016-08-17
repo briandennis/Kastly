@@ -2,7 +2,7 @@ import React from 'react';
 
 import { PodcastService } from './../providers/api.service.js';
 
-import Spinner from 'react-spinner';
+import Spinner from 'react-spinkit';
 
 class Podcast extends React.Component {
 
@@ -27,8 +27,8 @@ class Podcast extends React.Component {
 
     let page = (
       <div className="columns">
-        <div className="column is-12">
-          <Spinner />
+        <div className="centerChildren" className="column is-12">
+          <Spinner spinnerName="three-bounce" />
         </div>
       </div>
     );
@@ -41,13 +41,20 @@ class Podcast extends React.Component {
               <img className="logo" src={this.state.cast.image}></img>
             </div>
           </div>
+          <div className="titleContainer centerChildren column is-half">
+            <h2> {this.state.cast.name} </h2>
+            <p> {this.state.cast.genre} </p>
+          </div>
         </div>
       );
     }
 
-    return page;
+    return (
+      <div className="pageContainer">
+        {page}
+      </div>
+    );
   }
-
 }
 
 export default Podcast

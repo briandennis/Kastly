@@ -33,6 +33,7 @@
     "react-dom": "^15.2.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.6.0",
+    "react-spinkit": "^1.1.9",
     "react-spinner": "^0.2.6",
     "redux": "^3.5.2",
     "swig": "^1.4.2"
