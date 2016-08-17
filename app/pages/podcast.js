@@ -4,7 +4,7 @@ import { PodcastService } from './../providers/api.service.js';
 
 class Podcast extends React.Component {
 
-  constructor (super) {
+  constructor () {
     super();
     this.state = {
       cast: null
@@ -15,14 +15,15 @@ class Podcast extends React.Component {
     PodcastService.get(this.props.params.castId)
       .then( (cast) => {
         console.log(cast);
-
+        this.setState({
+          cast
+        });
       })
   }
 
   render () {
     return (
       <div>
-        {this.props.params.castId}
         {this.state.cast ? this.state.cast.collectionName : 'No Podcast'}
       </div>
     );
