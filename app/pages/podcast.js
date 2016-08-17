@@ -36,10 +36,8 @@ class Podcast extends React.Component {
     if (this.state.cast) {
       page = (
         <div className="columns" id="podcastPage">
-          <div className="column is-half">
-            <div className="logoContainer">
+          <div className="column is-half logoContainer">
               <img className="logo" src={this.state.cast.image}></img>
-            </div>
           </div>
           <div className="titleContainer centerChildren column is-half">
             <h2> {this.state.cast.name} </h2>
