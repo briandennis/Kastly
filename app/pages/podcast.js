@@ -35,14 +35,18 @@ class Podcast extends React.Component {
 
     if (this.state.cast) {
       page = (
-        <div className="columns" id="podcastPage">
-          <div className="column is-half logoContainer">
-              <img className="logo" src={this.state.cast.image}></img>
-          </div>
-          <div className="titleContainer centerChildren column is-half">
-            <h2> {this.state.cast.name} </h2>
-            <p> {this.state.cast.genre} </p>
-          </div>
+        <div id="podcastPage">
+          <section className="heading centerChildren">
+            <div className="columns headingContainer">
+              <div className="column is-half logoContainer">
+                  <img className="logo" src={this.state.cast.image}></img>
+              </div>
+              <div className="column is-half titleContainer centerChildren">
+                <h2> {this.state.cast.name} </h2>
+                <p> {this.state.cast.genre} </p>
+              </div>
+            </div>
+          </section>
         </div>
       );
     }

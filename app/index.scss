@@ -71,26 +71,39 @@ body {
 }
 
 #podcastPage {
-  width: 80%;
+  width: 100%;
   margin-top: 30px;
 
-  .logoContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .heading {
+    width: 100%;
 
-    .logo {
-      height: 250px;
-    }
-  }
+    .headingContainer {
+      width: 80%;
 
-  .titleContainer {
-    flex-direction: column;
-    text-align: center;
+      .logoContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-    h2 {
-      font-size: 35px;
-      color: #333;
+        .logo {
+          height: 250px;
+        }
+      }
+
+      .titleContainer {
+        flex-direction: column;
+        text-align: center;
+
+        h2 {
+          font-size: 35px;
+          color: #333;
+          text-transform: none;
+        }
+        p {
+          margin-top: 15px;
+          font-size: 15px;
+        }
+      }
     }
   }
 }
