@@ -76,9 +76,11 @@ body {
 
   .heading {
     width: 100%;
+    box-shadow: 5px 4px 2px -2px rgba(0,0,0, .2);
 
     .headingContainer {
       width: 80%;
+      padding-bottom: 50px;
 
       .logoContainer {
         display: flex;
