@@ -3,6 +3,7 @@ import React from 'react';
 import { PodcastService } from './../providers/api.service.js';
 
 import Spinner from 'react-spinkit';
+import EpisodeList from './../components/episodeList';
 
 class Podcast extends React.Component {
 
@@ -24,7 +25,7 @@ class Podcast extends React.Component {
   }
 
   render () {
-
+    // set return to default value
     let page = (
       <div className="columns">
         <div className="centerChildren" className="column is-12">
@@ -33,6 +34,7 @@ class Podcast extends React.Component {
       </div>
     );
 
+    // if podcast loaded, set page to podcast markup
     if (this.state.cast) {
 
       page = (
@@ -47,6 +49,7 @@ class Podcast extends React.Component {
                 <p> {this.state.cast.genre} </p>
               </div>
             </div>
+            <EpisodeList episodes={this.state.cast.episodes} />
           </section>
         </div>
       );
