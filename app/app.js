@@ -3,7 +3,7 @@ import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 
-import { setUser } from './actions';
+import * as Actions from './actions';
 
 import Discover from './pages/discover';
 import Home from './pages/home';
@@ -14,7 +14,7 @@ class App extends React.Component {
 
   componentWillMount() {
     // set user
-    Actions.fetchingUser();
+    this.props.fetchingUser();
 
     axios.get('/api/user')
       .then( (response) => {
@@ -39,7 +39,11 @@ class App extends React.Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     setUser (success, user) {
-      dispatch(setUser(success, user));
+      dispatch(Actions.setUser(success, user));
+    },
+
+    fetchingUser () {
+      dispatch(Actions.fetchingUser())
     }
   }
 };
