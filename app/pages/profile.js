@@ -25,6 +25,7 @@ class Profile extends React.Component {
 }
 
 const mapStateToProps = function (state) {
+  console.log('USER: ' + state.user.user)
   return {
     sessionUser: state.user.user
   };
