@@ -40,7 +40,7 @@ class Profile extends React.Component {
 
 const mapStateToProps = function (state) {
   console.log('Map state to props called...');
-  console.log('///// ' + state.user.user + '/////');
+  console.log(JSON.stringify(state));
   return {
     sessionUser: state.user.user
   };

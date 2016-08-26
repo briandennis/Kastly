@@ -1,8 +1,9 @@
 import React from 'react';
 
-import {Router, Route, IndexRoute, hashHistory} from 'react-router';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { connect } from 'react-redux';
 
-import * as Actions from './actions';
+import { setUser } from './actions';
 
 import Discover from './pages/discover';
 import Home from './pages/home';
@@ -17,9 +18,9 @@ class App extends React.Component {
 
     axios.get('/api/user')
       .then( (response) => {
-        Actions.setUser(true, response.data);
+        this.props.setUser(true, response.data);
       }).catch( (err) => {
-        Actions.setUser(false, null, err);
+        this.props.setUser(false, null, err);
       });
   }
 
@@ -35,4 +36,12 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setUser (success, user) {
+      dispatch(setUser(success, user));
+    }
+  }
+};
+
+export default connect(null, mapDispatchToProps)(App);
