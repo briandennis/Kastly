@@ -2,6 +2,8 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
+import Spinner from 'react-spinkit';
+
 class Profile extends React.Component {
 
   constructor() {
@@ -22,7 +24,14 @@ class Profile extends React.Component {
   }
 
   render () {
-    let page = <h1> Profile Page </h1>;
+    let page = (
+      <div className="columns">
+        <div className="centerChildren" className="column is-12">
+          <Spinner spinnerName="three-bounce" />
+        </div>
+      </div>
+    )
+    
     if (this.state.user) {
       page = (
         <div>
