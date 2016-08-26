@@ -13,7 +13,7 @@ const home = (props) => {
   return (
     <div className="homeTitleContainer">
       <h1 className="title is-1"> Welcome to Kastly </h1>
-      {message}``
+      {message}
     </div>
   );
 };

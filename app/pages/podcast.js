@@ -49,6 +49,8 @@ class Podcast extends React.Component {
                 <p> {this.state.cast.genre} </p>
               </div>
             </div>
+          </section>
+          <section className="episodes">
             <EpisodeList episodes={this.state.cast.episodes} />
           </section>
         </div>
