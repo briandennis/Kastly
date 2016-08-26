@@ -16,7 +16,7 @@ class Profile extends React.Component {
 
   componentWillMount () {
     if( this.props.sessionUser
-        && this.props.params.userId === this.props.sessionUser.id) {
+        && this.props.params.userId == this.props.sessionUser.id) {
       console.log('Same user!');
     } else {
       console.log('Not same user!');
@@ -31,7 +31,7 @@ class Profile extends React.Component {
         </div>
       </div>
     )
-    
+
     if (this.state.user) {
       page = (
         <div>
@@ -48,8 +48,6 @@ class Profile extends React.Component {
 }
 
 const mapStateToProps = function (state) {
-  console.log('Map state to props called...');
-  console.log(JSON.stringify(state));
   return {
     sessionUser: state.user.user
   };

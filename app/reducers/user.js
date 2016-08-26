@@ -22,8 +22,6 @@ export default function user( state = initialState, action ) {
 
     case 'FETCH_USER_FAILURE':
 
-      console.log('reducing!');
-
       return Object.assign(state, {
         isFetching: false,
         error: action.error
