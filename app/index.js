@@ -10,6 +10,10 @@ const entryNode = document.getElementById('app');
 
 const store = configureStore();
 
+store.subscribe((state) => {
+  console.log('State Updated');
+});
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

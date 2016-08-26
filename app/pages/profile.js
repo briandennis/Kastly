@@ -15,6 +15,14 @@ class Profile extends React.Component {
   }
 
   componentWillMount () {
+
+    console.log(this.props.sessionUser);
+
+    if (this.props.sessionUser) {
+      console.log('Session user id: ' + this.props.sessionUser.id);
+      console.log('Wanted user id: ' + this.props.params.userId);
+    }
+
     if( this.props.sessionUser
         && this.props.params.userId == this.props.sessionUser.id) {
       console.log('Same user!');
@@ -48,6 +56,7 @@ class Profile extends React.Component {
 }
 
 const mapStateToProps = function (state) {
+  console.log('MapStateToProps!');
   return {
     sessionUser: state.user.user
   };
