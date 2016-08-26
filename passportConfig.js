@@ -16,7 +16,6 @@ module.exports = (passport, db) => {
         if ( !err ) {
           const profileObj = profile._json;
           if ( created ) {
-            user.id = profileObj.twitterId;
             user.name = profileObj.name;
             user.image = profileObj.profile_image_url.replace('normal', 'bigger');
             user.username = profileObj.screen_name;
