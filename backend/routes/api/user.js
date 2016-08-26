@@ -1,6 +1,10 @@
 module.exports = function (req, res, next) {
   if ( !req.params.userId ) {
-    console.log('Sending user: ' + req.session.user._id);
-    res.json(req.session.user);
+    if (req.session.user) {
+      console.log('Sending user: ' + req.session.user._id);
+      res.json(req.session.user);
+    } else {
+      res.status(404).send('Not found.');
+    }
   }
 };
