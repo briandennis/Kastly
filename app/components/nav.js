@@ -17,7 +17,7 @@ const Nav = (props) => {
 
     // add profile button
     avatar = (
-      <div className="avatarContainer nav-item">
+      <div className="nav-item">
         <Link to={`/profile/${props.user.id}`}>
           <img className="navAvatar" src={props.user.image} />
         </Link>

@@ -16,7 +16,6 @@ const home = (props) => {
     <div className="homeTitleContainer">
       <h1 className="title is-1"> Welcome to Kastly </h1>
       {message}
-      <button className="button is button">Go to Profile</button>
     </div>
   );
 };
