@@ -10,11 +10,13 @@ class PlaylistEditor extends React.Component {
   }
 
   validate () {
-
+    console.log('Validate data...');
+    this.props.handler({playlist: 'oh yeah!'});
   }
 
   cancel () {
-
+    console.log('Canceling...');
+    this.props.handler(null);
   }
 
   render () {
@@ -29,11 +31,11 @@ class PlaylistEditor extends React.Component {
           </header>
           <section className="modal-card-body">
             <div>
-              <label class="label">
+              <label className="label">
                 Title
               </label>
-              <p class="control">
-              <input class="input" type="text" />
+              <p className="control">
+              <input className="input" type="text" />
               </p>
             </div>
           </section>

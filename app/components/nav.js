@@ -15,6 +15,7 @@ class Nav extends React.Component {
 
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
+    this.addPlaylist = this.addPlaylist.bind(this);
   }
 
   showModal () {
@@ -34,6 +35,17 @@ class Nav extends React.Component {
   addPlaylist (playlist) {
     console.log('New Playlist: ');
     console.log(playlist);
+
+    if (playlist === null) {
+      this.setState({
+        showModal: false
+      });
+    } else {
+      // insert playlist
+      this.setState({
+        showModal: false
+      });
+    }
   }
 
   render () {
