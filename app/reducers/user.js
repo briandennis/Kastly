@@ -10,11 +10,11 @@ export default function user( state = initialState, action ) {
 
     case 'FETCH_USER':
 
-      return Object.assign(state, { isFetching: true });
+      return Object.assign({}, state, { isFetching: true });
 
     case 'FETCH_USER_SUCCESS':
 
-      return Object.assign(state, {
+      return Object.assign({}, state, {
         isFetching: false,
         user: action.user,
         error: ''
@@ -22,7 +22,7 @@ export default function user( state = initialState, action ) {
 
     case 'FETCH_USER_FAILURE':
 
-      return Object.assign(state, {
+      return Object.assign({}, state, {
         isFetching: false,
         error: action.error
       });

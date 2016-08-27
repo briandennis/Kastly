@@ -12,11 +12,11 @@ class Profile extends React.Component {
     this.state = {
       user: null
     };
+
+    this.setUser = this.setUser.bind(this);
   }
 
-  componentWillMount () {
-
-    console.log(this.props.sessionUser);
+  setUser () {
 
     if (this.props.sessionUser) {
       console.log('Session user id: ' + this.props.sessionUser.id);
@@ -31,6 +31,14 @@ class Profile extends React.Component {
     } else {
       console.log('Not same user!');
     }
+  }
+
+  componentWillMount () {
+    this.setUser();
+  }
+
+  componentWillReceiveProps () {
+    this.setUser();
   }
 
   render () {
@@ -58,7 +66,6 @@ class Profile extends React.Component {
 }
 
 const mapStateToProps = function (state) {
-  console.log('MapStateToProps!');
   return {
     sessionUser: state.user.user
   };
