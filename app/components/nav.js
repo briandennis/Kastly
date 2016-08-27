@@ -81,20 +81,28 @@ class Nav extends React.Component {
       avatar = playlistButton = empty;
     }
 
+    let modal = <span></span>;
+    if (this.state.showModal) {
+      modal = <PlaylistEditor type="Create" />;
+    }
+
     return (
-      <div className="nav">
-        <div className="nav-left">
-          <div className="nav-item is-brand">
-            <Link to="/">
-              <h1 className="navTitle">Kastly</h1>
-            </Link>
+      <div>
+        <div className="nav">
+          <div className="nav-left">
+            <div className="nav-item is-brand">
+              <Link to="/">
+                <h1 className="navTitle">Kastly</h1>
+              </Link>
+            </div>
+          </div>
+          <div className="nav-right">
+            {playlistButton}
+            {avatar}
+            {loginButton}
           </div>
         </div>
-        <div className="nav-right">
-          {playlistButton}
-          {avatar}
-          {loginButton}
-        </div>
+        {modal}
       </div>
     );
   }
