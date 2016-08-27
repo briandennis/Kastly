@@ -16,17 +16,17 @@ class Profile extends React.Component {
     this.setUser = this.setUser.bind(this);
   }
 
-  setUser () {
+  setUser (props) {
 
-    if (this.props.sessionUser) {
-      console.log('Session user id: ' + this.props.sessionUser.id);
-      console.log('Wanted user id: ' + this.props.params.userId);
+    if (props.sessionUser) {
+      console.log('Session user id: ' + props.sessionUser.id);
+      console.log('Wanted user id: ' + props.params.userId);
     }
 
-    if( this.props.sessionUser
-        && this.props.params.userId == this.props.sessionUser.id) {
+    if( props.sessionUser
+        && props.params.userId == props.sessionUser.id) {
       this.setState({
-        user: this.props.sessionUser
+        user: props.sessionUser
       })
     } else {
       console.log('Not same user!');
@@ -34,11 +34,11 @@ class Profile extends React.Component {
   }
 
   componentWillMount () {
-    this.setUser();
+    this.setUser(this.props);
   }
 
-  componentWillReceiveProps () {
-    this.setUser();
+  componentWillReceiveProps (newProps) {
+    this.setUser(newProps);
   }
 
   render () {
