@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import * as Actions from './actions';
 
+import Nav from './components/nav';
 import Discover from './pages/discover';
 import Home from './pages/home';
 import Podcast from './pages/podcast';
@@ -27,10 +28,12 @@ class App extends React.Component {
   render() {
     return (
       <Router history={hashHistory}>
-        <Route path="/" component={Home}></Route>
-        <Route path="/podcast/:castId" component={Podcast}></Route>
-        <Route path="/discover" component={Discover}></Route>
-        <Route path="/profile/:userId" component={Profile}></Route>
+        <Route path="/" component={Nav}>
+          <Route path="/" component={Home}></Route>
+          <Route path="/podcast/:castId" component={Podcast}></Route>
+          <Route path="/discover" component={Discover}></Route>
+          <Route path="/profile/:userId" component={Profile}></Route>
+        </Route>
       </Router>
     );
   }

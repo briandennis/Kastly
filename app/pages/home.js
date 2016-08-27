@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
+import { link } from 'react-router';
+
 import Login from './../components/login';
 
 const home = (props) => {
@@ -14,6 +16,7 @@ const home = (props) => {
     <div className="homeTitleContainer">
       <h1 className="title is-1"> Welcome to Kastly </h1>
       {message}
+      <button className="button is button">Go to Profile</button>
     </div>
   );
 };
