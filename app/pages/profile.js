@@ -25,7 +25,9 @@ class Profile extends React.Component {
 
     if( this.props.sessionUser
         && this.props.params.userId == this.props.sessionUser.id) {
-      console.log('Same user!');
+      this.setState({
+        user: this.props.sessionUser
+      })
     } else {
       console.log('Not same user!');
     }
