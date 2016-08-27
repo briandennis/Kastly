@@ -4,7 +4,7 @@ module.exports = function (req, res, next) {
       console.log('Sending user: ' + req.session.user._id);
       res.json(req.session.user);
     } else {
-      res.status(404).send('Not found.');
+      res.status(200).json(null);
     }
   }
 };
