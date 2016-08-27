@@ -16,6 +16,12 @@ body {
 .navAvatar {
   border-radius: 50%;
 }
+#creatPlaylistIcon {
+  color: $mint;
+}
+#creatPlaylistIcon:hover {
+  color: darken($mint, 10%);
+}
 
 .centerChildren {
   display: flex;

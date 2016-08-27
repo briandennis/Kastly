@@ -11,7 +11,7 @@ class PlaylistEditor {
             <button className="delete"></button>
           </header>
           <section className="modal-card-body">
-            <!-- Content ... -->
+          This is the body!
           </section>
           <footer className="modal-card-foot">
             <a className="button is-primary">Save changes</a>
