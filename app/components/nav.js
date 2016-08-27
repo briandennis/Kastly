@@ -57,7 +57,7 @@ class Nav extends React.Component {
         <span className="nav-item">
           <a id="creatPlaylistIcon"
               className="icon"
-              onClick={this.showModal()}>
+              onClick={this.showModal}>
             <i className="fa fa-plus" />
           </a>
         </span>
