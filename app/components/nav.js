@@ -63,8 +63,10 @@ class Nav extends React.Component {
       // add profile button
       avatar = (
         <div className="nav-item">
-          <Link to={`/profile/${this.props.user.id}`}>
-            <img className="navAvatar" src={this.props.user.image} />
+          <Link id="avatarIcon" to={`/profile/${this.props.user.id}`}>
+            <span className="icon navIcon">
+              <i className="fa fa-user" />
+            </span>
           </Link>
         </div>
       );
@@ -72,7 +74,7 @@ class Nav extends React.Component {
       // add new playlist button
       playlistButton = (
         <span className="nav-item">
-          <a id="creatPlaylistIcon"
+          <a id="newPlaylistIcon"
               className="icon"
               onClick={this.showModal}>
             <i className="fa fa-plus" />

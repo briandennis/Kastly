@@ -27,7 +27,7 @@ class PlaylistEditor extends React.Component {
           <header className="modal-card-head">
             <p className="modal-card-title">{this.props.type} Playlist
             </p>
-            <button className="delete"></button>
+            <button className="delete" onClick={this.cancel}></button>
           </header>
           <section className="modal-card-body">
             <div>
@@ -36,6 +36,14 @@ class PlaylistEditor extends React.Component {
               </label>
               <p className="control">
               <input className="input" type="text" />
+              </p>
+            </div>
+            <div>
+              <label className="label">
+                Description
+              </label>
+              <p className="control">
+              <textarea className="input" />
               </p>
             </div>
           </section>

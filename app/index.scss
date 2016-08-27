@@ -2,8 +2,6 @@ $purp: #6A4C93;
 $mint: #7FC6A4;
 
 body {
-  margin: none;
-  padding: none;
   font-size: calc( 1em + 1vw);
 }
 
@@ -16,11 +14,20 @@ body {
 .navAvatar {
   border-radius: 50%;
 }
-#creatPlaylistIcon {
+#avatarIcon {
+  display: flex;
+  align-items: center;
+}
+#newPlaylistIcon, #avatarIcon {
   color: $mint;
 }
-#creatPlaylistIcon:hover {
+#newPlaylistIcon, #avatarIcon {
   color: darken($mint, 10%);
+}
+
+label.label {
+  font-size: 14px !important;
+  padding-top: 3px;
 }
 
 .centerChildren {
