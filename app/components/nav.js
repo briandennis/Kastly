@@ -31,6 +31,11 @@ class Nav extends React.Component {
     });
   }
 
+  addPlaylist (playlist) {
+    console.log('New Playlist: ');
+    console.log(playlist);
+  }
+
   render () {
     let loginButton, avatar, playlistButton;
     if (this.props.loggedIn) {
@@ -83,7 +88,7 @@ class Nav extends React.Component {
 
     let modal = <span></span>;
     if (this.state.showModal) {
-      modal = <PlaylistEditor type="Create" />;
+      modal = <PlaylistEditor type="Create" handler={this.addPlaylist} />;
     }
 
     return (
