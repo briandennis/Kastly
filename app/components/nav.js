@@ -1,16 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 const Nav = (props) => {
 
-  let loginButton;
+  let loginButton, avatar;
   if (props.loggedIn) {
+    // set login button
     loginButton = (
       <span className="nav-item">
         <a className="button is-light" href="/logout">
           Log Out
         </a>
       </span>
+    );
+
+    // add profile button
+    avatar = (
+      <div className="avatarContainer nav-item">
+        <Link to={`/profile/${props.user.id}`}>
+          <img className="navAvatar" src={props.user.image} />
+        </Link>
+      </div>
     );
   } else {
     loginButton = (
@@ -22,16 +33,23 @@ const Nav = (props) => {
         </a>
       </span>
     );
+
+    avatar = (
+      <div></div>
+    );
   }
 
   return (
     <div className="nav">
       <div className="nav-left">
         <div className="nav-item is-brand">
-          <h1 className="navTitle">Kastly</h1>
+          <Link to="/">
+            <h1 className="navTitle">Kastly</h1>
+          </Link>
         </div>
       </div>
       <div className="nav-right">
+        {avatar}
         {loginButton}
       </div>
     </div>
@@ -41,7 +59,8 @@ const Nav = (props) => {
 const mapStateToProps = (state) => {
   console.log('Mappin dat state');
   return {
-    loggedIn: !!state.user.user
+    loggedIn: !!state.user.user,
+    user: state.user.user
   };
 }
 

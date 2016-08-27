@@ -13,6 +13,13 @@ body {
 .navTitle {
   color: white;
 }
+.avatarContainer {
+  height: 100%;
+}
+.navAvatar {
+  height: 80%;
+  border-radius: 50%;
+}
 
 .centerChildren {
   display: flex;
