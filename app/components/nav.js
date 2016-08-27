@@ -1,21 +1,26 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
 
 const Nav = (props) => {
 
   let loginButton;
   if (props.loggedIn) {
     loginButton = (
-      <a className="button is-light" href="/logout">
-        Log Out
-      </a>
+      <span className="nav-item">
+        <a className="button is-light" href="/logout">
+          Log Out
+        </a>
+      </span>
     );
   } else {
     loginButton = (
-      <a className="button is-primary" href="/login/twitter">
-        <span style={{marginRight: '10px'}} className="icon">
-          <i className="fa fa-twitter"></i>
-        </span>Log in
-      </a>
+      <span className="nav-item">
+        <a className="button is-primary" href="/login/twitter">
+          <span style={{marginRight: '10px'}} className="icon">
+            <i className="fa fa-twitter"></i>
+          </span>Log in
+        </a>
+      </span>
     );
   }
 
@@ -33,4 +38,11 @@ const Nav = (props) => {
   );
 }
 
-export default Nav;
+const mapStateToProps = (state) => {
+  console.log('Mappin dat state');
+  return {
+    loggedIn: !!state.user.user
+  };
+}
+
+export default connect(mapStateToProps)(Nav);
