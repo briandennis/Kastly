@@ -17,5 +17,7 @@ module.exports = (passport, db) => {
   .get('/login/twitter', secure, require('./routes/loginTwitter')(passport))
   .get('/auth/twitter/callback', secure, require('./routes/twitterCallback'))
 
-  .get('/logout', require('./routes/logout'));
+  .get('/logout', require('./routes/logout'))
+
+  .get('*', require('./routes/home'));
 };

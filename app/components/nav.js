@@ -46,6 +46,7 @@ class Nav extends React.Component {
         })
         .catch( (error) => {
           console.log('Failed ' + error);
+          alert('Failed to add playlist. Please try again.');
         });
       this.setState({
         showModal: false
