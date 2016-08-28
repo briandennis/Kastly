@@ -6,6 +6,7 @@ const router            = require('./backend/router');
 const swig              = require('swig');
 const mongoose          = require('mongoose');
 const config             = require('./settings');
+const bodyParser        = require('body-parser');
 const passport          = require('./passportConfig')( require('passport') );
 
 const port = process.env.PORT || 8000;
@@ -41,11 +42,14 @@ app.use( (req, res, next) => {
   next();
 });
 
-// set up routes
-app.use(router(passport, db));
+// add json request body parsing
+app.use(bodyParser.json());
 
 // log requests
 app.use(morgan('tiny'));
+
+// set up routes
+app.use(router(passport, db));
 
 db.on('error', console.error.bind(console, 'connection error: '));
 db.once('open', function() {

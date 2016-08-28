@@ -2,15 +2,19 @@ module.exports = (db) => {
   return (req, res) => {
     switch (req.method) {
       case 'POST':
-        postHandler();
+        postHandler(req, res);
     }
   }
 }
 
-postHandler() {
-
+function postHandler (req, res) {
+  if (!req.params.playlistId) {
+    console.log(req.body);
+  } else {
+    badRequest();
+  }
 }
 
-badRequest () {
+function badRequest () {
   res.setStatus(400).send('Bad request.');
 }
