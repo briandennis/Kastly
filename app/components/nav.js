@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { PlaylistService } from './../providers/api.service';
+import { playlistService } from './../providers/api.service';
 
 import PlaylistEditor from './playlistEditor.js';
 
@@ -34,15 +34,19 @@ class Nav extends React.Component {
   }
 
   addPlaylist (playlist) {
-    console.log('New Playlist: ');
-    console.log(playlist);
-
     if (playlist === null) {
       this.setState({
         showModal: false
       });
     } else {
-      // insert playlist
+      console.log('adding playlist...');
+      playlistService.create(playlist)
+        .then( (createdPlaylist) => {
+          console.log('Successfully added playlist!');
+        })
+        .catch( (error) => {
+          console.log('Failed ' + error);
+        });
       this.setState({
         showModal: false
       });

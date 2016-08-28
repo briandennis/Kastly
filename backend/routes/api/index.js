@@ -8,5 +8,7 @@ module.exports = (db) => {
     })
     .get('/user/:userId?', require('./user'))
 
-    .get( '/cast/:castId?', require('./cast') );
+    .get('/cast/:castId?', require('./cast') )
+
+    .all('/playlist/:playlistId?', require('./playlist')(db));
 }
