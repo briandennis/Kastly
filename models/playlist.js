@@ -10,6 +10,7 @@ const PlaylistSchema = new Schema({
   authorId: { type: String },
   content: { type: [Episode], default: [] },
   comments: { type: [Comment], default: [] },
+  stars: { type: [String], default: [] },
   date: { type: Date }
 });
 

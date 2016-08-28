@@ -10,6 +10,7 @@ import Discover from './pages/discover';
 import Home from './pages/home';
 import Podcast from './pages/podcast';
 import Profile from './pages/profile';
+import Playlist from './pages/playlist';
 
 const entryNode = document.getElementById('app');
 
