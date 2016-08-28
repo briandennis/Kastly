@@ -83,6 +83,18 @@ const playlistService = {
         reject('Invalid playlist.');
       }
     });
+  },
+
+  get (playlistId) {
+    return new Promise ( (resolve, reject) => {
+      if (playlistId) {
+        axios.get(`${host}/api/playlist/${playlistId}`)
+          .then(resolve)
+          .catch(reject);
+      } else {
+        reject('Invalid playlist id.');
+      }
+    });
   }
 }
 
