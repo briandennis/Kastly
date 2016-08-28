@@ -23,6 +23,7 @@ ReactDOM.render(
         <Route path="podcast/:castId" component={Podcast}></Route>
         <Route path="discover" component={Discover}></Route>
         <Route path="profile/:userId" component={Profile}></Route>
+        <Route path="playlist/:playlistId" component={Playlist}></Route>
       </Route>
     </Router>
   </Provider>,
