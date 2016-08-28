@@ -1,4 +1,5 @@
 const Playlist = require('./../../../models/playlist');
+const User     = require('./../../../models/user');
 
 module.exports = (db) => {
   return (req, res) => {
@@ -33,10 +34,18 @@ function postHandler (req, res) {
 }
 
 function getHandler (req, res) {
+  let playlist = null;
   if (req.params.playlistId) {
     Playlist.findOne({ _id: req.params.playlistId })
-      .then( (playlist) => {
-        res.status(200).json(playlist);
+      .then( (result) => {
+        playlist = result;
+        return User.findOne({ _id: playlist.authorId });
+      })
+      .then( (result) => {
+        res.status(200).json({
+          playlist,
+          author: result
+       });
       })
       .catch( (error) => {
         res.status(400).json(error);

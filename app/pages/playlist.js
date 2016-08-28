@@ -18,7 +18,8 @@ class Playlist extends React.Component {
       .then( (response) => {
         if (response.data) {
           this.setState({
-            playlist: response.data
+            playlist: response.data.playlist,
+            author: response.data.author
           });
         } else {
           this.setState({
@@ -51,6 +52,7 @@ class Playlist extends React.Component {
                 <p>
                   {this.state.playlist.description}
                 </p>
+                {this.state.author.name}
               </div>
             </div>
           </div>
