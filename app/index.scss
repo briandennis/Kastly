@@ -24,6 +24,9 @@ body {
 #newPlaylistIcon, #avatarIcon {
   color: darken($mint, 10%);
 }
+.createPlaylistInput {
+  padding-bottom: 20px;
+}
 
 label.label {
   font-size: 14px !important;
