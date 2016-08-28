@@ -30,9 +30,18 @@ class Playlist extends React.Component {
   }
 
   render () {
+    let playlistPage = <div></div>;
+    if (this.state.playlist) {
+      playlistPage = (
+        <div>
+          {this.state.playlist.title}
+        </div>
+      );
+    }
+
     return (
       <div>
-        {this.state.playlist}
+        {playlistPage}
       </div>
     );
   }
