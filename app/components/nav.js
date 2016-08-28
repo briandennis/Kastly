@@ -20,7 +20,6 @@ class Nav extends React.Component {
   }
 
   showModal () {
-    console.log('Showing!');
     this.setState({
       showModal: true
     });
