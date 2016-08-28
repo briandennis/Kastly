@@ -3,7 +3,7 @@ import React from 'react';
 const EpisodePreview = (props) => {
 
   function cancel () {
-    props.handler(null);
+    props.handler();
   }
 
   return (
@@ -28,3 +28,5 @@ const EpisodePreview = (props) => {
     </div>
   );
 }
+
+export default EpisodePreview;

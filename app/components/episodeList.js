@@ -1,15 +1,18 @@
 import React from 'react';
 
+import EpisodePreview from './episodePreview';
+
 class Episode extends React.Component {
 
   constructor () {
     super();
 
     this.state = {
-      preview: false;
+      preview: false
     }
 
     this.showPreview = this.showPreview.bind(this);
+    this.hidePreview = this.hidePreview.bind(this);
   }
 
   showPreview () {
@@ -19,16 +22,16 @@ class Episode extends React.Component {
   }
 
   hidePreview () {
+    console.log('hiding...');
     this.setState({
       preview: false
-    })
+    });
   }
 
   render () {
     // description
-    let formattedDescription;
+    let formattedDescription = <span></span>;
     if (this.props.episode.description) {
-      console.log('description...');
       if (this.props.episode.description.length > 50) {
         formattedDescription =` ${this.props.episode.description.slice(0, 50)} ...`;
       } else {
@@ -37,15 +40,22 @@ class Episode extends React.Component {
     }
 
     // date
-    let formattedDate;
+    let formattedDate = <span></span>;
     if (this.props.episode.date) {
       const date = new Date(this.props.episode.date);
       formattedDate = date.toLocaleDateString();
     }
 
+    // preview
+    let preview = <span></span>;
+    if (this.state.preview) {
+      console.log('still though');
+      preview = <EpisodePreview episode={this.props.episode} handler={this.hidePreview} />;
+    }
+
     return (
-      <tr onClick={showPreview}>
-        <td> {this.props.episode.title} </td>
+      <tr onClick={this.showPreview}>
+        <td> {this.props.episode.title} {preview} </td>
         <td> {formattedDescription} </td>
         <td> {formattedDate} </td>
       </tr>
@@ -54,8 +64,6 @@ class Episode extends React.Component {
 };
 
 const EpisodeList = (props) => {
-
-  console.log(props.episodes);
 
   const episodes = props.episodes
     .map( (episode, index) => {
