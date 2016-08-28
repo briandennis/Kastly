@@ -15,7 +15,6 @@ class PlaylistEditor extends React.Component {
   }
 
   validate () {
-    console.log('Validate data...');
     const title = this.refs.title.value;
     const description = this.refs.description.value;
 
@@ -40,7 +39,6 @@ class PlaylistEditor extends React.Component {
   }
 
   cancel () {
-    console.log('Canceling...');
     this.props.handler(null);
   }
 
@@ -97,8 +95,8 @@ class PlaylistEditor extends React.Component {
                 Description
               </label>
               <p className="control">
-              <textarea className={`input is-${descriptionClass}`}
-                        ref="description" />
+              <textarea className={`textarea is-${descriptionClass}`}
+                        ref="description"/>
               {descriptionMessage}
               </p>
             </div>

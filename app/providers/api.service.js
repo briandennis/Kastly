@@ -76,6 +76,9 @@ const PlaylistService = {
           .then( (createdPlaylist) => {
             resolve(createdPlaylist);
           })
+          .catch( (error) => {
+            reject(error);
+          });
       } else {
         reject('Invalid playlist.');
       }
