@@ -17,7 +17,6 @@ class Podcast extends React.Component {
   componentWillMount () {
     PodcastService.get(this.props.params.castId)
       .then( (cast) => {
-        console.log(cast);
         this.setState({
           cast
         });
