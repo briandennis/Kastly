@@ -5,6 +5,8 @@ module.exports = (db) => {
     switch (req.method) {
       case 'POST':
         postHandler(req, res);
+      case 'GET':
+        getHandler(req, res);
     }
   }
 }
@@ -27,6 +29,20 @@ function postHandler (req, res) {
       })
   } else {
     badRequest();
+  }
+}
+
+function getHandler (req, res) {
+  if (req.params.playlistId) {
+    Playlist.findOne({ id: playlistId })
+      .then( (playlist) => {
+        res.status(200).json(playlist);
+      })
+      .catch( (error) => {
+        res.status(500).json(error);
+      });
+  } else {
+    //return all playlists
   }
 }
 
