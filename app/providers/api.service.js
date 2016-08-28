@@ -18,7 +18,7 @@ const getCastsFromFeed = (url) => {
 
 const PodcastService = {
 
-  get( podcastId ) {
+  get ( podcastId ) {
     const getEpisodes = (cast) => {
       return new Promise( (resolve) => {
         getCastsFromFeed(cast.feedUrl)
@@ -67,6 +67,21 @@ const PodcastService = {
     });
   }
 };
+
+const PlaylistService = {
+  create (playlist) {
+    return new Promise ( (resolve, reject) => {
+      if (playlist && playlist.title && playlist.description) {
+        axios.post(`${host}/api/cast/${podcastId}`, playlist)
+          .then( (createdPlaylist) => {
+            resolve(createdPlaylist);
+          })
+      } else {
+        reject('Invalid playlist.');
+      }
+    });
+  }
+}
 
 export {
   PodcastService
