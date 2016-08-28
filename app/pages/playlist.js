@@ -30,11 +30,30 @@ class Playlist extends React.Component {
   }
 
   render () {
-    let playlistPage = <div></div>;
+    let playlistPage = (
+      <div className="emptyPageContainer">
+        <div className="columns">
+          <div className="column is-12">
+            Bummer, couldn't find this playlist.
+          </div>
+        </div>
+      </div>
+    );
     if (this.state.playlist) {
       playlistPage = (
-        <div>
-          {this.state.playlist.title}
+        <div className="columns">
+          <div className="column is-12">
+            <div className="columns">
+              <div className="column is-6">
+                <h2 className="title is-2">
+                  {this.state.playlist.title}
+                </h2>
+                <p>
+                  {this.state.playlist.description}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       );
     }

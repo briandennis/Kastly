@@ -21,11 +21,18 @@ body {
 #newPlaylistIcon, #avatarIcon {
   color: $mint;
 }
-#newPlaylistIcon, #avatarIcon {
+#newPlaylistIcon:hover, #avatarIcon:hover {
   color: darken($mint, 10%);
 }
 .createPlaylistInput {
   padding-bottom: 20px;
+}
+
+.emptyPageContainer {
+  margin-top: 30px;
+  width: 100%;
+  height: 80%;
+  text-align: center;
 }
 
 label.label {
