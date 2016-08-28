@@ -2,10 +2,6 @@ import React from 'react';
 
 const EpisodePreview = (props) => {
 
-  function cancel () {
-    props.handler();
-  }
-
   return (
     <div className="modal is-active">
       <div className="modal-background"></div>
@@ -13,7 +9,7 @@ const EpisodePreview = (props) => {
         <header className="modal-card-head">
           <p className="modal-card-title">{props.episode.title}
           </p>
-          <button className="delete" onClick={cancel}></button>
+          <button className="delete" onClick={props.handler}></button>
         </header>
         <section className="modal-card-body">
           <div className="podcastAudio">
@@ -23,7 +19,7 @@ const EpisodePreview = (props) => {
           </p>
         </section>
         <footer className="modal-card-foot">
-          <a className="button" onClick={cancel}>Cancel</a>
+          <a className="button" onClick={props.handler}>Cancel</a>
         </footer>
       </div>
     </div>

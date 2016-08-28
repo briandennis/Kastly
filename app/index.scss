@@ -40,6 +40,16 @@ body {
   margin-bottom: 20px;
 }
 
+td {
+  vertical-align: middle;
+}
+
+.clickableTitle {
+  color: $purp;
+  cursor: pointer;
+  font-weight: 500;
+}
+
 label.label {
   font-size: 14px !important;
   padding-top: 3px;

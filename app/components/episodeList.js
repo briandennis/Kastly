@@ -16,12 +16,14 @@ class Episode extends React.Component {
   }
 
   showPreview () {
+    console.log('Showing!');
     this.setState({
       preview: true
     });
   }
 
   hidePreview () {
+    console.log('hidden triggered!');
     this.setState({
       preview: false
     });
@@ -52,10 +54,11 @@ class Episode extends React.Component {
     }
 
     return (
-      <tr onClick={this.showPreview}>
-        <td> {this.props.episode.title} {preview} </td>
-        <td> {formattedDescription} </td>
-        <td> {formattedDate} </td>
+      <tr>
+        <td className="clickableTitle" onClick={this.showPreview}>
+          <span className="flexItem">{this.props.episode.title}</span>
+        </td>
+        <td> {formattedDate} {preview}</td>
       </tr>
     );
   }
