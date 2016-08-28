@@ -17,8 +17,7 @@ const EpisodePreview = (props) => {
         </header>
         <section className="modal-card-body">
           <audio src={props.episode.link} controls="controls" />
-          <p>
-            {props.episode.description}
+          <p dangerouslySetInnerHTML={{ __html: props.episode.description }}>
           </p>
         </section>
         <footer className="modal-card-foot">

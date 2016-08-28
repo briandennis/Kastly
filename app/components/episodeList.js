@@ -22,7 +22,6 @@ class Episode extends React.Component {
   }
 
   hidePreview () {
-    console.log('hiding...');
     this.setState({
       preview: false
     });
@@ -49,7 +48,6 @@ class Episode extends React.Component {
     // preview
     let preview = <span></span>;
     if (this.state.preview) {
-      console.log('still though');
       preview = <EpisodePreview episode={this.props.episode} handler={this.hidePreview} />;
     }
 
