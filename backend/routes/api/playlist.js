@@ -16,10 +16,12 @@ function postHandler (req, res) {
       title: data.title,
       description: data.title,
       date: new Date(),
-      authorId: req.session.user.id
+      authorId: req.session.user._id
     });
     playlist.save()
-      .then(res.json)
+      .then( (createdPlaylist) => {
+        res.status(200).json(createdPlaylist);
+      })
       .catch( (error) => {
         res.status(500).send('Database error.');
       })
