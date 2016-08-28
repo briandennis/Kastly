@@ -16,11 +16,13 @@ const EpisodePreview = (props) => {
           <button className="delete" onClick={cancel}></button>
         </header>
         <section className="modal-card-body">
-          
+          <audio src={props.episode.link} controls="controls" />
+          <p>
+            {props.episode.description}
+          </p>
         </section>
         <footer className="modal-card-foot">
-          <a className="button is-primary" onClick={this.validate}>Save Playlist</a>
-          <a className="button" onClick={this.cancel}>Cancel</a>
+          <a className="button" onClick={cancel}>Cancel</a>
         </footer>
       </div>
     </div>

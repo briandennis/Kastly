@@ -1,32 +1,33 @@
 import React from 'react';
 
-const Episode = (props) => {
-
-  // description
-  let formattedDescription;
-  if (props.episode.description) {
-    console.log('description...');
-    if (props.episode.description.length > 50) {
-      formattedDescription =` ${props.episode.description.slice(0, 50)} ...`;
-    } else {
-      formattedDescription = props.description;
+class Episode extends React.Component {
+  render () {
+    // description
+    let formattedDescription;
+    if (this.props.episode.description) {
+      console.log('description...');
+      if (this.props.episode.description.length > 50) {
+        formattedDescription =` ${this.props.episode.description.slice(0, 50)} ...`;
+      } else {
+        formattedDescription = this.props.description;
+      }
     }
-  }
 
-  // date
-  let formattedDate;
-  if (props.episode.date) {
-    const date = new Date(props.episode.date);
-    formattedDate = date.toLocaleDateString();
-  }
+    // date
+    let formattedDate;
+    if (this.props.episode.date) {
+      const date = new Date(this.props.episode.date);
+      formattedDate = date.toLocaleDateString();
+    }
 
-  return (
-    <tr>
-      <td> {props.episode.title} </td>
-      <td> {formattedDescription} </td>
-      <td> {formattedDate} </td>
-    </tr>
-  );
+    return (
+      <tr>
+        <td> {this.props.episode.title} </td>
+        <td> {formattedDescription} </td>
+        <td> {formattedDate} </td>
+      </tr>
+    );
+  }
 };
 
 const EpisodeList = (props) => {
