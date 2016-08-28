@@ -5,7 +5,7 @@ const findOrCreate = require('mongoose-findorcreate');
 const CommentSchema = new Schema({
   userId: { type: String, default: '' },
   text: { type: String, default: '' },
-  timestam: { type: Number}
+  timestamp: { type: Number}
 });
 
 CommentSchema.plugin(findOrCreate);
