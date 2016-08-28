@@ -16,7 +16,9 @@ const EpisodePreview = (props) => {
           <button className="delete" onClick={cancel}></button>
         </header>
         <section className="modal-card-body">
-          <audio src={props.episode.link} controls="controls" />
+          <div className="podcastAudio">
+            <audio src={props.episode.link} controls="controls" />
+          </div>
           <p dangerouslySetInnerHTML={{ __html: props.episode.description }}>
           </p>
         </section>
