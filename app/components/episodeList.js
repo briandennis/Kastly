@@ -16,14 +16,12 @@ class Episode extends React.Component {
   }
 
   showPreview () {
-    console.log('Showing!');
     this.setState({
       preview: true
     });
   }
 
   hidePreview () {
-    console.log('hidden triggered!');
     this.setState({
       preview: false
     });
