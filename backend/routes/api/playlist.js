@@ -34,7 +34,7 @@ function postHandler (req, res) {
 
 function getHandler (req, res) {
   if (req.params.playlistId) {
-    Playlist.findOne({ id: playlistId })
+    Playlist.findOne({ _id: req.params.playlistId })
       .then( (playlist) => {
         res.status(200).json(playlist);
       })
@@ -42,7 +42,10 @@ function getHandler (req, res) {
         res.status(500).json(error);
       });
   } else {
-    //return all playlists
+    Playlist.find()
+      .then( (playlists) => {
+        res.status(200).json(playlists);
+      })
   }
 }
 

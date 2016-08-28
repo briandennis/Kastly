@@ -8,16 +8,23 @@ class Playlist extends React.Component {
     super();
 
     this.state = {
-      playlist: null
+      playlist: null,
+      playlistNotFound: false
     };
   }
 
   componentWillMount () {
     playlistService.get(this.props.params.playlistId)
-      .then( (playlist) => {
-        this.setState({
-          playlist
-        });
+      .then( (response) => {
+        if (response.data) {
+          this.setState({
+            playlist: response.data
+          });
+        } else {
+          this.setState({
+            playlistNotFound: true
+          });
+        }
       })
       .catch( (error) => console.log(error));
   }
