@@ -5,8 +5,9 @@ const Episode     = require('./episode');
 const findOrCreate = require('mongoose-findorcreate');
 
 const PlaylistSchema = new Schema({
-  title: { type: String, default: '' },
-  description: { type: String, default: '' },
+  title: { type: String },
+  description: { type: String },
+  authorId: { type: String }
   content: { type: [Episode], default: [] },
   comments: { type: [Comment], default: [] },
   date: { type: Date }
