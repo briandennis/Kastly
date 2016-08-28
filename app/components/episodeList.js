@@ -1,6 +1,29 @@
 import React from 'react';
 
 class Episode extends React.Component {
+
+  constructor () {
+    super();
+
+    this.state = {
+      preview: false;
+    }
+
+    this.showPreview = this.showPreview.bind(this);
+  }
+
+  showPreview () {
+    this.setState({
+      preview: true
+    });
+  }
+
+  hidePreview () {
+    this.setState({
+      preview: false
+    })
+  }
+
   render () {
     // description
     let formattedDescription;
@@ -21,7 +44,7 @@ class Episode extends React.Component {
     }
 
     return (
-      <tr>
+      <tr onClick={showPreview}>
         <td> {this.props.episode.title} </td>
         <td> {formattedDescription} </td>
         <td> {formattedDate} </td>
