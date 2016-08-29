@@ -18,11 +18,15 @@ body {
   display: flex;
   align-items: center;
 }
-#newPlaylistIcon, #avatarIcon {
+#newPlaylistIcon, #avatarIcon, .generalIcon {
   color: $mint;
 }
-#newPlaylistIcon:hover, #avatarIcon:hover {
+#newPlaylistIcon:hover, #avatarIcon:hover, .generalIcon:hover {
   color: darken($mint, 10%);
+  cursor: pointer;
+}
+.buttonItem {
+  width: 75px;
 }
 .createPlaylistInput {
   padding-bottom: 20px;

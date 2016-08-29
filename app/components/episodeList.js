@@ -53,6 +53,28 @@ class Episode extends React.Component {
       preview = <EpisodePreview episode={this.props.episode} handler={this.hidePreview} />;
     }
 
+    // owner check
+    let controls;
+    if (this.props.owner) {
+      controls = (
+        [<td className="buttonItem" key="button1">
+          <span className="icon"><i className="generalIcon fa fa-trash"></i></span>
+        </td>,
+        <td className="buttonItem" key="button2">
+          <span className="icon"><i className="generalIcon fa fa-arrow-up"></i></span>
+        </td>,
+        <td className="buttonItem" key="button3">
+          <span className="icon"><i className="generalIcon fa fa-arrow-down"></i></span>
+        </td>]
+      );
+    } else {
+      controls = (
+        <td> <AddToPlaylist episode={this.props.episode}
+                            playlists={this.props.playlists}
+                            loggedIn={this.props.loggedIn}/> </td>
+      );
+    }
+
     return (
       <tr>
         <td className="clickableTitle" onClick={this.showPreview}>
@@ -60,9 +82,7 @@ class Episode extends React.Component {
         </td>
         <td> {this.props.episode.podcast.title} </td>
         <td> {formattedDate} {preview}</td>
-        <td> <AddToPlaylist episode={this.props.episode}
-                            playlists={this.props.playlists}
-                            loggedIn={this.props.loggedIn}/> </td>
+        {controls}
       </tr>
     );
   }
@@ -70,13 +90,19 @@ class Episode extends React.Component {
 
 const EpisodeList = (props) => {
 
+  let owner = false;
+  if (props.type === 'playlist' && props.owner === true) {
+    owner = true;
+  }
+
   const episodes = props.episodes
     .map( (episode, index) => {
       return <Episode key={index}
                       type={props.type}
                       episode={episode}
                       playlists={props.playlists}
-                      loggedIn={props.loggedIn}/>
+                      loggedIn={props.loggedIn}
+                      owner={owner}/>
     })
 
   return (

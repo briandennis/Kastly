@@ -45,7 +45,10 @@ class Playlist extends React.Component {
     );
     if (this.state.playlist) {
       // check ownership
-      if (this.state.author.Id ===  )
+      let owner = false;
+      if (this.props.user && this.state.author._id ===  this.props.user.id) {
+        owner = true;
+      };
 
       playlistPage = (
         <div className="columns is-multiline">
@@ -54,7 +57,8 @@ class Playlist extends React.Component {
           </div>
           <div className="column is-full">
             <EpisodeList type="playlist"
-                         episodes={this.state.playlist.content} />
+                         episodes={this.state.playlist.content}
+                         owner={owner}/>
           </div>
         </div>
       );
@@ -68,4 +72,10 @@ class Playlist extends React.Component {
   }
 }
 
-export default Playlist
+const mapStateToProps = (state) => {
+  return {
+    user: state.user.user
+  };
+}
+
+export default connect(mapStateToProps)(Playlist);
