@@ -33,6 +33,10 @@ class Playlist extends React.Component {
       .catch( (error) => console.log(error));
   }
 
+  updatePlaylist (episodes) {
+
+  }
+
   render () {
     let playlistPage = (
       <div className="emptyPageContainer">
@@ -59,6 +63,7 @@ class Playlist extends React.Component {
             <EpisodeList type="playlist"
                          playlistId={this.state.playlist._id}
                          episodes={this.state.playlist.content}
+                         updatePlaylist={updatePlaylist}
                          owner={owner}/>
           </div>
         </div>

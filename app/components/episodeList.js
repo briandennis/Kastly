@@ -90,12 +90,12 @@ class Episode extends React.Component {
 
 const EpisodeList = (props) => {
 
-  function update (index, action) {
+  function updateEpisodes (index, action) {
     let episodes = props.episodes;
     switch (action) {
       case 'delete':
         episodes.splice(index, 1);
-        updatePlaylist(props.playlistId, episodes);
+        props.updatePlaylist(episodes);
         break;
       case 'up':
         if (index !== 0) {
@@ -103,7 +103,7 @@ const EpisodeList = (props) => {
           let before = episodes.slice(0, index - 1);
           let ater = episodes.slice(index);
           episodes = [...before, episode, ...after];
-          updatePlaylist(props.playlistId, episodes);
+          props.updatePlaylist(episodes);
         }
         break;
       case 'down':
@@ -112,7 +112,7 @@ const EpisodeList = (props) => {
           let before = episodes.slice(0, index + 1);
           let ater = episodes.slice(index + 1);
           episodes = [...before, episode, ...after];
-          updatePlaylist(props.playlistId, episodes);
+          props.updatePlaylist(episodes);
         }
     }
   }
@@ -131,7 +131,7 @@ const EpisodeList = (props) => {
                       playlists={props.playlists}
                       loggedIn={props.loggedIn}
                       owner={owner}
-                      update={update}/>
+                      update={updateEpisodes}/>
     })
 
   return (
