@@ -43,20 +43,11 @@ class Playlist extends React.Component {
     );
     if (this.state.playlist) {
       playlistPage = (
-        <div className="columns">
-          <div className="column is-12">
-            <div className="columns">
-              <div className="column is-6">
-                <h2 className="title is-2">
-                  {this.state.playlist.title}
-                </h2>
-                <p>
-                  {this.state.playlist.description}
-                </p>
-              </div>
-            </div>
+        <div className="columns is-multiline">
+          <div className="column is-full">
+            <h1>This is where the heading will go!</h1>
           </div>
-          <div className="column is-12">
+          <div className="column is-full">
             <EpisodeList type="playlist"
                          episodes={this.state.playlist.content} />
           </div>
