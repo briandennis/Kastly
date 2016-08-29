@@ -16,7 +16,9 @@ function postHandler (req, res) {
     Playlist.findOne({ _id: req.params.playlistId })
       .then( (playlist) => {
         const podcast = new Podcast({
-          req.body.podcast
+          title: req.body.podcast.title,
+          castId: req.body.podcast.castId,
+          image: req.body.podcast.image,
         });
         const episode = new Episode({
           podcast,
