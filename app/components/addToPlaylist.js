@@ -2,6 +2,10 @@ import React from 'react';
 
 const AddToPlaylist = (props) => {
 
+  function addToPlaylist(playlistId) {
+    console.log(playlistId.value);
+  }
+
   const options = props.playlists.map( (playlist, index) => {
 
     let formattedTitle = playlist.title;
@@ -9,12 +13,12 @@ const AddToPlaylist = (props) => {
       formattedTitle = playlist.title.slice(0, 50);
     }
 
-    return <option key ={index}> {formattedTitle} </option>;
+    return <option value={playlist._id} key={index}> {formattedTitle} </option>;
   });
 
   return (
     <span className="select">
-      <select>
+      <select onChange={addToPlaylist}>
         <option>Add to playlist...</option>
         {options}
       </select>

@@ -59,7 +59,7 @@ class Episode extends React.Component {
           <span className="flexItem">{this.props.episode.title}</span>
         </td>
         <td> {formattedDate} {preview}</td>
-        <td> <AddToPlaylist playlists={this.props.playlists} /> </td>
+        <td> <AddToPlaylist episode={this.props.episode} playlists={this.props.playlists} /> </td>
       </tr>
     );
   }
