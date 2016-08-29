@@ -16,6 +16,10 @@ const entryNode = document.getElementById('app');
 
 const store = configureStore();
 
+store.subscribe( () => {
+  console.log('State change: ' + JSON.stringify(store.getState()));
+});
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>

@@ -8,12 +8,21 @@ import Nav from './components/nav';
 class App extends React.Component {
 
   componentWillMount() {
+    // TODO Extract to api provider
     // set user
     this.props.fetchingUser();
-
     axios.get('/api/user')
       .then( (response) => {
         this.props.setUser(true, response.data);
+        // set playlists
+        this.props.fetchingPlaylists();
+        axios.get(`/api/user/${response.data._id}/playlists`)
+          .then( (response) => {
+            this.props.setPlaylists(true, response.data);
+          })
+          .catch( (err) => {
+            this.props.setPlaylists(false, null, err);
+          })
       }).catch( (err) => {
         this.props.setUser(false, null, err);
       });
