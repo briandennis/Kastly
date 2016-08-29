@@ -10,5 +10,7 @@ module.exports = (db) => {
 
     .get('/cast/:castId?', require('./cast') )
 
+    .all('/playlist/:playlistid/episode', require('./episode')(db))
+
     .all('/playlist/:playlistId?', require('./playlist')(db));
 }
