@@ -16,7 +16,7 @@ class App extends React.Component {
         this.props.setUser(true, response.data);
         // set playlists
         this.props.fetchingPlaylists();
-        axios.get(`/api/user/${response.data._id}/playlists`)
+        axios.get(`/api/user/${response.data._id}/playlist`)
           .then( (response) => {
             this.props.setPlaylists(true, response.data);
           })
