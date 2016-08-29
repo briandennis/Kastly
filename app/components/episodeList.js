@@ -91,7 +91,30 @@ class Episode extends React.Component {
 const EpisodeList = (props) => {
 
   function update (index, action) {
-    console.log(action);
+    let episodes = props.episodes;
+    switch (action) {
+      case 'delete':
+        episodes.splice(index, 1);
+        updatePlaylist(props.playlistId, episodes);
+        break;
+      case 'up':
+        if (index !== 0) {
+          let episode = episodes.splice(index, 1);
+          let before = episodes.slice(0, index - 1);
+          let ater = episodes.slice(index);
+          episodes = [...before, episode, ...after];
+          updatePlaylist(props.playlistId, episodes);
+        }
+        break;
+      case 'down':
+        if (index < episodes.length - 1) {
+          let episode = episodes.splice(index, 1);
+          let before = episodes.slice(0, index + 1);
+          let ater = episodes.slice(index + 1);
+          episodes = [...before, episode, ...after];
+          updatePlaylist(props.playlistId, episodes);
+        }
+    }
   }
 
   let owner = false;

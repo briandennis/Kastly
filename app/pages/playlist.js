@@ -57,6 +57,7 @@ class Playlist extends React.Component {
           </div>
           <div className="column is-full">
             <EpisodeList type="playlist"
+                         playlistId={this.state.playlist._id}
                          episodes={this.state.playlist.content}
                          owner={owner}/>
           </div>
