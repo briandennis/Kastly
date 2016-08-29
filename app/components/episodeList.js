@@ -58,13 +58,13 @@ class Episode extends React.Component {
     if (this.props.owner) {
       controls = (
         [<td className="buttonItem" key="button1">
-          <span className="icon"><i className="generalIcon fa fa-trash"></i></span>
+          <span className="icon" onClick={this.props.update.bind(null, this.props.index, 'delete')}><i className="generalIcon fa fa-trash"></i></span>
         </td>,
         <td className="buttonItem" key="button2">
-          <span className="icon"><i className="generalIcon fa fa-arrow-up"></i></span>
+          <span className="icon" onClick={this.props.update.bind(null, this.props.index, 'up')}><i className="generalIcon fa fa-arrow-up"></i></span>
         </td>,
         <td className="buttonItem" key="button3">
-          <span className="icon"><i className="generalIcon fa fa-arrow-down"></i></span>
+          <span className="icon" onClick={this.props.update.bind(null, this.props.index, 'down')}><i className="generalIcon fa fa-arrow-down"></i></span>
         </td>]
       );
     } else {
@@ -90,6 +90,10 @@ class Episode extends React.Component {
 
 const EpisodeList = (props) => {
 
+  function update (index, action) {
+    console.log(action);
+  }
+
   let owner = false;
   if (props.type === 'playlist' && props.owner === true) {
     owner = true;
@@ -98,11 +102,13 @@ const EpisodeList = (props) => {
   const episodes = props.episodes
     .map( (episode, index) => {
       return <Episode key={index}
+                      index={index}
                       type={props.type}
                       episode={episode}
                       playlists={props.playlists}
                       loggedIn={props.loggedIn}
-                      owner={owner}/>
+                      owner={owner}
+                      update={update}/>
     })
 
   return (

@@ -44,7 +44,7 @@ class Podcast extends React.Component {
                   <img className="logo" src={this.state.cast.image}></img>
               </div>
               <div className="column is-half titleContainer centerChildren">
-                <h2> {this.state.cast.name} </h2>
+                <h2> {this.state.cast.name}  +</h2>
                 <p> {this.state.cast.genre} </p>
               </div>
             </div>
