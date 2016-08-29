@@ -85,8 +85,8 @@ const EpisodeList = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    playlists: state.playlists.playlists
+    playlists: state.playlist.playlists
   };
-}
+};
 
 export default connect(mapStateToProps)(EpisodeList);
