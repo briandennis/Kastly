@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Podcast = require('./podcast');
+const Podcast = require('./podcast').schema;
 
 const EpisodeSchema = new Schema({
-  podcast: { type: Schema.ObjectId, ref: Podcast },
+  podcast: Podcast,
   description: { type: String, default: '' },
   title: { type: String, default: '' },
   date: { type: Date },
