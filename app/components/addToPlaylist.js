@@ -2,8 +2,9 @@ import React from 'react';
 
 const AddToPlaylist = (props) => {
 
-  function addToPlaylist(playlistId) {
-    console.log(playlistId.value);
+  function addToPlaylist(e) {
+    const playlistId = e.target.value;
+    console.log(playlistId);
   }
 
   const options = props.playlists.map( (playlist, index) => {
@@ -18,8 +19,8 @@ const AddToPlaylist = (props) => {
 
   return (
     <span className="select">
-      <select onChange={addToPlaylist}>
-        <option>Add to playlist...</option>
+      <select onChange={addToPlaylist} value={'default'}>
+        <option value="default">Add to playlist...</option>
         {options}
       </select>
     </span>
