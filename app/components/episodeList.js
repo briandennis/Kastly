@@ -58,6 +58,7 @@ class Episode extends React.Component {
         <td className="clickableTitle" onClick={this.showPreview}>
           <span className="flexItem">{this.props.episode.title}</span>
         </td>
+        <td> {this.props.episode.podcast.title} </td>
         <td> {formattedDate} {preview}</td>
         <td> <AddToPlaylist episode={this.props.episode}
                             playlists={this.props.playlists}

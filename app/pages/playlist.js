@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { PlaylistService } from './../providers/api.service';
 
 import EpisodeList from './../components/episodeList';
@@ -10,6 +11,7 @@ class Playlist extends React.Component {
 
     this.state = {
       playlist: null,
+      author: null,
       playlistNotFound: false
     };
   }
@@ -42,6 +44,9 @@ class Playlist extends React.Component {
       </div>
     );
     if (this.state.playlist) {
+      // check ownership
+      if (this.state.author.Id ===  )
+
       playlistPage = (
         <div className="columns is-multiline">
           <div className="column is-full">
