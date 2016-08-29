@@ -6,8 +6,10 @@ module.exports = (db) => {
     switch (req.method) {
       case 'POST':
         postHandler(req, res);
+        break;
       case 'GET':
         getHandler(req, res);
+        break;
     }
   }
 }
