@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import EpisodePreview from './episodePreview';
 import AddToPlaylist from './addToPlaylist';
@@ -82,4 +83,10 @@ const EpisodeList = (props) => {
   );
 };
 
-export default EpisodeList;
+const mapStateToProps = (state) => {
+  return {
+    playlists: state.playlists.playlists
+  };
+}
+
+export default connect(mapStateToProps)(EpisodeList);
