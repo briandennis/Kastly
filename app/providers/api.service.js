@@ -102,7 +102,7 @@ const playlistService = {
     });
   },
 
-  addTrack (playlistId, episode) {
+  addEpisode (playlistId, episode) {
     return new Promise ( (resolve, reject) => {
       if (playlistId && episode) {
         axios.post(`${host}/api/playlist/${playlistid}/episode`, episode)
