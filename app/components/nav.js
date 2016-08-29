@@ -88,9 +88,11 @@ class Nav extends React.Component {
       );
 
     } else {
+      console.log('Location ' + encodeURIComponent(window.location.pathname));
       loginButton = (
         <span className="nav-item">
-          <a className="button is-primary" href="/login/twitter">
+          <a className="button is-primary"
+             href={`/login/twitter?redirect=${encodeURIComponent(window.location.pathname)}`}>
             <span style={{marginRight: '10px'}} className="icon">
               <i className="fa fa-twitter"></i>
             </span>Log in
