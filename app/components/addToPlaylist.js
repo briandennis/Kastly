@@ -7,7 +7,6 @@ const AddToPlaylist = (props) => {
   function addToPlaylist(e) {
     const playlistId = e.target.value;
     PlaylistService.addEpisode(playlistId, props.episode)
-      .then()
       .catch(console.log);
   }
 

@@ -61,7 +61,7 @@ class Episode extends React.Component {
         <td> {formattedDate} {preview}</td>
         <td> <AddToPlaylist episode={this.props.episode}
                             playlists={this.props.playlists}
-                            loggedIn={this.props.loggedIn} /> </td>
+                            loggedIn={this.props.loggedIn}/> </td>
       </tr>
     );
   }

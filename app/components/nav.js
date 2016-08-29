@@ -1,7 +1,10 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { setPlaylists, fetchingPlaylists } from './../actions';
 import { Link } from 'react-router';
 import { PlaylistService } from './../providers/api.service';
+
 
 import PlaylistEditor from './playlistEditor.js';
 
@@ -42,6 +45,15 @@ class Nav extends React.Component {
       PlaylistService.create(playlist)
         .then( (createdPlaylist) => {
           console.log('Successfully added playlist!');
+          // set playlists
+          this.props.fetchingPlaylists();
+          axios.get(`/api/user/${this.props.user.id}/playlist`)
+            .then( (response) => {
+              this.props.setPlaylists(true, response.data);
+            })
+            .catch( (err) => {
+              this.props.setPlaylists(false, null, err);
+            });
         })
         .catch( (error) => {
           console.log('Failed ' + error);
@@ -141,4 +153,12 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps)(Nav);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    setPlaylists,
+    fetchingPlaylists
+  }, dispatch);
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);
