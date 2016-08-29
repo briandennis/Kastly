@@ -1,6 +1,7 @@
 import React from 'react';
 
 import EpisodePreview from './episodePreview';
+import AddToPlaylist from './addToPlaylist';
 
 class Episode extends React.Component {
 
@@ -57,6 +58,7 @@ class Episode extends React.Component {
           <span className="flexItem">{this.props.episode.title}</span>
         </td>
         <td> {formattedDate} {preview}</td>
+        <td> <AddToPlaylist /> </td>
       </tr>
     );
   }
@@ -66,7 +68,7 @@ const EpisodeList = (props) => {
 
   const episodes = props.episodes
     .map( (episode, index) => {
-      return <Episode key={index} episode={episode} />
+      return <Episode key={index} type={props.type} episode={episode} />
     })
 
   return (

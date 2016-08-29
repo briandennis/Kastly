@@ -51,7 +51,12 @@ const PodcastService = {
                   date,
                   title,
                   description,
-                  link: episode.enclosures ? episode.enclosures[0].url : []
+                  link: episode.enclosures ? episode.enclosures[0].url : [],
+                  podcast: {
+                    title: cast.collectionName,
+                    castId: cast.collectionId,
+                    image: cast.artworkUrl600 || cast.artworkUrl100
+                  }
                 };
               });
             };
@@ -93,6 +98,18 @@ const playlistService = {
           .catch(reject);
       } else {
         reject('Invalid playlist id.');
+      }
+    });
+  },
+
+  addTrack (playlistId, episode) {
+    return new Promise ( (resolve, reject) => {
+      if (playlistId && episode) {
+        axios.post(`${host}/api/playlist/${playlistid}/episode`, episode)
+          .then(resolve)
+          .catch(reject)
+      } else {
+        reject('Invalid playlist or episode.');
       }
     });
   }

@@ -40,8 +40,14 @@ body {
   margin-bottom: 20px;
 }
 
+table {
+  table-layout: fixed;
+}
+
 td {
+  width: 100%;
   vertical-align: middle;
+  text-align: center;
 }
 
 .clickableTitle {

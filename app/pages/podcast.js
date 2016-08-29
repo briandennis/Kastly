@@ -50,7 +50,7 @@ class Podcast extends React.Component {
             </div>
           </section>
           <section className="episodes">
-            <EpisodeList episodes={this.state.cast.episodes} />
+            <EpisodeList type="podcast" episodes={this.state.cast.episodes} />
           </section>
         </div>
       );
