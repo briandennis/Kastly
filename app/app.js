@@ -38,18 +38,6 @@ class App extends React.Component {
   }
 }
 
-/*const mapDispatchToProps = (dispatch) => {
-  return {
-    setUser (success, user) {
-      dispatch(Actions.setUser(success, user));
-    },
-
-    fetchingUser () {
-      dispatch(Actions.fetchingUser())
-    }
-  }
-}; */
-
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     setUser,
