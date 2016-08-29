@@ -69,7 +69,10 @@ const EpisodeList = (props) => {
 
   const episodes = props.episodes
     .map( (episode, index) => {
-      return <Episode key={index} type={props.type} episode={episode} />
+      return <Episode key={index}
+                      type={props.type}
+                      episode={episode}
+                      playlists={props.playlists} />
     })
 
   return (
