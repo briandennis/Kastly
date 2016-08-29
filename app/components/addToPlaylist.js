@@ -1,10 +1,14 @@
 import React from 'react';
 
+import { PlaylistService } from './../providers/api.service';
+
 const AddToPlaylist = (props) => {
 
   function addToPlaylist(e) {
     const playlistId = e.target.value;
-    console.log(playlistId);
+    PlaylistService.addEpisode(playlistId, props.episode)
+      .then()
+      .catch(console.log);
   }
 
   const options = props.playlists.map( (playlist, index) => {

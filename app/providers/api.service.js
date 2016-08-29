@@ -73,7 +73,7 @@ const PodcastService = {
   }
 };
 
-const playlistService = {
+const PlaylistService = {
   create (playlist) {
     return new Promise ( (resolve, reject) => {
       if (playlist && playlist.title && playlist.description) {
@@ -105,7 +105,7 @@ const playlistService = {
   addEpisode (playlistId, episode) {
     return new Promise ( (resolve, reject) => {
       if (playlistId && episode) {
-        axios.post(`${host}/api/playlist/${playlistid}/episode`, episode)
+        axios.post(`${host}/api/playlist/${playlistId}/episode`, episode)
           .then(resolve)
           .catch(reject)
       } else {
@@ -117,5 +117,5 @@ const playlistService = {
 
 export {
   PodcastService,
-  playlistService
+  PlaylistService
 };

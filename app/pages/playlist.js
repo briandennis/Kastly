@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { playlistService } from './../providers/api.service';
+import { PlaylistService } from './../providers/api.service';
 
 class Playlist extends React.Component {
 
@@ -14,7 +14,7 @@ class Playlist extends React.Component {
   }
 
   componentWillMount () {
-    playlistService.get(this.props.params.playlistId)
+    PlaylistService.get(this.props.params.playlistId)
       .then( (response) => {
         if (response.data) {
           this.setState({

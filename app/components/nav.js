@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { playlistService } from './../providers/api.service';
+import { PlaylistService } from './../providers/api.service';
 
 import PlaylistEditor from './playlistEditor.js';
 
@@ -39,7 +39,7 @@ class Nav extends React.Component {
       });
     } else {
       console.log('adding playlist...');
-      playlistService.create(playlist)
+      PlaylistService.create(playlist)
         .then( (createdPlaylist) => {
           console.log('Successfully added playlist!');
         })
