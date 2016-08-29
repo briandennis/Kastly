@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as Actions from './actions';
+import { setUser, fetchingUser, setPlaylists, fetchingPlaylists } from './actions';
 
 import Nav from './components/nav';
 
@@ -28,7 +28,7 @@ class App extends React.Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+/*const mapDispatchToProps = (dispatch) => {
   return {
     setUser (success, user) {
       dispatch(Actions.setUser(success, user));
@@ -38,6 +38,15 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(Actions.fetchingUser())
     }
   }
+}; */
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    setUser,
+    fetchingUser,
+    setPlaylists,
+    fetchingPlaylists
+  }, dispatch);
 };
 
 export default connect(null, mapDispatchToProps)(App);

@@ -24,7 +24,7 @@ export function setPlaylists(success, playlists, error) {
   if (success) {
     return {
       type: 'FETCH_PLAYLISTS_SUCCESS',
-      playlists:
+      playlists
     };
   } else {
     return {
