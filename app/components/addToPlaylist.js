@@ -2,17 +2,15 @@ import React from 'react';
 
 const AddToPlaylist = (props) => {
 
-  /*const options = props.playlists.map( (playlist) => {
+  const options = props.playlists.map( (playlist, index) => {
 
     let formattedTitle = playlist.title;
     if (playlist.title > 50) {
       formattedTitle = playlist.title.slice(0, 50);
     }
 
-    return <option> {formattedTitle} </option>;
-  }); */
-
-  const options = '';
+    return <option key ={index}> {formattedTitle} </option>;
+  });
 
   return (
     <span className="select">
