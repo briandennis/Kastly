@@ -88,6 +88,7 @@ const EpisodeList = (props) => {
 
 const mapStateToProps = (state) => {
   return {
+    loggedIn: !!state.user.user,
     playlists: state.playlist.playlists
   };
 };
