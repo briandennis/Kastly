@@ -4,7 +4,7 @@ const initialState = {
   error: ''
 };
 
-export default function user( state = initialState, action ) {
+export default function playlist( state = initialState, action ) {
 
   switch ( action.type ) {
 
