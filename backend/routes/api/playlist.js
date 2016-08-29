@@ -31,7 +31,7 @@ function postHandler (req, res) {
         res.status(500).send('Database error.');
       })
   } else {
-    badRequest();
+    badRequest(res);
   }
 }
 
@@ -60,6 +60,6 @@ function getHandler (req, res) {
   }
 }
 
-function badRequest () {
+function badRequest (res) {
   res.status(400).send('Bad request.');
 }
