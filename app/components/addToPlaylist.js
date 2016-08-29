@@ -21,13 +21,28 @@ const AddToPlaylist = (props) => {
     return <option value={playlist._id} key={index}> {formattedTitle} </option>;
   });
 
+  let component;
+  if (props.loggedIn) {
+    component = (
+      <span className="select">
+        <select onChange={addToPlaylist} value={'default'}>
+          <option value="default">Add to playlist...</option>
+          {options}
+        </select>
+      </span>
+    );
+  } else {
+    component = (
+      <a href="/login/twitter">
+        <button className="button is-primary"> Log in to add to Playlist </button>
+      </a>
+    );
+  }
+
   return (
-    <span className="select">
-      <select onChange={addToPlaylist} value={'default'}>
-        <option value="default">Add to playlist...</option>
-        {options}
-      </select>
-    </span>
+    <div>
+      {component}
+    </div>
   );
 }
 

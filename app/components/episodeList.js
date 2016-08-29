@@ -59,7 +59,9 @@ class Episode extends React.Component {
           <span className="flexItem">{this.props.episode.title}</span>
         </td>
         <td> {formattedDate} {preview}</td>
-        <td> <AddToPlaylist episode={this.props.episode} playlists={this.props.playlists} /> </td>
+        <td> <AddToPlaylist episode={this.props.episode}
+                            playlists={this.props.playlists}
+                            loggedIn={this.props.loggedIn} /> </td>
       </tr>
     );
   }
@@ -72,7 +74,8 @@ const EpisodeList = (props) => {
       return <Episode key={index}
                       type={props.type}
                       episode={episode}
-                      playlists={props.playlists} />
+                      playlists={props.playlists}
+                      loggedIn={props.loggedIn}/>
     })
 
   return (
