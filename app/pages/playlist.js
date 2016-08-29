@@ -1,6 +1,7 @@
 import React from 'react';
-
 import { PlaylistService } from './../providers/api.service';
+
+import EpisodeList from './../components/episodeList';
 
 class Playlist extends React.Component {
 
@@ -52,9 +53,12 @@ class Playlist extends React.Component {
                 <p>
                   {this.state.playlist.description}
                 </p>
-                {this.state.author.name}
               </div>
             </div>
+          </div>
+          <div className="column is-12">
+            <EpisodeList type="playlist"
+                         episodes={this.state.playlist.content} />
           </div>
         </div>
       );
