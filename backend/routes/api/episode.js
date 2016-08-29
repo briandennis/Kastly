@@ -1,5 +1,6 @@
 const Playlist = require('./../../../models/playlist');
 const Episode = require('./../../../models/episode');
+const Podcast = require('./../../../models/podcast');
 
 module.exports = (db) => {
   return (req, res) => {
@@ -34,13 +35,14 @@ function postHandler (req, res) {
         res.status(200).json(updatedPlaylist);
       })
       .catch( (error) => {
+        console.log(error);
         res.status(500).send(error);
       });
   } else {
-    badRequest();
+    badRequest(res);
   }
 }
 
-function badRequest () {
+function badRequest (res) {
   res.status(400).send('Bad request.');
 }
