@@ -42,11 +42,13 @@ class Playlist extends React.Component {
   }
 
   updatePlaylist (content, comments) {
+    console.log('sending!');
     PlaylistService.update(this.state.playlist._id, {
       content,
       comments
     })
       .then( (updatedPlaylist) => {
+        console.log('recieved!');
         this.setState({
           playlist: updatedPlaylist
         });
@@ -71,9 +73,11 @@ class Playlist extends React.Component {
       timestamp: (new Date()).getTime()
     };
 
-    console.log(newComment);
+    const updatedComments = this.state.playlist.comments;
+    updatedComments.push(newComment);
+    console.log(updatedComments);
 
-    this.updatePlaylist(null, null, this.state.playlist.comments.push(newComment));
+    this.updatePlaylist(null, updatedComments);
   }
 
   render () {

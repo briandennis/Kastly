@@ -9,7 +9,7 @@ function Comment (props) {
           <img src={props.comment.user.image} />
         </div>
         <p>
-          <Link to={`/profile/${props.user.id}`}>
+          <Link to={`/profile/${props.comment.user._id}`}>
             {props.comment.user.name}
           </Link>
         </p>
