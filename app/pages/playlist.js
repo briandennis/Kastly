@@ -71,7 +71,7 @@ class Playlist extends React.Component {
       timestamp: (new Date()).getTime()
     };
 
-    updatePlaylist(this, null, this.state.playlist.comments.push(newComment));
+    this.updatePlaylist(this, null, this.state.playlist.comments.push(newComment));
   }
 
   render () {
