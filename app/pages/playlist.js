@@ -74,7 +74,9 @@ class Playlist extends React.Component {
         <div className="columns is-multiline">
           <div className="column is-full">
             <h1>This is where the heading will go!</h1>
-            <PlaylistImage size={300} episodes={this.state.playlist.content} />
+            <div className="playlistImageLarge">
+              <PlaylistImage episodes={this.state.playlist.content} />
+            </div>
           </div>
           <div className="column is-full">
             <EpisodeList type="playlist"

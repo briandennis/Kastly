@@ -44,6 +44,31 @@ body {
   margin-bottom: 20px;
 }
 
+.playlistImageLarge {
+  height: 300px;
+  width:300px;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+// Playlist image class
+.playlistImageLarge {
+  height: 300px;
+  width: 300px;
+}
+.playlistImageMedium {
+  height: 150px;
+  width: 150px;
+}
+.playlistImageSmall {
+  height: 50px;
+  width: 50px;
+}
+
+
 table {
   table-layout: fixed;
 }

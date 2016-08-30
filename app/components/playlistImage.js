@@ -7,19 +7,21 @@ const PlaylistImage = (props) => {
     const uniqueLinks = [];
 
     episodes.forEach( (episode) => {
-      if (!podcastSet.has(episode.image)) {
-        podcastSet.set(episode.image, true);
-        uniqueLinks.push(episode.image);
+      if (!podcastSet.has(episode.podcast.image)) {
+        podcastSet.add(episode.podcast.image);
+        uniqueLinks.push(episode.podcast.image);
       }
     });
 
     let image = (
-      <div height={`${props.size}px`} width={`${props.size}px`}>
-        <img src="/static/img/defaultCastIcon.png" height="100%" width="100%"/>
+      <div>
+        <img src="/img/defaultCastIcon.png"/>
       </div>
     );
 
     switch (uniqueLinks.length) {
+      case 0:
+        break;
       case 1:
       case 2:
       case 3:
@@ -31,26 +33,28 @@ const PlaylistImage = (props) => {
 
     function single (imageLink) {
       return (
-        <div height={`${props.size}px`} width={`${props.size}px`}>
-          <img src={imageLink} height="100%" width="100%"/>
+        <div>
+          <img src={imageLink}/>
         </div>
       );
     }
 
     function quad (imageLinkArray) {
       return (
-        <div height={`${props.size}px`} width={`${props.size}px`}>
-          <div height="50%" width="100%">
-            <img src={imageLinkArray[0]} height="100%" width="50%" />
-            <img src={imageLinkArray[1]} height="100%" width="50%" />
+        <div className="playlistImageLarge quad">
+          <div>
+            <img src={imageLinkArray[0]} />
+            <img src={imageLinkArray[1]} />
           </div>
-          <div height="50%" width="100%">
-            <img src={imageLinkArray[2]} height="100%" width="50%" />
-            <img src={imageLinkArray[3]} height="100%" width="50%" />
+          <div>
+            <img src={imageLinkArray[2]} />
+            <img src={imageLinkArray[3]} />
           </div>
         </div>
       );
     }
+
+    return image;
   }
 
   return (
