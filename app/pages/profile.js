@@ -1,6 +1,7 @@
 import React from 'react'
-
 import { connect } from 'react-redux'
+import { PlaylistService, UserService } from './../providers/api.service';
+
 
 import MediaItemsContainer from './../components/mediaItemsContainer';
 import Spinner from 'react-spinkit';
@@ -26,9 +27,32 @@ class Profile extends React.Component {
         user: props.sessionUser,
         playlists: props.playlists
       })
-    } else {
+    } else if (props.params.userId) {
       console.log('Not same user!');
+      // get user
+      UserService.get(props.params.userId)
+        .then( (user) => {
+          this.setState({ user });
+        })
+        .catch( (error) => {
+          console.error(error);
+          this.setState({ bummer: true });
+        });
 
+      // get users playlists
+      PlaylistService.get()
+        .then( (playlists) => {
+          return playlists.filter( (playlist) => {
+            return playlist.authorId === props.params.userId;
+          })
+        })
+        .then( (userPlaylists) => {
+          this.setState({ playlists: userPlaylists });
+        })
+        .catch(console.error);
+        
+    } else {
+      this.setState({ bummer: true });
     }
   }
 
