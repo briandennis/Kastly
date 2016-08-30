@@ -1,6 +1,9 @@
 import React from 'react';
 import { PlaylistService } from './../providers/api.service';
 
+import MediaItemsContainer from './../components/mediaItemsContainer';
+import Spinner from 'react-spinner';
+
 class Playlists extends React.Component {
   constructor () {
     super();
@@ -19,15 +22,14 @@ class Playlists extends React.Component {
   }
 
   render () {
-    const playlists = this.state.playlists.map( (playlist, index) => {
-      return <p key={index}> {playlist.title} </p>;
-    });
+
+    let body = <Spinner />;
 
     return (
       <div>
         <h1> Playlist Page </h1>
         <div>
-          {playlists}
+          <MediaItemsContainer type="playlist" items={this.state.playlists} />
         </div>
       </div>
     )

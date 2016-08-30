@@ -62,7 +62,7 @@ class Discover extends React.Component {
           </div>
         </div>
         <div className="column">
-          <MediaItemsContainer callback={this.getCasts} casts={this.state.casts} />
+          <MediaItemsContainer type="podcast" items={this.state.casts} />
           {this.state.loading ? <Spinner /> : ''}
         </div>
       </div>
