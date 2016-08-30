@@ -73,7 +73,7 @@ class Playlist extends React.Component {
             <EpisodeList type="playlist"
                          playlistId={this.state.playlist._id}
                          episodes={this.state.playlist.content}
-                         updatePlaylist={updatePlaylist}
+                         updatePlaylist={this.updatePlaylist}
                          owner={owner}/>
           </div>
         </div>
