@@ -1,4 +1,5 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { PlaylistService } from './../providers/api.service';
 import { setPlaylists, fetchingPlaylists } from './../actions';
@@ -39,7 +40,7 @@ class Playlist extends React.Component {
       .catch( (error) => console.log(error));
   }
 
-  updatePlaylist (episodes) {
+  updatePlaylist (episodes, comments) {
     PlaylistService.update(this.state.playlist._id, {
       content: episodes
     })
@@ -47,6 +48,16 @@ class Playlist extends React.Component {
         this.setState({
           playlist: updatedPlaylist
         });
+      })
+      .then( () => {
+        this.props.fetchingPlaylists();
+        axios.get(`/api/user/${this.props.user._id}/playlist`)
+          .then( (response) => {
+            this.props.setPlaylists(true, response.data);
+          })
+          .catch( (err) => {
+            this.props.setPlaylists(false, null, err);
+          })
       })
       .catch(console.error);
   }
