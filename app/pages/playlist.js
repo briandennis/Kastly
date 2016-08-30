@@ -65,7 +65,6 @@ class Playlist extends React.Component {
   }
 
   addComment (commentText) {
-    console.log('it worked!');
     const newComment = {
       user: this.props.user,
       text: commentText,
@@ -74,7 +73,7 @@ class Playlist extends React.Component {
 
     console.log(newComment);
 
-    this.updatePlaylist(this, null, this.state.playlist.comments.push(newComment));
+    this.updatePlaylist(null, null, this.state.playlist.comments.push(newComment));
   }
 
   render () {
