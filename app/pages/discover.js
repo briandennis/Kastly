@@ -27,7 +27,6 @@ class Discover extends React.Component {
     this.setState({ loading: true });
     Api.search(query)
       .then( (casts) => {
-        console.log(casts);
         this.setState({ casts });
       })
       .catch( () => {
