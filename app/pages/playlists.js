@@ -6,13 +6,15 @@ class Playlists extends React.Component {
     super();
 
     this.state = {
-      playlists: [];
+      playlists: []
     }
   }
 
   componentWillMount () {
     PlaylistService.get()
       .then( (playlists) => {
+        console.log('got em!');
+        console.log(playlists);
         this.setState({ playlists });
       })
       .catch(console.error);
@@ -20,13 +22,15 @@ class Playlists extends React.Component {
 
   render () {
     const playlists = this.state.playlists.map( (playlist, index) => {
-      return <p key={index}> {playlist.name} </p>;
+      return <p key={index}> {playlist.title} </p>;
     });
 
     return (
-      <h1> Playlist Page </h1>
       <div>
-        {playlists}
+        <h1> Playlist Page </h1>
+        <div>
+          {playlists}
+        </div>
       </div>
     )
   }
