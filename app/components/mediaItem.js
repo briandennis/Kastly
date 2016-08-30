@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-function Podcast (props) {
+function MediaItem (props) {
 
   const handler = () => props.callback(props.cast.id);
 

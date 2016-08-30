@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Api from './../apiService.js';
 
 import SearchBox from './../components/search';
-import PlaylistsContainer from './../components/playlistsContainer';
+import MediaItem from './../components/mediaItem';
 import Spinner from 'react-spinner';
 
 require('./../index.scss');
@@ -61,7 +61,7 @@ class Discover extends React.Component {
           </div>
         </div>
         <div className="column">
-          <PlaylistsContainer callback={this.getCasts} casts={this.state.casts} />
+          <MediaItem callback={this.getCasts} casts={this.state.casts} />
           {this.state.loading ? <Spinner /> : ''}
         </div>
       </div>
