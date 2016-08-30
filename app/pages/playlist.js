@@ -24,14 +24,10 @@ class Playlist extends React.Component {
     PlaylistService.get(this.props.params.playlistId)
       .then( (response) => {
         if (response) {
-          console.log('made it here!');
-          console.log(response.playlist);
-          console.log(response.author);
           this.setState({
             playlist: response.playlist,
             author: response.author
           }, () => {
-            console.log('Successfully set state?');
           });
         } else {
           this.setState({

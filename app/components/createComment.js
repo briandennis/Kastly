@@ -14,10 +14,10 @@ class CreateComment extends React.Component {
     this.updateForm = this.updateForm.bind(this);
   }
 
-  validate (e) => {
+  validate (e) {
     if (e.preventDefault) e.preventDefault();
 
-    if (this.content && this.content.length < 250) {
+    if (this.state.content && this.state.content.length < 250) {
       this.props.submitComment(this.content);
     } else {
       this.setState({ error: true });
@@ -28,7 +28,7 @@ class CreateComment extends React.Component {
     this.setState({ content: e.target.value });
   }
 
-  render (
+  render () {
 
     return (
       <div>
@@ -46,7 +46,9 @@ class CreateComment extends React.Component {
           </p>
           {
             this.state.error
-            ? <span className="help is-danger">This email is invalid</span>
+            ? (
+              <span className="help is-danger">Comment is required and must be less than 250 characters.</span>
+            )
             : ''
           }
           <div className="control">
@@ -55,7 +57,7 @@ class CreateComment extends React.Component {
         </form>
       </div>
     );
-  );
+  }
 }
 
 export default CreateComment;
