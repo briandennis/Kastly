@@ -22,7 +22,7 @@ function postHandler (req, res) {
     const data = req.body;
     const playlist = new Playlist({
       title: data.title,
-      description: data.title,
+      description: data.description,
       date: new Date(),
       authorId: req.session.user._id
     });
