@@ -90,6 +90,20 @@ const PlaylistService = {
     });
   },
 
+  update (playlistId, episodes) {
+    return new Promise ( (resolve, reject) => {
+      if (playlistId && episodes) {
+        axios.put(`${host}/api/playlist/${playlistId}`, {
+          content: episodes
+        })
+          .then (resolve)
+          .catch(reject);
+      } else {
+        reject('Invalid playlist or episodes.');
+      }
+    });
+  },
+
   get (playlistId) {
     return new Promise ( (resolve, reject) => {
       if (playlistId) {
