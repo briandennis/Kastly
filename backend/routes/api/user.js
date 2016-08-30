@@ -1,3 +1,5 @@
+const User = require('./../../../models/user');
+
 module.exports = function (req, res, next) {
   if ( !req.params.userId ) {
     if (req.session.user) {
@@ -6,6 +8,11 @@ module.exports = function (req, res, next) {
     } else {
       res.status(200).json(null);
     }
+  } else {
+    User.findOne({ _id: req.params.userId })
+      .then( (user) => {
+        res.status(200).json(user);
+      });
   }
 };
 
