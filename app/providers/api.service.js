@@ -145,7 +145,28 @@ const PlaylistService = {
   }
 }
 
+const UserService = {
+  get(userId) {
+    return new Promise ( (resolve, reject) => {
+      if (userId) {
+        axios.get(`${host}/api/user/${userId}`)
+          .then( (result) => {
+            if (result.data) {
+              resolve(result.data);
+            } else {
+              throw 'Error fetching user';
+            }
+          })
+          .catch(reject);
+      } else {
+        reject('Invalid user ID.');
+      }
+    });
+  }
+}
+
 export {
   PodcastService,
-  PlaylistService
+  PlaylistService,
+  UserService
 };

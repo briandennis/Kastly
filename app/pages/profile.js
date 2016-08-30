@@ -11,7 +11,9 @@ class Profile extends React.Component {
     super()
 
     this.state = {
-      user: null
+      user: null,
+      playlists: [],
+      bummer: false
     };
 
     this.setUser = this.setUser.bind(this);
