@@ -11,6 +11,7 @@ import Home from './pages/home';
 import Podcast from './pages/podcast';
 import Profile from './pages/profile';
 import Playlist from './pages/playlist';
+import Playlists from './pages/playlists';
 
 const entryNode = document.getElementById('app');
 
@@ -25,6 +26,7 @@ ReactDOM.render(
         <Route path="discover" component={Discover}></Route>
         <Route path="profile/:userId" component={Profile}></Route>
         <Route path="playlist/:playlistId" component={Playlist}></Route>
+        <Route path="playlists" component={Playlists}></Route>
       </Route>
     </Router>
   </Provider>,
