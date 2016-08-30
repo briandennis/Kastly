@@ -6,12 +6,10 @@ function MediaItem (props) {
   const handler = () => props.callback(props.item.id);
 
   return (
-    <div className="column" onClick={handler}>
+    <div className="mediaItem column" onClick={handler}>
       <div className="card">
         <div className="card-image">
-          <figure className="image is-1by1">
-            {props.item.image}
-          </figure>
+          {props.item.image}
         </div>
         <div className="card-content">
           <div className="content">

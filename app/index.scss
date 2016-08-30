@@ -153,6 +153,12 @@ label.label {
   width: 100vw;
 }
 
+.mediaItem {
+  margin-bottom: 50px;
+
+  display: flex;
+  justify-content: center;
+}
 .react-spinner {
   position: relative;
   width: 32px;
