@@ -94,7 +94,9 @@ const PlaylistService = {
     return new Promise ( (resolve, reject) => {
       if (playlistId && update) {
         axios.put(`${host}/api/playlist/${playlistId}`, update)
-          .then (resolve)
+          .then ( (result) => {
+            resolve(result.data);
+          })
           .catch(reject);
       } else {
         reject('Invalid playlist or episodes.');

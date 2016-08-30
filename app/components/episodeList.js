@@ -92,7 +92,6 @@ const EpisodeList = (props) => {
 
   function updateEpisodes (index, action) {
     let episodes = props.episodes;
-    console.log(episodes.length);
     switch (action) {
       case 'delete':
         episodes.splice(index, 1);
@@ -102,7 +101,7 @@ const EpisodeList = (props) => {
         if (index !== 0) {
           let episode = episodes.splice(index, 1);
           let before = episodes.slice(0, index - 1);
-          let ater = episodes.slice(index);
+          let after = episodes.slice(index);
           episodes = [...before, episode, ...after];
           props.updatePlaylist(episodes);
         }
@@ -111,7 +110,7 @@ const EpisodeList = (props) => {
         if (index < episodes.length - 1) {
           let episode = episodes.splice(index, 1);
           let before = episodes.slice(0, index + 1);
-          let ater = episodes.slice(index + 1);
+          let after = episodes.slice(index + 1);
           episodes = [...before, episode, ...after];
           props.updatePlaylist(episodes);
         }
