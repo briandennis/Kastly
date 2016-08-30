@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { PlaylistService } from './../providers/api.service';
+import { setPlaylists, fetchingPlaylists } from './../actions';
 
 import EpisodeList from './../components/episodeList';
 import PlaylistImage from './../components/playlistImage.js';
@@ -103,4 +104,11 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps)(Playlist);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    setPlaylists,
+    fetchingPlaylists
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Playlist);
