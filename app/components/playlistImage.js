@@ -55,7 +55,7 @@ const PlaylistImage = (props) => {
 
   return (
     <div>
-      {getUnique(props.episode)}
+      {getUnique(props.episodes)}
     </div>
   );
 }

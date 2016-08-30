@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { PlaylistService } from './../providers/api.service';
 
 import EpisodeList from './../components/episodeList';
+import PlaylistImage from './../components/playlistImage.js'
 
 class Playlist extends React.Component {
 
@@ -73,6 +74,7 @@ class Playlist extends React.Component {
         <div className="columns is-multiline">
           <div className="column is-full">
             <h1>This is where the heading will go!</h1>
+            <PlaylistImage size={300} episodes={this.state.playlist.content} />
           </div>
           <div className="column is-full">
             <EpisodeList type="playlist"
