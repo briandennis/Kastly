@@ -92,7 +92,7 @@ const PlaylistService = {
 
   update (playlistId, update) {
     return new Promise ( (resolve, reject) => {
-      if (playlistId && episodes) {
+      if (playlistId && update) {
         axios.put(`${host}/api/playlist/${playlistId}`, update)
           .then (resolve)
           .catch(reject);

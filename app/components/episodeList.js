@@ -92,6 +92,7 @@ const EpisodeList = (props) => {
 
   function updateEpisodes (index, action) {
     let episodes = props.episodes;
+    console.log(episodes.length);
     switch (action) {
       case 'delete':
         episodes.splice(index, 1);

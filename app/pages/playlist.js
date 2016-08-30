@@ -36,7 +36,7 @@ class Playlist extends React.Component {
   }
 
   updatePlaylist (episodes) {
-    playlistService.update(this.state.playlist._id, {
+    PlaylistService.update(this.state.playlist._id, {
       content: episodes
     })
       .then( (updatedPlaylist) => {
@@ -44,7 +44,7 @@ class Playlist extends React.Component {
           playlist: updatedPlaylist
         });
       })
-      .catch(alert);
+      .catch(console.error);
   }
 
   render () {
