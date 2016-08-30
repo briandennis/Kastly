@@ -7,6 +7,9 @@ module.exports = (db) => {
       case 'POST':
         postHandler(req, res);
         break;
+      case 'PUT':
+        putHandler(req, res);
+        break;
       case 'GET':
         getHandler(req, res);
         break;
@@ -30,6 +33,26 @@ function postHandler (req, res) {
       .catch( (error) => {
         res.status(500).send('Database error.');
       })
+  } else {
+    badRequest(res);
+  }
+}
+
+function putHandler (req, res) {
+  if (req.params.playlistId && req.body) {
+    Playlist.findOne({ _id: req.params.playlistId })
+      .then( (playlist) => {
+        if (req.body.content) {
+          playlist.content = req.body.content;
+        }
+        return playlist.save()
+      })
+      .then( (updatedPlaylist) => {
+        res.status(200).json(updatedPlaylist);
+      })
+      .catch( (error) => {
+        res.status(500).json(error);
+      });
   } else {
     badRequest(res);
   }
