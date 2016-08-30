@@ -6,15 +6,15 @@ function Comment (props) {
     <div className="comment">
       <div className="commentHeading">
         <div>
-          <img src={props.user.image} />
+          <img src={props.comment.user.image} />
         </div>
         <p>
           <Link to={`/profile/${props.user.id}`}>
-            {props.user.name}
+            {props.comment.user.name}
           </Link>
         </p>
         <p>
-          {props.timestamp}
+          {props.comment.timestamp}
         </p>
       </div>
       <div className="commentBody">
