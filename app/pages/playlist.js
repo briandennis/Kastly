@@ -97,10 +97,19 @@ class Playlist extends React.Component {
         owner = true;
       };
 
+      // check if user liked the playlist
+      let liked = true;
+      if (this.props.user) {
+        liked = this.state.playlist.likes.indexOf(this.props.user._id) !== -1;
+      }
+
       playlistPage = (
         <div className="columns is-multiline">
           <div className="column is-full">
             <h1>This is where the heading will go!</h1>
+            <Like loggedIn={!!this.props.user}
+                  count={this.state.playlist.likes.count}
+                  liked={liked} />
             <div>
               <PlaylistImage size="Large" episodes={this.state.playlist.content} />
             </div>

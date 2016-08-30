@@ -25,4 +25,4 @@ function Likes (props) {
   );
 }
 
-export default Like;
+export default Likes;
