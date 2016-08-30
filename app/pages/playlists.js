@@ -13,8 +13,6 @@ class Playlists extends React.Component {
   componentWillMount () {
     PlaylistService.get()
       .then( (playlists) => {
-        console.log('got em!');
-        console.log(playlists);
         this.setState({ playlists });
       })
       .catch(console.error);
