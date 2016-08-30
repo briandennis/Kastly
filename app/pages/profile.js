@@ -17,16 +17,11 @@ class Profile extends React.Component {
   }
 
   setUser (props) {
-
-    if (props.sessionUser) {
-      console.log('Session user id: ' + props.sessionUser.id);
-      console.log('Wanted user id: ' + props.params.userId);
-    }
-
     if( props.sessionUser
         && props.params.userId == props.sessionUser.id) {
       this.setState({
         user: props.sessionUser
+        playlists:
       })
     } else {
       console.log('Not same user!');
@@ -67,7 +62,8 @@ class Profile extends React.Component {
 
 const mapStateToProps = function (state) {
   return {
-    sessionUser: state.user.user
+    sessionUser: state.user.user,
+    playlists: state.playlist.playlists
   };
 };
 
