@@ -151,11 +151,7 @@ const UserService = {
       if (userId) {
         axios.get(`${host}/api/user/${userId}`)
           .then( (result) => {
-            if (result.data) {
-              resolve(result.data);
-            } else {
-              throw 'Error fetching user';
-            }
+            resolve(result.data);
           })
           .catch(reject);
       } else {

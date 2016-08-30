@@ -26,12 +26,13 @@ class Profile extends React.Component {
       this.setState({
         user: props.sessionUser,
         playlists: props.playlists
-      })
+      });
     } else if (props.params.userId) {
       console.log('Not same user!');
       // get user
       UserService.get(props.params.userId)
         .then( (user) => {
+          console.log('got the user!');
           this.setState({ user });
         })
         .catch( (error) => {
@@ -50,7 +51,7 @@ class Profile extends React.Component {
           this.setState({ playlists: userPlaylists });
         })
         .catch(console.error);
-        
+
     } else {
       this.setState({ bummer: true });
     }

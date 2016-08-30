@@ -4,7 +4,7 @@ module.exports = (req, res, next) => {
   req.logout();
 
   // destroy session
-  req.session.destroy();
-
-  res.redirect('/');
+  req.session.destroy( () => {
+    res.redirect('/');
+  });
 }

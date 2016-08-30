@@ -2,6 +2,7 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { setUser, fetchingUser, setPlaylists, fetchingPlaylists } from './actions';
+import { UserService, PlaylistService } from './providers/api.service';
 
 import Nav from './components/nav';
 
@@ -15,17 +16,42 @@ class App extends React.Component {
       .then( (response) => {
         this.props.setUser(true, response.data);
         // set playlists
-        this.props.fetchingPlaylists();
-        axios.get(`/api/user/${response.data._id}/playlist`)
-          .then( (response) => {
-            this.props.setPlaylists(true, response.data);
-          })
-          .catch( (err) => {
-            this.props.setPlaylists(false, null, err);
-          })
+        if (response.data !== null) {
+          this.props.fetchingPlaylists();
+          axios.get(`/api/user/${response.data._id}/playlist`)
+            .then( (response) => {
+              this.props.setPlaylists(true, response.data);
+            })
+            .catch( (err) => {
+              this.props.setPlaylists(false, null, err);
+            })
+        }
       }).catch( (err) => {
         this.props.setUser(false, null, err);
       });
+
+    /*this.props.fetchingUser();
+    let user = null;
+    UserService.get()
+      .then( (user) => {
+        this.props.setUser(true, response.data);
+        user = response.data;
+        return PlaylistService.get();
+      })
+      .then( (playlists) => {
+        if (user) {
+          const userPlaylists = playlists.filter( (playlist => {
+            return playlist.authorId === user._id;
+          }));
+          this.props.setPlaylists(true, userPlaylists);
+        } else {
+          this.props.setPlaylists(true, []);
+        }
+      })
+      .catch( (err) => {
+        this.props.setUser(false, null, err);
+        this.props.setPlaylists(false, null);
+      }); */
   }
 
   render() {

@@ -8,6 +8,8 @@ import Login from './../components/login';
 
 const home = (props) => {
 
+  console.log('User: ' + props.user);
+
   const message = props.user
                   ? <p> You are logged in as {props.user.name} </p>
                   : '';
