@@ -48,6 +48,9 @@ function putHandler (req, res) {
         if (req.body.content) {
           playlist.content = req.body.content;
         }
+        if (req.body.comments) {
+          playlist.comments = req.body.comments;
+        }
         return playlist.save()
       })
       .then( (updatedPlaylist) => {
