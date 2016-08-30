@@ -19,6 +19,15 @@ class Playlists extends React.Component {
   }
 
   render () {
-    
+    const playlists = this.state.playlists.map( (playlist, index) => {
+      return <p key={index}> {playlist.name} </p>;
+    });
+
+    return (
+      <h1> Playlist Page </h1>
+      <div>
+        {playlists}
+      </div>
+    )
   }
 }
