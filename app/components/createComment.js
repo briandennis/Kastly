@@ -19,6 +19,7 @@ class CreateComment extends React.Component {
 
     if (this.state.content && this.state.content.length < 250) {
       this.props.submitComment(this.state.content);
+      this.state.content = '';
     } else {
       this.setState({ error: true });
     }

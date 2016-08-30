@@ -6,7 +6,7 @@ import CreateComment from './createComment';
 
 function CommentsContainer (props) {
 
-  const comments = props.playlist.comments.map( (comment, index) => {
+  const comments = props.playlist.comments.reverse().map( (comment, index) => {
     return <Comment key={index} comment={comment} />;
   });
 
