@@ -20,6 +20,7 @@ class Playlist extends React.Component {
     };
 
     this.updatePlaylist = this.updatePlaylist.bind(this);
+    this.addComment = this.addComment.bind(this);
   }
 
   componentWillMount () {
@@ -40,9 +41,10 @@ class Playlist extends React.Component {
       .catch( (error) => console.log(error));
   }
 
-  updatePlaylist (episodes, comments) {
+  updatePlaylist (content, comments) {
     PlaylistService.update(this.state.playlist._id, {
-      content: episodes
+      content,
+      comments
     })
       .then( (updatedPlaylist) => {
         this.setState({
@@ -60,6 +62,16 @@ class Playlist extends React.Component {
           })
       })
       .catch(console.error);
+  }
+
+  addComment (commentText) {
+    const newComment = {
+      user: this.props.user,
+      text: commentText,
+      timestamp: (new Date()).getTime()
+    };
+
+    updatePlaylist(this, null, this.state.playlist.comments.push(newComment));
   }
 
   render () {
@@ -95,7 +107,8 @@ class Playlist extends React.Component {
                          owner={owner}/>
           </div>
           <div className="column is-full">
-            <CommentsContainer playlist={this.state.playlist} />
+            <CommentsContainer playlist={this.state.playlist}
+                               submitComment={this.addComment} />
           </div>
         </div>
       );

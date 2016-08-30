@@ -17,7 +17,7 @@ function CommentsContainer (props) {
         {comments}
       </div>
       <div>
-        <CreateComment submitComment={console.log}/>
+        <CreateComment submitComment={this.props.submitComment}/>
       </div>
     </div>
   );
