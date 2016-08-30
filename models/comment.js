@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const findOrCreate = require('mongoose-findorcreate');
-const User = require('./user');
+const User = require('./user').schema;
 
 const CommentSchema = new Schema({
   user: User,
