@@ -18,7 +18,6 @@ module.exports = (db) => {
 }
 
 function postHandler (req, res) {
-  console.log('Woah, shouldnt be here!');
   if (!req.params.playlistId && req.session.user) {
     const data = req.body;
     const playlist = new Playlist({
