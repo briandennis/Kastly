@@ -21,7 +21,7 @@ function MediaItemsContainer(props) {
         id: curr._id,
         name: curr.title,
         image: <PlaylistImage size="Large" episodes={curr.content} />,
-        url: `/playlist/${curr._id}`
+        link: `/playlist/${curr._id}`
       };
 
       return <MediaItem key={item.key} item={item} />;
@@ -35,7 +35,7 @@ function MediaItemsContainer(props) {
         id: curr.id,
         name: curr.title,
         image: <img src={curr.logo} />,
-        url: curr.feed,
+        link: `/podcast/${curr.id}`,
       };
 
       return <MediaItem key={item.key} item={item} />;

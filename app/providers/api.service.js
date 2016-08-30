@@ -18,7 +18,7 @@ const getCastsFromFeed = (url) => {
 
 const PodcastService = {
 
-  get ( podcastId ) {
+  get (podcastId) {
     const getEpisodes = (cast) => {
       return new Promise( (resolve) => {
         getCastsFromFeed(cast.feedUrl)
