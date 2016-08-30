@@ -14,10 +14,10 @@ function CreateComment (props) {
     <div>
       <form onSubmit={validate}>
         <label className="label">New Comment</label>
-        <p class="control">
-          <textarea name="content" class="textarea" placeholder="Textarea"></textarea>
+        <p className="control">
+          <textarea name="content" className="textarea" placeholder="Textarea"></textarea>
         </p>
-        <div class="control">
+        <div className="control">
           <button className="button is-primary">Submit</button>
         </div>
       </form>
