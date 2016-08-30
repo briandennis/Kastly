@@ -90,12 +90,10 @@ const PlaylistService = {
     });
   },
 
-  update (playlistId, episodes) {
+  update (playlistId, update) {
     return new Promise ( (resolve, reject) => {
       if (playlistId && episodes) {
-        axios.put(`${host}/api/playlist/${playlistId}`, {
-          content: episodes
-        })
+        axios.put(`${host}/api/playlist/${playlistId}`, update)
           .then (resolve)
           .catch(reject);
       } else {

@@ -14,6 +14,8 @@ class Playlist extends React.Component {
       author: null,
       playlistNotFound: false
     };
+
+    this.updatePlaylist = this.updatePlaylist.bind(this);
   }
 
   componentWillMount () {
@@ -34,7 +36,15 @@ class Playlist extends React.Component {
   }
 
   updatePlaylist (episodes) {
-
+    playlistService.update(this.state.playlist._id, {
+      content: episodes
+    })
+      .then( (updatedPlaylist) => {
+        this.setState({
+          playlist: updatedPlaylist
+        });
+      })
+      .catch(alert);
   }
 
   render () {
