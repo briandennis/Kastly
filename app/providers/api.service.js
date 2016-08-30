@@ -119,7 +119,15 @@ const PlaylistService = {
             reject(error);
           });
       } else {
-        reject('Invalid playlist id.');
+        axios.get(`${host}/api/playlist/`)
+          .then( (result) => {
+            if (result.data) {
+              resolve(result.data);
+            } else {
+              resolve([]);
+            }
+          })
+          .catch(reject);
       }
     });
   },
