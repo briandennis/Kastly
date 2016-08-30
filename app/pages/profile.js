@@ -2,6 +2,7 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
+import MediaItemsContainer from './../components/mediaItemsContainer';
 import Spinner from 'react-spinkit';
 
 class Profile extends React.Component {
@@ -20,11 +21,12 @@ class Profile extends React.Component {
     if( props.sessionUser
         && props.params.userId == props.sessionUser.id) {
       this.setState({
-        user: props.sessionUser
-        playlists:
+        user: props.sessionUser,
+        playlists: props.playlists
       })
     } else {
       console.log('Not same user!');
+
     }
   }
 
@@ -51,6 +53,9 @@ class Profile extends React.Component {
           <div className="title">
             <img src={this.state.user.image} />
             <h1>{this.state.user.name}</h1>
+          </div>
+          <div>
+            <MediaItemsContainer type="playlist" items={this.state.playlists} />
           </div>
         </div>
       );
