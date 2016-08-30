@@ -16,9 +16,15 @@ function CommentsContainer (props) {
       <div>
         {comments}
       </div>
-      <div>
-        <CreateComment submitComment={props.submitComment}/>
-      </div>
+      {
+        props.loggedIn
+        ? (
+          <div>
+            <CreateComment submitComment={props.submitComment}/>
+          </div>
+        )
+        : ''
+      }
     </div>
   );
 }

@@ -65,11 +65,14 @@ class Playlist extends React.Component {
   }
 
   addComment (commentText) {
+    console.log('it worked!');
     const newComment = {
       user: this.props.user,
       text: commentText,
       timestamp: (new Date()).getTime()
     };
+
+    console.log(newComment);
 
     this.updatePlaylist(this, null, this.state.playlist.comments.push(newComment));
   }
@@ -108,7 +111,8 @@ class Playlist extends React.Component {
           </div>
           <div className="column is-full">
             <CommentsContainer playlist={this.state.playlist}
-                               submitComment={this.addComment} />
+                               submitComment={this.addComment}
+                               loggedIn={!!this.props.user}/>
           </div>
         </div>
       );
