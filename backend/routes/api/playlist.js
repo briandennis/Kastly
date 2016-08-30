@@ -43,6 +43,9 @@ function putHandler (req, res) {
   if (req.params.playlistId && req.body) {
     Playlist.findOne({ _id: req.params.playlistId })
       .then( (playlist) => {
+        if (playlist.authorId !== req.session.user._id) {
+          res.status(403).send();
+        }
         if (req.body.content) {
           playlist.content = req.body.content;
         }
