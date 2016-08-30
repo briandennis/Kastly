@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { PlaylistService } from './../providers/api.service';
 
 import EpisodeList from './../components/episodeList';
-import PlaylistImage from './../components/playlistImage.js'
+import PlaylistImage from './../components/playlistImage.js';
+import CommentsContainer from './../components/commentsContainer';
 
 class Playlist extends React.Component {
 
@@ -84,6 +85,9 @@ class Playlist extends React.Component {
                          episodes={this.state.playlist.content}
                          updatePlaylist={this.updatePlaylist}
                          owner={owner}/>
+          </div>
+          <div className="column is-full">
+            <CommentsContainer playlist={this.state.playlist} />
           </div>
         </div>
       );
