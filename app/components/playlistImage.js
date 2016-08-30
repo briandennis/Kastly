@@ -14,7 +14,7 @@ const PlaylistImage = (props) => {
     });
 
     let image = (
-      <div>
+      <div className={`playlistImage${props.size} single`}>
         <img src="/img/defaultCastIcon.png"/>
       </div>
     );
@@ -33,7 +33,7 @@ const PlaylistImage = (props) => {
 
     function single (imageLink) {
       return (
-        <div>
+        <div className={`playlistImage${props.size} single`}>
           <img src={imageLink}/>
         </div>
       );
@@ -41,7 +41,7 @@ const PlaylistImage = (props) => {
 
     function quad (imageLinkArray) {
       return (
-        <div className="playlistImageLarge quad">
+        <div className={`playlistImage${props.size} quad`}>
           <div>
             <img src={imageLinkArray[0]} />
             <img src={imageLinkArray[1]} />

@@ -75,7 +75,7 @@ class Playlist extends React.Component {
           <div className="column is-full">
             <h1>This is where the heading will go!</h1>
             <div>
-              <PlaylistImage episodes={this.state.playlist.content} />
+              <PlaylistImage size="Large" episodes={this.state.playlist.content} />
             </div>
           </div>
           <div className="column is-full">
