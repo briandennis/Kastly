@@ -101,8 +101,8 @@ const EpisodeList = (props) => {
         if (index !== 0) {
           let episode = episodes.splice(index, 1);
           let before = episodes.slice(0, index - 1);
-          let after = episodes.slice(index);
-          episodes = [...before, episode, ...after];
+          let after = episodes.slice(index - 1);
+          episodes = [...before, ...episode, ...after];
           props.updatePlaylist(episodes);
         }
         break;
@@ -111,7 +111,7 @@ const EpisodeList = (props) => {
           let episode = episodes.splice(index, 1);
           let before = episodes.slice(0, index + 1);
           let after = episodes.slice(index + 1);
-          episodes = [...before, episode, ...after];
+          episodes = [...before, ...episode, ...after];
           props.updatePlaylist(episodes);
         }
     }

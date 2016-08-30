@@ -105,17 +105,23 @@ const PlaylistService = {
   },
 
   get (playlistId) {
+    console.log('Trying!');
     return new Promise ( (resolve, reject) => {
       if (playlistId) {
         axios.get(`${host}/api/playlist/${playlistId}`)
           .then( (result) => {
             if (result.data) {
+              console.log('Welp, Im here');
               resolve(result.data);
             } else {
+              console.log('error here!');
               reject();
             }
           })
-          .catch(reject);
+          .catch( (error) => {
+            console.log('Error in api!');
+            reject(error);
+          });
       } else {
         reject('Invalid playlist id.');
       }
