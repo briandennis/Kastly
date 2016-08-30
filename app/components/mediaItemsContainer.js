@@ -1,6 +1,7 @@
 import React from 'react';
 
 import MediaItem from './mediaItem';
+import PlaylistImage from './playlistImage';
 
 function MediaItemsContainer(props) {
 
@@ -19,7 +20,7 @@ function MediaItemsContainer(props) {
         key: index,
         id: curr._id,
         name: curr.title,
-        image: curr.image,
+        image: <PlaylistImage size="Large" episodes={curr.content} />,
         url: `/playlist/${curr._id}`
       };
 
@@ -33,7 +34,7 @@ function MediaItemsContainer(props) {
         key: index,
         id: curr.id,
         name: curr.title,
-        image: curr.logo,
+        image: <img src={curr.logo} />,
         url: curr.feed,
       };
 
