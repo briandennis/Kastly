@@ -12,7 +12,6 @@ function CommentsContainer (props) {
 
   return (
     <div className="playlistContainer">
-      <p>Hello, world!</p>
       <div>
         {comments}
       </div>
