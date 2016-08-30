@@ -5,8 +5,9 @@ import { PlaylistService } from './../providers/api.service';
 import { setPlaylists, fetchingPlaylists } from './../actions';
 
 import EpisodeList from './../components/episodeList';
-import PlaylistImage from './../components/playlistImage.js';
+import PlaylistImage from './../components/playlistImage';
 import CommentsContainer from './../components/commentsContainer';
+import Likes from './../components/likes';
 
 class Playlist extends React.Component {
 
@@ -107,7 +108,7 @@ class Playlist extends React.Component {
         <div className="columns is-multiline">
           <div className="column is-full">
             <h1>This is where the heading will go!</h1>
-            <Like loggedIn={!!this.props.user}
+            <Likes loggedIn={!!this.props.user}
                   count={this.state.playlist.likes.count}
                   liked={liked} />
             <div>
