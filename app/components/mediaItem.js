@@ -25,24 +25,4 @@ function MediaItem (props) {
   );
 }
 
-export default function PlaylistsContainer(props) {
-  const playlists = props.casts.map((curr, index) => {
-    const cast =  {
-      key: index,
-      id: curr.id,
-      name: curr.title,
-      image: curr.logo,
-      url: curr.feed,
-    };
-
-    return <Podcast key={cast.key} cast={cast} callback={props.callback} />;
-  });
-
-  return (
-    <div id="playlistContainer" className="columns is-multiline">
-      {playlists}
-    </div>
-  );
-}
-
-PlaylistsContainer.propTypes = { playlists: React.PropTypes.array };
+export default MediaItem;

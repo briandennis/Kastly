@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Api from './../apiService.js';
 
 import SearchBox from './../components/search';
-import MediaItem from './../components/mediaItem';
+import MediaItemsContainer from './../components/mediaItemsContainer';
 import Spinner from 'react-spinner';
 
 require('./../index.scss');
@@ -27,6 +27,7 @@ class Discover extends React.Component {
     this.setState({ loading: true });
     Api.search(query)
       .then( (casts) => {
+        console.log(casts);
         this.setState({ casts });
       })
       .catch( () => {
@@ -61,7 +62,7 @@ class Discover extends React.Component {
           </div>
         </div>
         <div className="column">
-          <MediaItem callback={this.getCasts} casts={this.state.casts} />
+          <MediaItemsContainer callback={this.getCasts} casts={this.state.casts} />
           {this.state.loading ? <Spinner /> : ''}
         </div>
       </div>
