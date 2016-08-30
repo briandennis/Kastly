@@ -21,10 +21,10 @@ class Playlist extends React.Component {
   componentWillMount () {
     PlaylistService.get(this.props.params.playlistId)
       .then( (response) => {
-        if (response.data) {
+        if (response) {
           this.setState({
-            playlist: response.data.playlist,
-            author: response.data.author
+            playlist: response.playlist,
+            author: response.author
           });
         } else {
           this.setState({
