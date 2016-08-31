@@ -121,20 +121,26 @@ class Playlist extends React.Component {
       */
 
       playlistPage = (
-        <div className="columns is-multiline">
-          <div className="column is-full">
-            <h1>This is where the heading will go!</h1>
-            <div>
-              <PlaylistImage size="Large" episodes={this.state.playlist.content} />
+        <div className="media-page">
+          <section className="heading centerChildren">
+            <div className="columns headingContainer">
+              <div className="column is-half logoContainer">
+                <PlaylistImage size="Large" episodes={this.state.playlist.content} />
+              </div>
+              <div className="column is-half titleContainer centerChildren">
+                <h2> {this.state.playlist.title}</h2>
+                <p> {this.state.playlist.description} </p>
+                <p>By {this.state.author.name}</p>
+              </div>
             </div>
-          </div>
-          <div className="column is-full">
+          </section>
+          <section className="episodes">
             <EpisodeList type="playlist"
                          playlistId={this.state.playlist._id}
                          episodes={this.state.playlist.content}
                          updatePlaylist={this.updatePlaylist}
                          owner={owner}/>
-          </div>
+          </section>
           <div className="column is-full">
             <CommentsContainer playlist={this.state.playlist}
                                submitComment={this.addComment}
