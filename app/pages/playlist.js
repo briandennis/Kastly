@@ -70,7 +70,7 @@ class Playlist extends React.Component {
 
   toggleLiked () {
     console.log('in toggle func...');
-    let likes = this.state.playlist.liked;
+    let likes = this.state.playlist.likes;
     let index = likes.indexOf(this.props.user._id);
     if (index === -1) {
       likes.push(this.props.user._id);
