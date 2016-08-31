@@ -69,6 +69,17 @@ class Discover extends React.Component {
           <div className="column">
             <MediaItemsContainer type="podcast" items={this.state.casts} />
             {this.state.loading ? <Loading /> : ''}
+            {
+              this.state.searched && this.state.casts.length === 0 && !this.state.loading
+              ? (
+                <div className="no-results">
+                  <h4 className="title is-4">
+                    Sorry, couldn't find anything. Try again!
+                  </h4>
+                </div>
+              )
+              : ''
+            }
           </div>
         </div>
       </div>

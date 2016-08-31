@@ -492,6 +492,10 @@ footer {
   }
 }
 
+.no-results {
+  text-align: center;
+}
+
 @keyframes react-spinner_spin {
  0% { opacity: 1; }
  100% { opacity: 0.15; }
