@@ -217,6 +217,16 @@ label.label {
   }
 }
 
+tr td {
+  vertical-align: middle !important;
+  text-align: center !important;
+}
+
+tr td:first-child {
+  text-align: left !important;
+  padding-left: 20px;
+}
+
 .add-to-playlist {
   z-index: 9;
 }
