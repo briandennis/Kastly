@@ -34,7 +34,7 @@ class Playlists extends React.Component {
           <p className="page-description">Check out a variety of playlists created by the community</p>
         </div>
         <div>
-          <MediaItemsContainer type="playlist" items={this.state.playlists} />
+          <MediaItemsContainer all={false} type="playlist" items={this.state.playlists} />
         </div>
       </div>
     )

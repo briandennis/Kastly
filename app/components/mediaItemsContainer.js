@@ -11,21 +11,27 @@ function MediaItemsContainer(props) {
       mediaItems = mapPodcastsToMediaItems(props.items);
       break;
     case 'playlist':
-      mediaItems = mapPlaylistsToMediaItems(props.items);
+      mediaItems = mapPlaylistsToMediaItems(props.items, props.all);
   }
 
-  function mapPlaylistsToMediaItems (playlists) {
-    return playlists.map( (curr, index) => {
-      const item = {
-        key: index,
-        id: curr._id,
-        name: curr.title,
-        image: <PlaylistImage size="Large" episodes={curr.content} />,
-        link: `/playlist/${curr._id}`
-      };
+  function mapPlaylistsToMediaItems (playlists, all) {
 
-      return <MediaItem key={item.key} item={item} />;
-    });
+    return playlists
+      .filter( (curr) => {
+        return all || curr.content.length;
+      })
+      .map( (curr, index) => {
+        const item = {
+          key: index,
+          id: curr._id,
+          name: curr.title,
+          size: curr.content.length,
+          image: <PlaylistImage size="Large" episodes={curr.content} />,
+          link: `/playlist/${curr._id}`
+        };
+
+        return <MediaItem key={item.key} item={item} />;
+      });
   }
 
   function mapPodcastsToMediaItems (podcasts) {

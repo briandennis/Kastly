@@ -74,7 +74,7 @@ body {
   }
 
   .profileTitle {
-
+    padding-top: 0px;
   }
 
   .twitterContainer {
@@ -144,8 +144,8 @@ body {
 
 // Playlist image class
 .playlistImageLarge {
-  height: 300px;
-  width: 300px;
+  height: 250px;
+  width: 250px;
 }
 .playlistImageMedium {
   height: 150px;
@@ -294,7 +294,7 @@ tr td:first-child {
 }
 
 #playlistContainer {
-  margin-top: 20px;
+  margin-top: 50px;
   width: 100vw;
 }
 
@@ -303,6 +303,10 @@ tr td:first-child {
 
   display: flex;
   justify-content: center;
+
+  .card {
+    width: 250px;
+  }
 }
 .react-spinner {
   position: relative;

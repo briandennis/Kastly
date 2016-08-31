@@ -96,7 +96,7 @@ class Profile extends React.Component {
           </div>
           </div>
           <div>
-            <MediaItemsContainer type="playlist" items={this.state.playlists} />
+            <MediaItemsContainer all={true} type="playlist" items={this.state.playlists} />
           </div>
         </div>
       );
