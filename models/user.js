@@ -8,7 +8,7 @@ const UserSchema = new Schema({
   username: { type: String, default: '' },
   image: { type: String, default: '' },
   twitterId: { type: String, default: '' },
-  liked: [Boolean]
+  likes: { type: [Boolean], default: [] }
 });
 
 UserSchema.plugin(findOrCreate);

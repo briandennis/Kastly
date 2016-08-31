@@ -51,6 +51,22 @@ function putHandler (req, res) {
         if (req.body.comments) {
           playlist.comments = req.body.comments;
         }
+        if (req.body.likes) {
+          playlist.likes = req.body.likes;
+
+          // update user accordingly
+          const index = playlist.likes.indexOf(req.session.user._id);
+          User.findOne({ _id: req.session.user._id })
+            .then( (user) => {
+              if (index === -1) {
+                user.likes.push(req.params.playlistId);
+              } else {
+                const indexToRemove = user.likes.indexOf(req.params.playlistId);
+                user.likes.splice(indexToRemove, 1);
+              }
+              user.save();
+            });
+        }
         return playlist.save()
       })
       .then( (updatedPlaylist) => {
