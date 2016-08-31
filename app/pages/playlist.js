@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { PlaylistService } from './../providers/api.service';
@@ -129,8 +130,13 @@ class Playlist extends React.Component {
               </div>
               <div className="column is-half titleContainer centerChildren">
                 <h2> {this.state.playlist.title}</h2>
-                <p> {this.state.playlist.description} </p>
-                <p>By {this.state.author.name}</p>
+                <p className="description"> {this.state.playlist.description} </p>
+                <p className="author">
+                  By
+                  <Link className="authorName" to={`/profile/${this.state.author._id}`}>
+                    {this.state.author.name}
+                  </Link>
+                </p>
               </div>
             </div>
           </section>

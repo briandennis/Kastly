@@ -22,7 +22,7 @@ body {
 .nav-container {
   width: 100%;
   position: fixed;
-  z-index: 999999;
+  z-index: 99;
 }
 .nav {
   background: $purp;
@@ -349,8 +349,14 @@ tr td:first-child {
         p {
           margin-top: 15px;
           font-size: 14px;
-          text-align: left;
           text-transform: none;
+        }
+        .description {
+          text-align: left;
+          line-height: 1.4;
+        }
+        .authorName {
+          padding-left: 5px;
         }
       }
     }
