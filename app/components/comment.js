@@ -39,7 +39,6 @@ function Comment (props) {
                   </Link>
                   <span className="time">{moment(props.comment.timestamp).fromNow()}</span>
                 </p>
-                <br />
                 <div className="commentBody">
                   {props.comment.text}
                 </div>

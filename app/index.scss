@@ -6,6 +6,7 @@ $twitter: #55acee;
 
 $primary: $purp !default;
 $info: $mint !default;
+$link-hover: $mint !default;
 
 //@import "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900";
 @import "./../node_modules/bulma/bulma.sass";
@@ -41,6 +42,7 @@ body {
   font-family: 'Roboto';
   font-size: 1.7em;
   font-weight: 700;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 .navAvatar {
   border-radius: 50%;
@@ -395,9 +397,16 @@ tr td:first-child {
         border-bottom: none;
       }
 
+      a:hover {
+        color: $mint;
+      }
+
       .time {
         margin-left: 10px;
       }
+    }
+    .commentBody {
+      margin-left: 10px;
     }
   }
 }
