@@ -108,6 +108,9 @@ class Playlist extends React.Component {
         owner = true;
       };
 
+      // get playlist length
+      let length = this.state.playlist.content.length;
+
       // check if user liked the playlist
       let liked = true;
       if (this.props.user) {
@@ -140,15 +143,29 @@ class Playlist extends React.Component {
               </div>
             </div>
           </section>
-          <section className="episodes">
-            <EpisodeList type="playlist"
-                         playlistId={this.state.playlist._id}
-                         episodes={this.state.playlist.content}
-                         updatePlaylist={this.updatePlaylist}
-                         owner={owner}/>
-          </section>
           {
-            !this.props.user.user || this.state.playlist.comments.length > 0
+            owner && length === 0
+            ? (
+              <div className="empty-playlist">
+                <div>
+                  <h5 className="title is-5">
+                    Looks like there aren't any episodes here. Go and <Link to={'/discover'}>add some</Link> for goodness sake!
+                  </h5>
+                </div>
+              </div>
+            )
+            : (
+              <section className="episodes">
+                <EpisodeList type="playlist"
+                             playlistId={this.state.playlist._id}
+                             episodes={this.state.playlist.content}
+                             updatePlaylist={this.updatePlaylist}
+                             owner={owner}/>
+              </section>
+            )
+          }
+          {
+            (!!this.props.user || this.state.playlist.comments.length > 0) && length
             ? (
               <section className="column is-full commentSection">
                 <h3 className="title is-3 commentsTitle"> Comments </h3>

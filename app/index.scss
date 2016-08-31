@@ -496,6 +496,19 @@ footer {
   text-align: center;
 }
 
+.empty-playlist {
+  margin-top: 30px;
+  text-align: center;
+
+  a {
+    font-weight: 500 !important;
+
+    &:hover {
+      border-bottom: none !important;
+    }
+  }
+}
+
 @keyframes react-spinner_spin {
  0% { opacity: 1; }
  100% { opacity: 0.15; }
