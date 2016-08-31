@@ -1,5 +1,7 @@
 $purp: #6A4C93;
 $mint: #7FC6A4;
+$star: #fac747;
+$cream: #f5f7fa;
 
 body {
   //font-size: calc( 1em + 1vw);
@@ -75,6 +77,20 @@ body {
       width: 50%;
       display: inline;
     }
+  }
+}
+
+.like {
+  font-size: 50px;
+  color: #333333;
+
+  .liked {
+    color: $star;
+    text-shadow: none;
+  }
+
+  .likedText {
+    font-size: 15px;
   }
 }
 

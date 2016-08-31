@@ -22,6 +22,7 @@ class Playlist extends React.Component {
 
     this.updatePlaylist = this.updatePlaylist.bind(this);
     this.addComment = this.addComment.bind(this);
+    this.toggleLiked = this.toggleLiked.bind(this);
   }
 
   componentWillMount () {
@@ -42,11 +43,12 @@ class Playlist extends React.Component {
       .catch( (error) => console.log(error));
   }
 
-  updatePlaylist (content, comments) {
+  updatePlaylist (content, comments, liked) {
     console.log('sending!');
     PlaylistService.update(this.state.playlist._id, {
       content,
-      comments
+      comments,
+      liked
     })
       .then( (updatedPlaylist) => {
         console.log('recieved!');
@@ -67,6 +69,18 @@ class Playlist extends React.Component {
       .catch(console.error);
   }
 
+  toggleLiked () {
+    let likes = this.state.playlist.liked;
+    let index = likes.indexOf(this.props.user._id);
+    if (index === -1) {
+      likes.push(this.props.user._id);
+    } else {
+      likes.splice(index, 1);
+    }
+
+    this.updatePlaylist(null, null, likes);
+  }
+
   addComment (commentText) {
     const newComment = {
       user: this.props.user,
@@ -76,7 +90,6 @@ class Playlist extends React.Component {
 
     const updatedComments = this.state.playlist.comments;
     updatedComments.push(newComment);
-    console.log(updatedComments);
 
     this.updatePlaylist(null, updatedComments);
   }
@@ -101,6 +114,7 @@ class Playlist extends React.Component {
       // check if user liked the playlist
       let liked = true;
       if (this.props.user) {
+        console.log('trying...');
         liked = this.state.playlist.likes.indexOf(this.props.user._id) !== -1;
       }
 
@@ -110,7 +124,8 @@ class Playlist extends React.Component {
             <h1>This is where the heading will go!</h1>
             <Likes loggedIn={!!this.props.user}
                   count={this.state.playlist.likes.count}
-                  liked={liked} />
+                  liked={liked}
+                  toggle={this.toggleLiked}/>
             <div>
               <PlaylistImage size="Large" episodes={this.state.playlist.content} />
             </div>

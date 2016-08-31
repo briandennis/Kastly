@@ -13,13 +13,13 @@ function Likes (props) {
             }>
         <i className={
               props.loggedIn && !props.liked
-              ? 'fa fa-star-o'
-              : 'fa fa-star'
+              ? 'fa fa-star liked'
+              : 'fa fa-star liked'
             } />
       </span>
     </div>
-    <div>
-      {props.count}
+    <div className="likeText">
+      {props.liked ? 'true' : 'false'}
     </div>
     </div>
   );
