@@ -51,21 +51,23 @@ class Discover extends React.Component {
 
   render() {
     return (
-      <div className="app-container columns is-multiline">
-        <div className="column center is-12">
-          <h1 className='title is-1'>Podcast Search</h1>
-        </div>
-        <div className="column center is-12">
-          <p className="page-description">Search an immense library of podcasts.</p>
-        </div>
-        <div className="column center">
-          <div className="columns">
-            <SearchBox searchHandler={this.search} default={'Podcast title'} />
+      <div className="app-container">
+        <div className="columns is-multiline">
+          <div className="column center is-12">
+            <h1 className='title is-1'>Podcast Search</h1>
           </div>
-        </div>
-        <div className="column">
-          <MediaItemsContainer type="podcast" items={this.state.casts} />
-          {this.state.loading ? <Spinner /> : ''}
+          <div className="column center is-12">
+            <p className="page-description">Search an immense library of podcasts.</p>
+          </div>
+          <div className="column center">
+            <div className="columns">
+              <SearchBox searchHandler={this.search} default={'Podcast title'} />
+            </div>
+          </div>
+          <div className="column">
+            <MediaItemsContainer type="podcast" items={this.state.casts} />
+            {this.state.loading ? <Spinner /> : ''}
+          </div>
         </div>
       </div>
     );

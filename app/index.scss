@@ -1,5 +1,5 @@
 $purp: #6A4C93;
-$mint: darken(#8EF9F3, 10%);
+$mint: #5fe0e2;
 $star: #fac747;
 $cream: #f5f7fa;
 $twitter: #55acee;
@@ -9,7 +9,12 @@ $info: $mint !default;
 
 @import "./../node_modules/bulma/bulma.sass";
 
+html {
+  background: $purp;
+}
+
 body {
+  background: $purp;
   //font-size: calc( 1em + 1vw);
 }
 
@@ -178,6 +183,9 @@ label.label {
   margin: 0;
   padding:  75px 0;
   width: 100vw;
+
+  background: $cream;
+  min-height: 100vh;
 
   .center {
     text-align: center;
