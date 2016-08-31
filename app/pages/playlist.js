@@ -44,11 +44,11 @@ class Playlist extends React.Component {
       .catch( (error) => console.log(error));
   }
 
-  updatePlaylist (content, comments, liked) {
+  updatePlaylist (content, comments, likes) {
     PlaylistService.update(this.state.playlist._id, {
       content,
       comments,
-      liked
+      likes
     })
       .then( (updatedPlaylist) => {
         this.setState({
@@ -69,7 +69,6 @@ class Playlist extends React.Component {
   }
 
   toggleLiked () {
-    console.log('in toggle func...');
     let likes = this.state.playlist.likes;
     let index = likes.indexOf(this.props.user._id);
     if (index === -1) {
@@ -77,7 +76,6 @@ class Playlist extends React.Component {
     } else {
       likes.splice(index, 1);
     }
-
     this.updatePlaylist(null, null, likes);
   }
 

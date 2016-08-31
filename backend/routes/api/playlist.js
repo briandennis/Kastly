@@ -51,7 +51,9 @@ function putHandler (req, res) {
         if (req.body.comments) {
           playlist.comments = req.body.comments;
         }
+        console.log('Likes: ' + req.body.likes);
         if (req.body.likes) {
+          console.log('Found it!');
           playlist.likes = req.body.likes;
 
           // update user accordingly
