@@ -44,14 +44,12 @@ class Playlist extends React.Component {
   }
 
   updatePlaylist (content, comments, liked) {
-    console.log('sending!');
     PlaylistService.update(this.state.playlist._id, {
       content,
       comments,
       liked
     })
       .then( (updatedPlaylist) => {
-        console.log('recieved!');
         this.setState({
           playlist: updatedPlaylist
         });
@@ -70,7 +68,7 @@ class Playlist extends React.Component {
   }
 
   toggleLiked () {
-    let likes = this.state.playlist.liked;
+    /*let likes = this.state.playlist.liked;
     let index = likes.indexOf(this.props.user._id);
     if (index === -1) {
       likes.push(this.props.user._id);
@@ -78,7 +76,7 @@ class Playlist extends React.Component {
       likes.splice(index, 1);
     }
 
-    this.updatePlaylist(null, null, likes);
+    this.updatePlaylist(null, null, likes); */
   }
 
   addComment (commentText) {
