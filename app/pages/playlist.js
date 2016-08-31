@@ -94,11 +94,9 @@ class Playlist extends React.Component {
 
   render () {
     let playlistPage = (
-      <div className="emptyPageContainer">
-        <div className="columns">
-          <div className="column is-12">
-            Bummer, couldn't find this playlist.
-          </div>
+      <div className="columns">
+        <div className="column is-12">
+          Bummer, couldn't find this playlist.
         </div>
       </div>
     );
@@ -145,7 +143,7 @@ class Playlist extends React.Component {
     }
 
     return (
-      <div>
+      <div className="app-container">
         {playlistPage}
       </div>
     );

@@ -74,17 +74,26 @@ class Profile extends React.Component {
 
     if (this.state.user) {
       page = (
-        <div className="columns app-container is-multiline">
+        <div className="columns is-multiline">
           <div className="column center is-full">
             <img className="profileImage" src={this.state.user.image} />
           </div>
           <div className="column center is-full">
-            <h1 className="title is-2">{this.state.user.name}</h1>
+            <h1 className="title is-2 profileTitle">{this.state.user.name}</h1>
           </div>
           <div className="column center is-full">
-            <span className="icon">
-              <i className="fa fa-twitter"></i>
-            </span>
+          <div className="column center is-full">
+            <a href={`https://twitter.com/${this.state.user.username}`}>
+              <div className="twitterContainer">
+                <div>
+                  <span className="icon">
+                    <i className="fa fa-twitter"></i>
+                  </span>
+                </div>
+                <p className="twitterName">{this.state.user.username}</p>
+              </div>
+            </a>
+          </div>
           </div>
           <div>
             <MediaItemsContainer type="playlist" items={this.state.playlists} />
@@ -93,7 +102,11 @@ class Profile extends React.Component {
       );
     }
 
-    return page;
+    return (
+      <div className="app-container profile-page">
+        {page}
+      </div>
+    );
   }
 }
 

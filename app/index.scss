@@ -33,7 +33,8 @@ body {
 }
 .button.is-light {
   color: $mint !important;
-  margin-right: 15px;
+  font-weight: 500;
+  margin-right: 10px;
 }
 .navTitle {
   color: white;
@@ -64,8 +65,40 @@ body {
     background: darken($twitter, 10%);
   }
 }
-.profileImage {
-  border-radius: 50%;
+.profile-page {
+
+  .profileImage {
+    margin-top: 30px;
+    border-radius: 50%;
+  }
+
+  .profileTitle {
+
+  }
+
+  .twitterContainer {
+
+    position: relative;
+    bottom: 10px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+
+    color: $purp;
+
+    &:hover {
+      color: $mint;
+      cursor: pointer;
+    }
+  }
+
+  .twitterName {
+    position: relative;
+    top: 1px;
+    left: 5px;
+  }
 }
 .nav-item-underline {
   color: white !important;
