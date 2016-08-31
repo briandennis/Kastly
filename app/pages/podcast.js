@@ -3,6 +3,7 @@ import React from 'react';
 import { PodcastService } from './../providers/api.service.js';
 
 import Spinner from 'react-spinkit';
+import Loading from './../components/loading';
 import EpisodeList from './../components/episodeList';
 
 class Podcast extends React.Component {
@@ -26,11 +27,7 @@ class Podcast extends React.Component {
   render () {
     // set return to default value
     let page = (
-      <div className="columns">
-        <div className="centerChildren" className="column is-12">
-          <Spinner spinnerName="three-bounce" />
-        </div>
-      </div>
+      <Loading />
     );
 
     // if podcast loaded, set page to podcast markup

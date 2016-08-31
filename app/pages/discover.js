@@ -4,7 +4,7 @@ import Api from './../apiService.js';
 
 import SearchBox from './../components/search';
 import MediaItemsContainer from './../components/mediaItemsContainer';
-import Spinner from 'react-spinner';
+import Loading from './../components/loading';
 
 require('./../index.scss');
 
@@ -17,6 +17,7 @@ class Discover extends React.Component {
       casts: [],
       loading: false,
       error: false,
+      searched: false,
     };
 
     this.search = this.search.bind(this);
@@ -27,7 +28,7 @@ class Discover extends React.Component {
     this.setState({ loading: true });
     Api.search(query)
       .then( (casts) => {
-        this.setState({ casts });
+        this.setState({ casts, loading: false, searched: true });
       })
       .catch( () => {
         this.setState({ casts: [], error: true });
@@ -50,6 +51,7 @@ class Discover extends React.Component {
   }
 
   render() {
+    console.log('Loading: ' + this.state.loading);
     return (
       <div className="app-container">
         <div className="columns is-multiline">
@@ -66,7 +68,7 @@ class Discover extends React.Component {
           </div>
           <div className="column">
             <MediaItemsContainer type="podcast" items={this.state.casts} />
-            {this.state.loading ? <Spinner /> : ''}
+            {this.state.loading ? <Loading /> : ''}
           </div>
         </div>
       </div>

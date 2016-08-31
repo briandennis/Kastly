@@ -470,6 +470,28 @@ footer {
   }
 }
 
+.loading {
+  margin-top: 75px;
+
+  div {
+    display: flex;
+    justify-content: center;
+
+    .button.is-primary.is-loading:after {
+      border-top-color: transparent;
+      border-right-color: transparent;
+      border-bottom-color: $purp !important;
+      border-left-color: $purp !important;
+    }
+
+    button {
+      color: $purp !important;
+      background: $cream !important;
+      font-size: 100px;
+    }
+  }
+}
+
 @keyframes react-spinner_spin {
  0% { opacity: 1; }
  100% { opacity: 0.15; }
