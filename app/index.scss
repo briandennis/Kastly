@@ -232,6 +232,15 @@ label.label {
   background: $cream;
   min-height: 100vh;
 
+  .headingColumn {
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+
+  h1 {
+    padding-top: 30px;
+  }
+
   .center {
     text-align: center;
   }

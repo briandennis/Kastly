@@ -27,7 +27,7 @@ class Playlists extends React.Component {
 
     return (
       <div className="columns app-container is-multiline">
-        <div className="column center is-12">
+        <div className=" headingColumn column center is-12">
           <h1 className='title is-1'>Browse Playlists</h1>
         </div>
         <div className="column center is-12">
