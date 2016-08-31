@@ -384,10 +384,21 @@ tr td:first-child {
     border-radius: 50%;
     height: 40px;
   }
-  .commentorName {
-    margin-left: 30px;
-    font-size: 15px;
-    text-decoration: none !important;
+
+  .media-content {
+    .commentorName {
+      margin-left: 10px;
+      font-size: 15px;
+
+      a {
+        text-decoration: none;
+        border-bottom: none;
+      }
+
+      .time {
+        margin-left: 10px;
+      }
+    }
   }
 }
 

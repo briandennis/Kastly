@@ -24,7 +24,7 @@ function Comment (props) {
     <div className="column is-full">
       <div className="columns">
       <div className="column is-half">
-        <div className="box">
+        <div className="box comment">
           <article className="media">
             <div className="media-left">
               <figure className="image is-64x64">
@@ -37,7 +37,7 @@ function Comment (props) {
                   <Link to={`/profile/${props.comment.user._id}`}>
                     {props.comment.user.name}
                   </Link>
-                  {moment(props.comment.timestamp).fromNow()}
+                  <span className="time">{moment(props.comment.timestamp).fromNow()}</span>
                 </p>
                 <br />
                 <div className="commentBody">
