@@ -46,28 +46,28 @@ class PlaylistEditor extends React.Component {
     // handle title error
     let titleClass, titleMessage;
     if (this.state.titleError) {
-      titleClass = 'danger';
+      titleClass = 'is-danger';
       titleMessage = (
         <span className="help is-danger">
           Title required and must be less than 75 characters.
         </span>
       );
     } else {
-      titleClass = 'primary';
+      titleClass = '';
       titleMessage = <span></span>;
     }
 
     // handle description error
     let descriptionClass, descriptionMessage;
     if (this.state.descriptionError) {
-      descriptionClass = 'danger';
+      descriptionClass = 'is-danger';
       descriptionMessage = (
         <span className="help is-danger">
           Description required and must be less than 500 characters.
         </span>
       );
     } else {
-      descriptionClass = 'primary';
+      descriptionClass = '';
       descriptionMessage = <span></span>;
     }
 
@@ -86,7 +86,7 @@ class PlaylistEditor extends React.Component {
                 Title
               </label>
               <p className="control">
-              <input className={`input is-${titleClass}`} type="text" ref="title" />
+              <input className={`input ${titleClass}`} type="text" ref="title" />
               {titleMessage}
               </p>
             </div>
@@ -95,7 +95,7 @@ class PlaylistEditor extends React.Component {
                 Description
               </label>
               <p className="control">
-              <textarea className={`textarea is-${descriptionClass}`}
+              <textarea className={`textarea ${descriptionClass}`}
                         ref="description"/>
               {descriptionMessage}
               </p>

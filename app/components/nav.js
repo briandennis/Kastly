@@ -41,10 +41,8 @@ class Nav extends React.Component {
         showModal: false
       });
     } else {
-      console.log('adding playlist...');
       PlaylistService.create(playlist)
         .then( (createdPlaylist) => {
-          console.log('Successfully added playlist!');
           // set playlists
           this.props.fetchingPlaylists();
           axios.get(`/api/user/${this.props.user.id}/playlist`)
@@ -56,7 +54,6 @@ class Nav extends React.Component {
             });
         })
         .catch( (error) => {
-          console.log('Failed ' + error);
           alert('Failed to add playlist. Please try again.');
         });
       this.setState({
@@ -100,10 +97,9 @@ class Nav extends React.Component {
       );
 
     } else {
-      console.log('Location ' + encodeURIComponent(window.location.pathname));
       loginButton = (
         <span className="nav-item">
-          <a className="button is-primary"
+          <a className="button loginButton"
              href={`/login/twitter?redirect=${encodeURIComponent(window.location.pathname)}`}>
             <span style={{marginRight: '10px'}} className="icon">
               <i className="fa fa-twitter"></i>
@@ -125,21 +121,40 @@ class Nav extends React.Component {
     }
 
     return (
-      <div>
-        <div className="nav">
+      <div className="nav-container">
+        <nav className="nav has-shadow">
           <div className="nav-left">
-            <div className="nav-item is-brand">
+            <div className="nav-item is-brand nav-item-underline">
               <Link to="/">
                 <h1 className="navTitle">Kastly</h1>
               </Link>
             </div>
           </div>
-          <div className="nav-right">
+
+          <span className="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+            <div className="box nav-dropdown">
+              <li> Playlists </li>
+              <li> Podcasts </li>
+              <li> New Playlist </li>
+              <li> Profile  </li>
+            </div>
+          </span>
+
+          <div className="nav-right nav-menu">
+            <Link className="nav-item nav-item-underline" to={'/playlists'}>
+              Playlists
+            </Link>
+            <Link className="nav-item nav-item-underline" to={'/discover'}>
+              Podcasts
+            </Link>
             {playlistButton}
             {avatar}
             {loginButton}
           </div>
-        </div>
+        </nav>
         {modal}
       </div>
     );

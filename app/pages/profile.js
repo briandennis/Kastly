@@ -74,10 +74,17 @@ class Profile extends React.Component {
 
     if (this.state.user) {
       page = (
-        <div>
-          <div className="title">
-            <img src={this.state.user.image} />
-            <h1>{this.state.user.name}</h1>
+        <div className="columns app-container is-multiline">
+          <div className="column center is-full">
+            <img className="profileImage" src={this.state.user.image} />
+          </div>
+          <div className="column center is-full">
+            <h1 className="title is-2">{this.state.user.name}</h1>
+          </div>
+          <div className="column center is-full">
+            <span className="icon">
+              <i className="fa fa-twitter"></i>
+            </span>
           </div>
           <div>
             <MediaItemsContainer type="playlist" items={this.state.playlists} />

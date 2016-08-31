@@ -23,7 +23,7 @@ const AddToPlaylist = (props) => {
   let component;
   if (props.loggedIn) {
     component = (
-      <span className="select">
+      <span className="select add-to-playlist">
         <select onChange={addToPlaylist} value={'default'}>
           <option value="default">Add to playlist...</option>
           {options}

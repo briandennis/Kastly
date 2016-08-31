@@ -26,8 +26,13 @@ class Playlists extends React.Component {
     let body = <Spinner />;
 
     return (
-      <div>
-        <h1> Playlist Page </h1>
+      <div className="columns app-container is-multiline">
+        <div className="column center is-12">
+          <h1 className='title is-1'>Browse Playlists</h1>
+        </div>
+        <div className="column center is-12">
+          <p className="page-description">Check out a variety of playlists created by the community</p>
+        </div>
         <div>
           <MediaItemsContainer type="playlist" items={this.state.playlists} />
         </div>

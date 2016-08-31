@@ -57,8 +57,8 @@ class Episode extends React.Component {
     let controls;
     if (this.props.owner) {
       controls = (
-        [<td className="buttonItem" key="button1">
-          <span className="icon" onClick={this.props.update.bind(null, this.props.index, 'delete')}><i className="generalIcon fa fa-trash"></i></span>
+        [<td className="level" className="buttonItem" key="button1">
+          <span className="level-item" className="icon" onClick={this.props.update.bind(null, this.props.index, 'delete')}><i className="generalIcon fa fa-trash"></i></span>
         </td>,
         <td className="buttonItem" key="button2">
           <span className="icon" onClick={this.props.update.bind(null, this.props.index, 'up')}><i className="generalIcon fa fa-arrow-up"></i></span>

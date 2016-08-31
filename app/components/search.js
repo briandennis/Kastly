@@ -22,7 +22,7 @@ export default class SearchBox extends React.Component {
         <form id="searchForm" onSubmit={this.submit}>
           <div className="columns">
             <div className="column">
-              <input className="input" name="search" type="text" placeholder={this.props.default}></input>
+              <input className="input" name="search" type="text" width="100" placeholder={this.props.default}></input>
             </div>
             <div className="column">
               <button className="button is-info" type="submit">Search</button>

@@ -57,7 +57,7 @@ class Podcast extends React.Component {
     }
 
     return (
-      <div className="pageContainer">
+      <div className="app-container">
         {page}
       </div>
     );

@@ -1,17 +1,29 @@
 $purp: #6A4C93;
-$mint: #7FC6A4;
+$mint: darken(#8EF9F3, 10%);
 $star: #fac747;
 $cream: #f5f7fa;
+$twitter: #55acee;
+
+$primary: $purp !default;
+$info: $mint !default;
+
+@import "./../node_modules/bulma/bulma.sass";
 
 body {
   //font-size: calc( 1em + 1vw);
 }
 
+.nav-container {
+  width: 100%;
+  position: fixed;
+  z-index: 999999;
+}
 .nav {
   background: $purp;
 }
 .navTitle {
   color: white;
+  font-size: 1.5em;
 }
 .navAvatar {
   border-radius: 50%;
@@ -27,6 +39,40 @@ body {
   color: darken($mint, 10%);
   cursor: pointer;
 }
+.loginButton {
+  background: $twitter;
+  color: white !important;
+  border: white !important;
+
+  &:hover {
+    background: darken($twitter, 10%);
+  }
+}
+.profileImage {
+  border-radius: 50%;
+}
+.nav-item-underline {
+  color: white !important;
+  font-weight: 500;
+
+  &:hover {
+    border-bottom: solid 2px $mint !important;
+  }
+}
+
+.button.is-info {
+  color: white;
+}
+
+.nav-right.nav-menu .nav-item:nth-child(2) {
+  margin-right: 50px;
+}
+
+.box.nav-dropdown {
+  padding-top: 20px;
+  list-style: none;
+}
+
 .buttonItem {
   width: 75px;
 }
@@ -128,13 +174,16 @@ label.label {
   justify-content: center;
 }
 
-#appContainer {
+.app-container {
   margin: 0;
-  padding:  25px 0;
+  padding:  75px 0;
   width: 100vw;
 
-  #title {
+  .center {
     text-align: center;
+  }
+  .page-description {
+    font-size: 1.2em;
   }
 }
 
@@ -152,7 +201,7 @@ label.label {
 }
 
 .searchContainer {
-  margin-top: 25px;
+  margin-top: 15px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -162,6 +211,14 @@ label.label {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  input {
+    width: 200px;
+  }
+}
+
+.add-to-playlist {
+  z-index: 9;
 }
 
 #playlistContainer {

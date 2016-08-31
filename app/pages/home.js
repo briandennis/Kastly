@@ -15,9 +15,11 @@ const home = (props) => {
                   : '';
 
   return (
+    <div className="app-container">
     <div className="homeTitleContainer">
       <h1 className="title is-1"> Welcome to Kastly </h1>
       {message}
+    </div>
     </div>
   );
 };
