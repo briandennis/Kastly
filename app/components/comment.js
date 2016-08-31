@@ -2,24 +2,6 @@ import React from 'react';
 import { Link } from 'react-router';
 
 function Comment (props) {
-  /* <div className="comment">
-    <div className="commentHeading">
-      <div>
-        <img className="commentorImage" src={props.comment.user.image} />
-      </div>
-      <p className="commentorName">
-        <Link to={`/profile/${props.comment.user._id}`}>
-          {props.comment.user.name}
-        </Link>
-      </p>
-      <p className="commentTime">
-        {moment(props.comment.timestamp)}
-      </p>
-    </div>
-    <div className="commentBody">
-      {props.comment.text}
-    </div>
-  </div> */
   return (
     <div className="column is-full">
       <div className="columns">
