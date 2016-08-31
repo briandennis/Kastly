@@ -6,7 +6,7 @@ class Likes extends React.Component {
     super();
 
     this.state = {
-      hover: false;
+      hover: false
     }
 
     this.mouseOver = this.mouseOver.bind(this);
@@ -38,20 +38,29 @@ class Likes extends React.Component {
   render () {
     // get icon className
     let iconClass = 'fa fa-star';
-    if (this.state.props.loggedIn) {
-      iconClass = mapHoverToIconClass(this.state.props.liked, this.state.hover);
+    if (this.props.loggedIn) {
+      iconClass = this.mapHoverToIconClass(this.props.liked, this.state.hover);
     }
 
     return (
       <div className="like">
-        <span className="icon">
-          <i className={iconClass}></i>
-        </span>
+          <div>
+            <i className={`${iconClass} like-star`}
+                onMouseOver={this.mouseOver}
+                onMouseOut={this.mouseOut}
+                onClick={
+                  this.props.loggedIn
+                  ? this.props.toggle
+                  : ''
+                }>
+            </i>
+          </div>
+          <div>
+            {this.props.count}
+          </div>
       </div>
     );
   }
-
-
 }
 
 export default Likes;

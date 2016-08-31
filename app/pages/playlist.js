@@ -117,12 +117,6 @@ class Playlist extends React.Component {
         console.log('trying...');
         liked = this.state.playlist.likes.indexOf(this.props.user._id) !== -1;
       }
-      /*
-      <Likes loggedIn={!!this.props.user}
-          count={this.state.playlist.likes.count}
-          liked={liked}
-          toggle={this.toggleLiked}/>
-      */
 
       playlistPage = (
         <div className="media-page">
@@ -140,6 +134,12 @@ class Playlist extends React.Component {
                     {this.state.author.name}
                   </Link>
                 </p>
+                <div className="likesContainer">
+                  <Likes loggedIn={!!this.props.user}
+                      count={this.state.playlist.likes.length}
+                      liked={liked}
+                      toggle={console.log.bind(null, 'woot!')}/>
+                </div>
               </div>
             </div>
           </section>

@@ -175,9 +175,22 @@ body {
   }
 }
 
+.likesContainer {
+  margin-top: 25px;
+}
+
 .like {
-  font-size: 50px;
-  color: $star;
+  font-size: 20px;
+  color: #333333;
+
+  display: flex;
+  flex-direction: row;
+
+  .like-star {
+    margin-right: 10px;
+    font-size: 25px !important;
+    color: $star;
+  }
 }
 
 
