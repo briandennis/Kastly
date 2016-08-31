@@ -69,7 +69,8 @@ class Playlist extends React.Component {
   }
 
   toggleLiked () {
-    /*let likes = this.state.playlist.liked;
+    console.log('in toggle func...');
+    let likes = this.state.playlist.liked;
     let index = likes.indexOf(this.props.user._id);
     if (index === -1) {
       likes.push(this.props.user._id);
@@ -77,7 +78,7 @@ class Playlist extends React.Component {
       likes.splice(index, 1);
     }
 
-    this.updatePlaylist(null, null, likes); */
+    this.updatePlaylist(null, null, likes);
   }
 
   addComment (commentText) {
@@ -114,7 +115,6 @@ class Playlist extends React.Component {
       // check if user liked the playlist
       let liked = true;
       if (this.props.user) {
-        console.log('trying...');
         liked = this.state.playlist.likes.indexOf(this.props.user._id) !== -1;
       }
 
@@ -138,7 +138,7 @@ class Playlist extends React.Component {
                   <Likes loggedIn={!!this.props.user}
                       count={this.state.playlist.likes.length}
                       liked={liked}
-                      toggle={console.log.bind(null, 'woot!')}/>
+                      toggle={this.toggleLiked}/>
                 </div>
               </div>
             </div>
