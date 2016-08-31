@@ -19,7 +19,7 @@ const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={browserHistory}>
+    <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Home}></IndexRoute>
         <Route path="podcast/:castId" component={Podcast}></Route>
