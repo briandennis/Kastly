@@ -113,15 +113,17 @@ class Playlist extends React.Component {
         console.log('trying...');
         liked = this.state.playlist.likes.indexOf(this.props.user._id) !== -1;
       }
+      /*
+      <Likes loggedIn={!!this.props.user}
+          count={this.state.playlist.likes.count}
+          liked={liked}
+          toggle={this.toggleLiked}/>
+      */
 
       playlistPage = (
         <div className="columns is-multiline">
           <div className="column is-full">
             <h1>This is where the heading will go!</h1>
-            <Likes loggedIn={!!this.props.user}
-                  count={this.state.playlist.likes.count}
-                  liked={liked}
-                  toggle={this.toggleLiked}/>
             <div>
               <PlaylistImage size="Large" episodes={this.state.playlist.content} />
             </div>
