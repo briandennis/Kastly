@@ -5,6 +5,7 @@ import { setUser, fetchingUser, setPlaylists, fetchingPlaylists } from './action
 import { UserService, PlaylistService } from './providers/api.service';
 
 import Nav from './components/nav';
+import Footer from './components/footer';
 
 class App extends React.Component {
 
@@ -59,6 +60,7 @@ class App extends React.Component {
       <div>
         <Nav />
         {this.props.children}
+        <Footer />
       </div>
     );
   }
