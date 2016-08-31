@@ -18,7 +18,7 @@ function CommentsContainer (props) {
       {
         props.loggedIn
         ? (
-          <div>
+          <div className="columns">
             <CreateComment submitComment={props.submitComment}/>
           </div>
         )

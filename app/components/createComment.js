@@ -32,30 +32,30 @@ class CreateComment extends React.Component {
   render () {
 
     return (
-      <div>
-        <form onSubmit={this.validate}>
-          <label className="label">New Comment</label>
-          <p className="control">
-            <textarea name="content"
-                      className={
-                        this.state.error
-                        ? 'textarea is-danger'
-                        : 'textarea'}
-                      value={this.state.content}
-                      onChange={this.updateForm}>
-            </textarea>
-          </p>
-          {
-            this.state.error
-            ? (
-              <span className="help is-danger">Comment is required and must be less than 250 characters.</span>
-            )
-            : ''
-          }
-          <div className="control">
-            <button className="button is-primary">Submit</button>
-          </div>
-        </form>
+      <div className="create-comment column is-half">
+            <form onSubmit={this.validate}>
+              <label className="label">New Comment</label>
+              <p className="control">
+                <textarea name="content"
+                          className={
+                            this.state.error
+                            ? 'textarea is-danger'
+                            : 'textarea'}
+                          value={this.state.content}
+                          onChange={this.updateForm}>
+                </textarea>
+              </p>
+              {
+                this.state.error
+                ? (
+                  <span className="help is-danger">Comment is required and must be less than 250 characters.</span>
+                )
+                : ''
+              }
+              <div className="control">
+                <button className="button is-primary">Submit</button>
+              </div>
+            </form>
       </div>
     );
   }
