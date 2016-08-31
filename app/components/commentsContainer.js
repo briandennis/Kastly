@@ -12,7 +12,7 @@ function CommentsContainer (props) {
 
   return (
     <div className="playlistContainer">
-      <div>
+      <div className="columns is-multiline">
         {comments}
       </div>
       {

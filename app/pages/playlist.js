@@ -147,11 +147,12 @@ class Playlist extends React.Component {
                          updatePlaylist={this.updatePlaylist}
                          owner={owner}/>
           </section>
-          <div className="column is-full">
+          <section className="column is-full commentSection">
+            <h3 className="title is-3 commentsTitle"> Comments </h3>
             <CommentsContainer playlist={this.state.playlist}
                                submitComment={this.addComment}
                                loggedIn={!!this.props.user}/>
-          </div>
+          </section>
         </div>
       );
     }

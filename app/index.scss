@@ -361,6 +361,34 @@ tr td:first-child {
       }
     }
   }
+
+  .commentsTitle {
+    width: 150px;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: solid 2px $mint;
+  }
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+
+  .commentHeading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .commentorImage {
+    border-radius: 50%;
+    height: 40px;
+  }
+  .commentorName {
+    margin-left: 30px;
+    font-size: 15px;
+    text-decoration: none !important;
+  }
 }
 
 @keyframes react-spinner_spin {
