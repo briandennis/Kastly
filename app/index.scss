@@ -41,7 +41,6 @@ body {
   font-family: 'Roboto';
   font-size: 1.7em;
   font-weight: 700;
-  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 .navAvatar {
   border-radius: 50%;
@@ -178,16 +177,7 @@ body {
 
 .like {
   font-size: 50px;
-  color: #333333;
-
-  .liked {
-    color: $star;
-    text-shadow: none;
-  }
-
-  .likedText {
-    font-size: 15px;
-  }
+  color: $star;
 }
 
 
