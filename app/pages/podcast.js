@@ -2,7 +2,6 @@ import React from 'react';
 
 import { PodcastService } from './../providers/api.service.js';
 
-import Spinner from 'react-spinkit';
 import Loading from './../components/loading';
 import EpisodeList from './../components/episodeList';
 

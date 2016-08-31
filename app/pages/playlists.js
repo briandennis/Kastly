@@ -2,7 +2,7 @@ import React from 'react';
 import { PlaylistService } from './../providers/api.service';
 
 import MediaItemsContainer from './../components/mediaItemsContainer';
-import Spinner from 'react-spinner';
+import Loading from './../components/loading';
 
 class Playlists extends React.Component {
   constructor () {
@@ -23,7 +23,7 @@ class Playlists extends React.Component {
 
   render () {
 
-    let body = <Spinner />;
+    let body = <Loading />;
 
     return (
       <div className="columns app-container is-multiline">

@@ -4,7 +4,7 @@ import { PlaylistService, UserService } from './../providers/api.service';
 
 
 import MediaItemsContainer from './../components/mediaItemsContainer';
-import Spinner from 'react-spinkit';
+import Loading from './../components/loading';
 
 class Profile extends React.Component {
 
@@ -67,7 +67,7 @@ class Profile extends React.Component {
     let page = (
       <div className="columns">
         <div className="centerChildren" className="column is-12">
-          <Spinner spinnerName="three-bounce" />
+          <Loading />
         </div>
       </div>
     )

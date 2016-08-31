@@ -21,7 +21,6 @@ class Discover extends React.Component {
     };
 
     this.search = this.search.bind(this);
-    this.getCasts = this.getCasts.bind(this);
   }
 
   search(query) {
@@ -33,21 +32,6 @@ class Discover extends React.Component {
       .catch( () => {
         this.setState({ casts: [], error: true });
       });
-  }
-
-  getCasts(id) {
-    console.log(id);
-    let casts = this.state.casts.filter( (cast) => (cast.id == id) );
-    console.log(casts);
-    if (casts.length) {
-      Api.getPodcast(casts[0].feed)
-      .then( (data) => {
-        console.log(data);
-      })
-      .catch( (error) => {
-        console.log('error');
-      });
-    }
   }
 
   render() {
