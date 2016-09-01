@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "start": "npm run serve",
     "production": "webpack -p",
     "serve": " concurrently \"nodemon server.js --watch passportConfig.js --watch backend --watch templates \" \"webpack --watch\""
   },
