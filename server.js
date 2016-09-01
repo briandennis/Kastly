@@ -16,7 +16,6 @@ const app = express(http);
 console.log('node env: ' + process.env.NODE_ENV);
 console.log('db: ' + `mongodb://${config.DB_USERNAME}:${config.DB_PASSWORD}@${config.DB_LINK}/${config.DB_NAME}`);
 if (process.env.NODE_ENV === 'PROD') {
-  console.log('in right spot!');
   mongoose.connect(`mongodb://${config.DB_USERNAME}:${config.DB_PASSWORD}@${config.DB_LINK}/${config.DB_NAME}`);
 } else {
   mongoose.connect(`mongodb://${config.DB_LINK}/${config.DB_NAME}`);
