@@ -14,9 +14,9 @@ const app = express(http);
 
 // configure db
 console.log('node env: ' + process.env.NODE_ENV);
-console.log('db: ' + `mongodb://${config.DB_USESRNAME}:${config.DB_PASSWORD}@${config.DB_LINK}/${config.DB_NAME}`);
+console.log('db: ' + `mongodb://${config.DB_USERNAME}:${config.DB_PASSWORD}@${config.DB_LINK}/${config.DB_NAME}`);
 if (process.env.NODE_ENV === 'PROD') {
-  mongoose.connect(`mongodb://${config.DB_USESRNAME}:${config.DB_PASSWORD}@${config.DB_LINK}/${config.DB_NAME}`);
+  mongoose.connect(`mongodb://${config.DB_USERNAME}:${config.DB_PASSWORD}@${config.DB_LINK}/${config.DB_NAME}`);
 } else {
   mongoose.connect(`mongodb://${config.DB_LINK}/${config.DB_NAME}`);
 }
