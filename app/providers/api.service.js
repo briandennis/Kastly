@@ -1,4 +1,8 @@
-const host = 'http://localhost:8000';
+// config host for deployment
+let host = 'http://localhost:8000';
+if (location.host !== 'localhost') {
+  host = '67.205.138.68'
+}
 
 const getCastsFromFeed = (url) => {
   return new Promise( (resolve, reject) => {
