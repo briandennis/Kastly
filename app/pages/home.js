@@ -33,7 +33,7 @@ const Home = (props) => {
                 <i className="fa fa-list"></i>
               </div>
               <div className="info-text">
-                Maybe even make your own, if that is your thing. If not, that's cool too, see the third thing.
+                Maybe even make your own, if that is your cup of tea. If not, that's cool too, keep reading the third section.
               </div>
             </div>
             <div className="info-item">
@@ -53,9 +53,11 @@ const Home = (props) => {
               </h5>
             </div>
             <div className="sarcasm-button">
-              <button className="button is-info">
-                View Playlists
-              </button>
+              <Link to="/playlists">
+                <button className="button is-info">
+                  View Playlists
+                </button>
+              </Link>
             </div>
           </div>
         </section>
