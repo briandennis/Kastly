@@ -1,4 +1,3 @@
 node_modules/*
-static/js/build/*
 npm-debug.log
 .env
