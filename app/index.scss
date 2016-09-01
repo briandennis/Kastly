@@ -19,6 +19,79 @@ body {
   //font-size: calc( 1em + 1vw);
 }
 
+.home-page {
+
+  .sub-heading {
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .more-info {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    .info-item {
+      margin-top: 75px;
+      width: 300px;
+
+      div {
+        display: flex;
+        justify-content: center;
+      }
+
+      .info-icon {
+        height: 50px;
+        i {
+          font-size: 40px;
+          color: $mint;
+        }
+      }
+
+      .info-text {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .sarcastic-call-to-action {
+    width: 100%;
+    margin-top: 100px;
+    padding: 30px 0px;
+
+    background: $purp;
+
+    .sarcasm-wrapper {
+
+      .sarcasm-heading {
+        display: flex;
+        justify-content: center;
+
+        color: white;
+        font-size: 18px;
+
+        h5 {
+          padding: 0 20px;
+          text-align: center;
+        }
+
+      }
+
+      .sarcasm-button {
+        margin-top: 20px;
+
+        display: flex;
+        justify-content: center;
+      }
+
+    }
+  }
+}
+
 .nav-container {
   width: 100%;
   position: fixed;
