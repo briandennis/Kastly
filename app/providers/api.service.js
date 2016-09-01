@@ -1,7 +1,7 @@
 // config host for deployment
 let host = 'http://localhost:8000';
-if (location.host !== 'localhost') {
-  host = '67.205.138.68'
+if (location.host !== 'localhost:8000') {
+  host = 'http://kastly.herokuapp.com'
 }
 
 const getCastsFromFeed = (url) => {
