@@ -36874,6 +36874,7 @@
 	// config host for deployment
 	var host = 'http://localhost:8000';
 	if (location.host !== 'localhost:8000') {
+	  console.log('New host!');
 	  host = 'http://kastly.herokuapp.com';
 	}
 	
@@ -37692,7 +37693,7 @@
 	Api.search = function (query) {
 	  return new Promise(function (resolve, reject) {
 	
-	    var baseUrl = 'http://localhost:8000/search?term=';
+	    var baseUrl = 'http://kastly.herokuapp.com/search?term=';
 	    var urlizedQuery = encodeURIComponent(query);
 	    var url = baseUrl + urlizedQuery;
 	
