@@ -5,7 +5,7 @@ const Api = {};
 Api.search = (query) => {
   return new Promise((resolve, reject) => {
 
-    const baseUrl = 'http://localhost:8000/search?term=';
+    const baseUrl = 'http://kastly.herokuapp.com/search?term=';
     const urlizedQuery = encodeURIComponent(query);
     const url = baseUrl + urlizedQuery;
 
