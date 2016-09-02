@@ -14,10 +14,12 @@ class Profile extends React.Component {
     this.state = {
       user: null,
       playlists: [],
-      bummer: false
+      bummer: false,
+      showPlaylistView: true,
     };
 
     this.setUser = this.setUser.bind(this);
+    this.toggleView = this.toggleView.bind(this);
   }
 
   setUser (props) {
@@ -63,7 +65,21 @@ class Profile extends React.Component {
     this.setUser(newProps);
   }
 
+  toggleView (value) {
+    this.setState({
+      showPlaylistView: value
+    });
+  }
+
   render () {
+    let playlists = this.state.playlists;
+    if (this.state.playlists && !this.state.showPlaylistView) {
+      playlists = this.state.playlists.filter( (playlist) => {
+        console.log(playlist);
+        return playlist.likes.indexOf(this.state.user._id) !== -1;
+      });
+    }
+
     let page = (
       <div className="columns">
         <div className="centerChildren" className="column is-12">
@@ -95,8 +111,18 @@ class Profile extends React.Component {
             </a>
           </div>
           </div>
+          <section className="tabs-section">
+            <div className="tabs">
+              <ul>
+                <li onClick={this.toggleView.bind(null, true)}
+                    className={ this.state.showPlaylistView ? "is-active" : ""}><a>Playlists</a></li>
+                <li onClick={this.toggleView.bind(null, false)}
+                    className={ this.state.showPlaylistView ? "" : "is-active" }><a>Liked</a></li>
+              </ul>
+              </div>
+          </section>
           <div>
-            <MediaItemsContainer all={true} type="playlist" items={this.state.playlists} />
+            <MediaItemsContainer all={true} type="playlist" items={playlists} />
           </div>
         </div>
       );
