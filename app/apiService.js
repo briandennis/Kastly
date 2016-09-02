@@ -5,7 +5,14 @@ const Api = {};
 Api.search = (query) => {
   return new Promise((resolve, reject) => {
 
-    const baseUrl = 'http://kastly.herokuapp.com/search?term=';
+    // config host for deployment
+    let host = 'http://localhost:8000/';
+    if (location.host !== 'localhost:8000') {
+      console.log('New host!');
+      host = 'http://kastly.herokuapp.com/'
+    }
+
+    const baseUrl = `${host}search?term=`;
     const urlizedQuery = encodeURIComponent(query);
     const url = baseUrl + urlizedQuery;
 
