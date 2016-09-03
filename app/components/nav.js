@@ -6,7 +6,8 @@ import { Link } from 'react-router';
 import { PlaylistService } from './../providers/api.service';
 
 
-import PlaylistEditor from './playlistEditor.js';
+import PlaylistEditor from './playlistEditor';
+import Dropdown from './dropdown';
 
 class Nav extends React.Component {
 
@@ -133,7 +134,9 @@ class Nav extends React.Component {
           </div>
 
           <span className="nav-toggle">
-            <p> Test </p>
+            <div className="dropdown-menu">
+              <Dropdown />
+            </div>
           </span>
 
           <div className="nav-right nav-menu">

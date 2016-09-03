@@ -19,6 +19,12 @@ body {
   //font-size: calc( 1em + 1vw);
 }
 
+@media (min-width: 980px) {
+  .dropdown-menu {
+    display: none;
+  }
+}
+
 .home-page {
 
   .sub-heading {
