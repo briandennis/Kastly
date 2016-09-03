@@ -25,6 +25,30 @@ body {
   }
 }
 
+.nav {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.nav-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dropdown-menu {
+  color: white;
+
+   &:hover {
+     background: none !important;
+   }
+
+  .dropdown-content {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+  }
+}
+
 .home-page {
 
   .sub-heading {
