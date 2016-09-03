@@ -75,7 +75,6 @@ class Profile extends React.Component {
     let playlists = this.state.playlists;
     if (this.state.playlists && !this.state.showPlaylistView) {
       playlists = this.state.playlists.filter( (playlist) => {
-        console.log(playlist);
         return playlist.likes.indexOf(this.state.user._id) !== -1;
       });
     }

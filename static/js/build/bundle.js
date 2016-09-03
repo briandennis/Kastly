@@ -37073,7 +37073,8 @@
 	    var _this = _possibleConstructorReturn(this, (Nav.__proto__ || Object.getPrototypeOf(Nav)).call(this));
 	
 	    _this.state = {
-	      showModal: false
+	      showModal: false,
+	      showDropdown: false
 	    };
 	
 	    _this.showModal = _this.showModal.bind(_this);
@@ -37221,32 +37222,10 @@
 	          _react2.default.createElement(
 	            'span',
 	            { className: 'nav-toggle' },
-	            _react2.default.createElement('span', null),
-	            _react2.default.createElement('span', null),
-	            _react2.default.createElement('span', null),
 	            _react2.default.createElement(
-	              'div',
-	              { className: 'box nav-dropdown' },
-	              _react2.default.createElement(
-	                'li',
-	                null,
-	                ' Playlists '
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                null,
-	                ' Podcasts '
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                null,
-	                ' New Playlist '
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                null,
-	                ' Profile  '
-	              )
+	              'p',
+	              null,
+	              ' Test '
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -44257,7 +44236,6 @@
 	      var playlists = this.state.playlists;
 	      if (this.state.playlists && !this.state.showPlaylistView) {
 	        playlists = this.state.playlists.filter(function (playlist) {
-	          console.log(playlist);
 	          return playlist.likes.indexOf(_this3.state.user._id) !== -1;
 	        });
 	      }

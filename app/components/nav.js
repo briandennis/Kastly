@@ -14,7 +14,8 @@ class Nav extends React.Component {
     super();
 
     this.state = {
-      showModal: false
+      showModal: false,
+      showDropdown: false,
     }
 
     this.showModal = this.showModal.bind(this);
@@ -132,15 +133,7 @@ class Nav extends React.Component {
           </div>
 
           <span className="nav-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-            <div className="box nav-dropdown">
-              <li> Playlists </li>
-              <li> Podcasts </li>
-              <li> New Playlist </li>
-              <li> Profile  </li>
-            </div>
+            <p> Test </p>
           </span>
 
           <div className="nav-right nav-menu">
