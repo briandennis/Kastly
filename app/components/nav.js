@@ -133,7 +133,7 @@ class Nav extends React.Component {
             </div>
           </div>
 
-          <span className="nav-toggle">
+          <span className="burger-container">
             <div className="dropdown-menu">
               <Dropdown />
             </div>

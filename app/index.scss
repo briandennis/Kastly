@@ -19,7 +19,7 @@ body {
   //font-size: calc( 1em + 1vw);
 }
 
-@media (min-width: 980px) {
+@media (min-width: 768px) {
   .dropdown-menu {
     display: none;
   }
@@ -30,7 +30,8 @@ body {
   align-items: center !important;
 }
 
-.nav-toggle {
+.burger-container {
+  padding-right: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +45,7 @@ body {
 
   .dropdown-content {
     position: absolute;
-    top: 40px;
+    top: 50px;
     right: 10px;
   }
 }
