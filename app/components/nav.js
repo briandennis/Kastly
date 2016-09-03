@@ -65,8 +65,12 @@ class Nav extends React.Component {
   }
 
   render () {
-    let loginButton, avatar, playlistButton;
+    let loginButton, avatar, playlistButton, userId;
     if (this.props.loggedIn) {
+
+      // set user id to pass to mobile menu
+      userId = this.props.user.id;
+
       // set login button
       loginButton = (
         <span className="nav-item">
@@ -135,7 +139,7 @@ class Nav extends React.Component {
 
           <span className="burger-container">
             <div className="dropdown-menu">
-              <Dropdown />
+              <Dropdown loggedIn={this.props.loggedIn} userId={userId} toggle={this.showModal} />
             </div>
           </span>
 

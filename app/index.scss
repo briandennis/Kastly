@@ -37,16 +37,30 @@ body {
   justify-content: center;
 }
 .dropdown-menu {
+
   color: white;
 
-   &:hover {
-     background: none !important;
-   }
+  &:hover {
+    color: $mint;
+    cursor: pointer;
+  }
 
   .dropdown-content {
     position: absolute;
-    top: 50px;
-    right: 10px;
+    top: 55px;
+    right: 15px;
+
+    li {
+      margin-top: 10px;
+    }
+
+    i {
+      color: $mint;
+
+      &:hover {
+        color: $purp;
+      }
+    }
   }
 }
 
