@@ -37461,6 +37461,10 @@
 	
 	var _reactRouter = __webpack_require__(469);
 	
+	var _login = __webpack_require__(563);
+	
+	var _login2 = _interopRequireDefault(_login);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -37540,46 +37544,10 @@
 	                'Playlists'
 	              )
 	            ),
-	            this.props.loggedIn ? _react2.default.createElement(
-	              'ul',
-	              null,
-	              _react2.default.createElement(
-	                'li',
-	                null,
-	                _react2.default.createElement('i', { onClick: this.createClicked, className: 'fa fa-plus' })
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                null,
-	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/profile/' + this.props.userId },
-	                  _react2.default.createElement('i', { onClick: this.createClicked, className: 'fa fa-user' })
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                null,
-	                _react2.default.createElement(
-	                  'a',
-	                  { className: 'button is-primary', href: '/logout' },
-	                  'Log Out'
-	                )
-	              )
-	            ) : _react2.default.createElement(
+	            _react2.default.createElement(
 	              'li',
 	              null,
-	              _react2.default.createElement(
-	                'a',
-	                { className: 'button loginButton',
-	                  href: '/login/twitter?redirect=' + encodeURIComponent(window.location.pathname) },
-	                _react2.default.createElement(
-	                  'span',
-	                  { style: { marginRight: '10px' }, className: 'icon' },
-	                  _react2.default.createElement('i', { className: 'fa fa-twitter' })
-	                ),
-	                'Log in'
-	              )
+	              _react2.default.createElement(_login2.default, { loggedIn: this.props.loggedIn, logOutType: 'is-primary' })
 	            )
 	          )
 	        )

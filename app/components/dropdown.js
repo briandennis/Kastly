@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+import Login from './login';
+
 class Dropdown extends React.Component {
 
   constructor () {
@@ -45,36 +47,9 @@ class Dropdown extends React.Component {
             <li>
               <Link to="/playlists">Playlists</Link>
             </li>
-            {
-              this.props.loggedIn
-              ? (
-                <ul>
-                  <li>
-                    <i onClick={this.createClicked} className="fa fa-plus" />
-                  </li>
-                  <li>
-                    <Link to={`/profile/${this.props.userId}`}>
-                      <i onClick={this.createClicked} className="fa fa-user" />
-                    </Link>
-                  </li>
-                  <li>
-                    <a className="button is-primary" href="/logout">
-                      Log Out
-                    </a>
-                  </li>
-                </ul>
-              )
-              : (
-                <li>
-                  <a className="button loginButton"
-                     href={`/login/twitter?redirect=${encodeURIComponent(window.location.pathname)}`}>
-                    <span style={{marginRight: '10px'}} className="icon">
-                      <i className="fa fa-twitter"></i>
-                    </span>Log in
-                  </a>
-                </li>
-              )
-            }
+            <li>
+              <Login loggedIn={this.props.loggedIn} logOutType="is-primary" />
+            </li>
           </ul>
         </div>
       </div>
