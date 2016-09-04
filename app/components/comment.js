@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 function Comment (props) {
   return (
-    <div className="column is-full">
+    <div className="comment column is-full">
       <div className="columns">
       <div className="column is-half">
         <div className="box comment">

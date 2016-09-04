@@ -23,6 +23,13 @@ body {
   .dropdown-menu {
     display: none;
   }
+  #comments-container {
+    margin-left: 30px;
+
+    .comment {
+      width: 500px;
+    }
+  }
 }
 
 .nav {
