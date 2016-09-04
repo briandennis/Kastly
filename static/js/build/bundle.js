@@ -43989,7 +43989,7 @@
 	    );
 	  });
 	
-	  var component = void 0;
+	  var component = '';
 	  if (props.loggedIn) {
 	    component = _react2.default.createElement(
 	      'span',
@@ -44003,16 +44003,6 @@
 	          'Add to playlist...'
 	        ),
 	        options
-	      )
-	    );
-	  } else {
-	    component = _react2.default.createElement(
-	      'a',
-	      { href: '/login/twitter' },
-	      _react2.default.createElement(
-	        'button',
-	        { className: 'button is-primary' },
-	        ' Log in to add to Playlist '
 	      )
 	    );
 	  }

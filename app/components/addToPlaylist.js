@@ -20,7 +20,7 @@ const AddToPlaylist = (props) => {
     return <option value={playlist._id} key={index}> {formattedTitle} </option>;
   });
 
-  let component;
+  let component = '';
   if (props.loggedIn) {
     component = (
       <span className="select add-to-playlist">
@@ -29,12 +29,6 @@ const AddToPlaylist = (props) => {
           {options}
         </select>
       </span>
-    );
-  } else {
-    component = (
-      <a href="/login/twitter">
-        <button className="button is-primary"> Log in to add to Playlist </button>
-      </a>
     );
   }
 
