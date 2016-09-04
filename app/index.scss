@@ -25,6 +25,10 @@ body {
   }
   #comments-container {
     margin-left: 30px;
+
+    .comment {
+      min-width: 600px;
+    }
   }
 }
 
@@ -609,6 +613,7 @@ tr td:first-child {
   .commentsTitle {
     width: 150px;
     margin-bottom: 30px;
+    margin-left: 30px;
     padding-bottom: 10px;
     border-bottom: solid 2px $mint;
   }
