@@ -8,6 +8,7 @@ import { PlaylistService } from './../providers/api.service';
 
 import PlaylistEditor from './playlistEditor';
 import Dropdown from './dropdown';
+import Login from './login';
 
 class Nav extends React.Component {
 
@@ -71,15 +72,6 @@ class Nav extends React.Component {
       // set user id to pass to mobile menu
       userId = this.props.user.id;
 
-      // set login button
-      loginButton = (
-        <span className="nav-item">
-          <a className="button is-light" href="/logout">
-            Log Out
-          </a>
-        </span>
-      );
-
       // add profile button
       avatar = (
         <div className="nav-item">
@@ -103,16 +95,6 @@ class Nav extends React.Component {
       );
 
     } else {
-      loginButton = (
-        <span className="nav-item">
-          <a className="button loginButton"
-             href={`/login/twitter?redirect=${encodeURIComponent(window.location.pathname)}`}>
-            <span style={{marginRight: '10px'}} className="icon">
-              <i className="fa fa-twitter"></i>
-            </span>Log in
-          </a>
-        </span>
-      );
 
       let empty = (
         <div></div>
@@ -152,7 +134,7 @@ class Nav extends React.Component {
             </Link>
             {playlistButton}
             {avatar}
-            {loginButton}
+            <Login loggedIn={this.props.loggedIn} logOutType="is-light" />
           </div>
         </nav>
         {modal}

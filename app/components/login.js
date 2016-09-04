@@ -1,18 +1,8 @@
 import React from 'react';
 
-class Login extends React.Component {
+function Login (props) {
 
-  constructor (props) {
-    super(props);
-
-    this.state = {
-      showModal: false
-    };
-
-    this.toggleModal = this.toggleModal.bind(this);
-  }
-
-  navigate () {
+  function navigate (props) {
     if (props.loggedIn) {
       window.location.assign(`/logout?redirect=${encodeURIComponent(window.location.pathname)}`);
     } else {
@@ -20,31 +10,29 @@ class Login extends React.Component {
     }
   }
 
-  render () {
-    return (
-      <button className={
-              props.loggedIn
-              ? `button ${props.logOutType}`
-              : 'button loginButton' }
-              onClick={navigate} >
-        {
-          props.loggedIn
-          ? (
-            Log Out
+  return (
+    <button className={
+            props.loggedIn
+            ? `button ${props.logOutType}`
+            : 'button loginButton' }
+            onClick={navigate} >
+      {
+        props.loggedIn
+        ? (
+          <span> Log out </span>
+        )
+        : (
+          (
+            <span>
+              <span style={{marginRight: '10px'}} className="icon">
+                <i className="fa fa-twitter"></i>
+              </span>Log in
+            </span>
           )
-          : (
-            (
-              <span>
-                <span style={{marginRight: '10px'}} className="icon">
-                  <i className="fa fa-twitter"></i>
-                </span>Log in`
-              </span>
-            )
-          )
-        }
-      </button>
-    );
-  }
+        )
+      }
+    </button>
+  )
 }
 
 export default Login
