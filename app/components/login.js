@@ -2,7 +2,9 @@ import React from 'react';
 
 function Login (props) {
 
-  function navigate (props) {
+  console.log('logged in: ' + props.loggedIn);
+
+  function navigate () {
     if (props.loggedIn) {
       window.location.assign(`/logout?redirect=${encodeURIComponent(window.location.pathname)}`);
     } else {

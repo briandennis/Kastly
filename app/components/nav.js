@@ -134,7 +134,9 @@ class Nav extends React.Component {
             </Link>
             {playlistButton}
             {avatar}
-            <Login loggedIn={this.props.loggedIn} logOutType="is-light" />
+            <span className="nav-item nav-login">
+              <Login loggedIn={this.props.loggedIn} logOutType="is-light" />
+            </span>
           </div>
         </nav>
         {modal}

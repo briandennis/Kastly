@@ -3,9 +3,7 @@ const Express = require('express');
 module.exports = (passport, db) => {
 
   const redirectMiddleWare = function (req, res, next) {
-    console.log('Redirect: ' + req.query.redirect);
     if (req.query.redirect) {
-      console.log('Found redirect!');
       req.session.returnTo = decodeURIComponent(req.query.redirect);
     }
     next();
@@ -26,7 +24,7 @@ module.exports = (passport, db) => {
   .get('/login/twitter', redirectMiddleWare, secure)
   .get('/auth/twitter/callback', secure, require('./routes/twitterCallback'))
 
-  .get('/logout', require('./routes/logout'))
+  .get('/logout', redirectMiddleWare, require('./routes/logout'))
 
   .get('*', require('./routes/home'));
 };
