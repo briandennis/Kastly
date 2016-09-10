@@ -8215,15 +8215,15 @@
 	
 	var _podcast2 = _interopRequireDefault(_podcast);
 	
-	var _profile = __webpack_require__(625);
+	var _profile = __webpack_require__(626);
 	
 	var _profile2 = _interopRequireDefault(_profile);
 	
-	var _playlist = __webpack_require__(626);
+	var _playlist = __webpack_require__(627);
 	
 	var _playlist2 = _interopRequireDefault(_playlist);
 	
-	var _playlists = __webpack_require__(631);
+	var _playlists = __webpack_require__(632);
 	
 	var _playlists2 = _interopRequireDefault(_playlists);
 	
@@ -43811,7 +43811,7 @@
 	
 	var _reactRedux = __webpack_require__(532);
 	
-	var _episode2 = __webpack_require__(632);
+	var _episode2 = __webpack_require__(623);
 	
 	var _episode3 = _interopRequireDefault(_episode2);
 	
@@ -43892,6 +43892,174 @@
 /* 623 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(299);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _episodePreview = __webpack_require__(624);
+	
+	var _episodePreview2 = _interopRequireDefault(_episodePreview);
+	
+	var _addToPlaylist = __webpack_require__(625);
+	
+	var _addToPlaylist2 = _interopRequireDefault(_addToPlaylist);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Episode = function (_React$Component) {
+	  _inherits(Episode, _React$Component);
+	
+	  function Episode() {
+	    _classCallCheck(this, Episode);
+	
+	    var _this = _possibleConstructorReturn(this, (Episode.__proto__ || Object.getPrototypeOf(Episode)).call(this));
+	
+	    _this.state = {
+	      preview: false
+	    };
+	
+	    _this.showPreview = _this.showPreview.bind(_this);
+	    _this.hidePreview = _this.hidePreview.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(Episode, [{
+	    key: 'showPreview',
+	    value: function showPreview() {
+	      this.setState({
+	        preview: true
+	      });
+	    }
+	  }, {
+	    key: 'hidePreview',
+	    value: function hidePreview() {
+	      this.setState({
+	        preview: false
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      // description
+	      var formattedDescription = _react2.default.createElement('span', null);
+	      if (this.props.episode.description) {
+	        if (this.props.episode.description.length > 50) {
+	          formattedDescription = ' ' + this.props.episode.description.slice(0, 50) + ' ...';
+	        } else {
+	          formattedDescription = this.props.description;
+	        }
+	      }
+	
+	      // date
+	      var formattedDate = _react2.default.createElement('span', null);
+	      if (this.props.episode.date) {
+	        var date = new Date(this.props.episode.date);
+	        formattedDate = date.toLocaleDateString();
+	      }
+	
+	      // preview
+	      var preview = _react2.default.createElement('span', null);
+	      if (this.state.preview) {
+	        preview = _react2.default.createElement(_episodePreview2.default, { episode: this.props.episode, handler: this.hidePreview });
+	      }
+	
+	      // owner check
+	      var controls = void 0;
+	      if (this.props.owner) {
+	        controls = [_react2.default.createElement(
+	          'td',
+	          { className: 'buttonItem', key: 'button1' },
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'icon', onClick: this.props.update.bind(null, this.props.index, 'delete') },
+	            _react2.default.createElement('i', { className: 'generalIcon fa fa-trash' })
+	          )
+	        ), _react2.default.createElement(
+	          'td',
+	          { className: 'buttonItem', key: 'button2' },
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'icon', onClick: this.props.update.bind(null, this.props.index, 'up') },
+	            _react2.default.createElement('i', { className: 'generalIcon fa fa-arrow-up' })
+	          )
+	        ), _react2.default.createElement(
+	          'td',
+	          { className: 'buttonItem', key: 'button3' },
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'icon', onClick: this.props.update.bind(null, this.props.index, 'down') },
+	            _react2.default.createElement('i', { className: 'generalIcon fa fa-arrow-down' })
+	          )
+	        )];
+	      } else {
+	        controls = _react2.default.createElement(
+	          'td',
+	          null,
+	          ' ',
+	          _react2.default.createElement(_addToPlaylist2.default, { episode: this.props.episode,
+	            playlists: this.props.playlists,
+	            loggedIn: this.props.loggedIn }),
+	          ' '
+	        );
+	      }
+	
+	      return _react2.default.createElement(
+	        'tr',
+	        null,
+	        _react2.default.createElement(
+	          'td',
+	          { className: 'clickableTitle', onClick: this.showPreview },
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'flexItem' },
+	            this.props.episode.title
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'td',
+	          null,
+	          ' ',
+	          this.props.episode.podcast.title,
+	          ' '
+	        ),
+	        _react2.default.createElement(
+	          'td',
+	          null,
+	          ' ',
+	          formattedDate,
+	          ' ',
+	          preview
+	        ),
+	        controls
+	      );
+	    }
+	  }]);
+	
+	  return Episode;
+	}(_react2.default.Component);
+	
+	;
+	
+	exports.default = Episode;
+
+/***/ },
+/* 624 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
@@ -43949,7 +44117,7 @@
 	exports.default = EpisodePreview;
 
 /***/ },
-/* 624 */
+/* 625 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44017,7 +44185,7 @@
 	exports.default = AddToPlaylist;
 
 /***/ },
-/* 625 */
+/* 626 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44253,7 +44421,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Profile);
 
 /***/ },
-/* 626 */
+/* 627 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44286,11 +44454,11 @@
 	
 	var _playlistImage2 = _interopRequireDefault(_playlistImage);
 	
-	var _commentsContainer = __webpack_require__(627);
+	var _commentsContainer = __webpack_require__(628);
 	
 	var _commentsContainer2 = _interopRequireDefault(_commentsContainer);
 	
-	var _likes = __webpack_require__(630);
+	var _likes = __webpack_require__(631);
 	
 	var _likes2 = _interopRequireDefault(_likes);
 	
@@ -44538,7 +44706,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Playlist);
 
 /***/ },
-/* 627 */
+/* 628 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44553,11 +44721,11 @@
 	
 	var _api = __webpack_require__(559);
 	
-	var _comment = __webpack_require__(628);
+	var _comment = __webpack_require__(629);
 	
 	var _comment2 = _interopRequireDefault(_comment);
 	
-	var _createComment = __webpack_require__(629);
+	var _createComment = __webpack_require__(630);
 	
 	var _createComment2 = _interopRequireDefault(_createComment);
 	
@@ -44588,7 +44756,7 @@
 	exports.default = CommentsContainer;
 
 /***/ },
-/* 628 */
+/* 629 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44667,7 +44835,7 @@
 	exports.default = Comment;
 
 /***/ },
-/* 629 */
+/* 630 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44773,7 +44941,7 @@
 	exports.default = CreateComment;
 
 /***/ },
-/* 630 */
+/* 631 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44873,7 +45041,7 @@
 	exports.default = Likes;
 
 /***/ },
-/* 631 */
+/* 632 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44969,174 +45137,6 @@
 	}(_react2.default.Component);
 	
 	exports.default = Playlists;
-
-/***/ },
-/* 632 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(299);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _episodePreview = __webpack_require__(623);
-	
-	var _episodePreview2 = _interopRequireDefault(_episodePreview);
-	
-	var _addToPlaylist = __webpack_require__(624);
-	
-	var _addToPlaylist2 = _interopRequireDefault(_addToPlaylist);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Episode = function (_React$Component) {
-	  _inherits(Episode, _React$Component);
-	
-	  function Episode() {
-	    _classCallCheck(this, Episode);
-	
-	    var _this = _possibleConstructorReturn(this, (Episode.__proto__ || Object.getPrototypeOf(Episode)).call(this));
-	
-	    _this.state = {
-	      preview: false
-	    };
-	
-	    _this.showPreview = _this.showPreview.bind(_this);
-	    _this.hidePreview = _this.hidePreview.bind(_this);
-	    return _this;
-	  }
-	
-	  _createClass(Episode, [{
-	    key: 'showPreview',
-	    value: function showPreview() {
-	      this.setState({
-	        preview: true
-	      });
-	    }
-	  }, {
-	    key: 'hidePreview',
-	    value: function hidePreview() {
-	      this.setState({
-	        preview: false
-	      });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      // description
-	      var formattedDescription = _react2.default.createElement('span', null);
-	      if (this.props.episode.description) {
-	        if (this.props.episode.description.length > 50) {
-	          formattedDescription = ' ' + this.props.episode.description.slice(0, 50) + ' ...';
-	        } else {
-	          formattedDescription = this.props.description;
-	        }
-	      }
-	
-	      // date
-	      var formattedDate = _react2.default.createElement('span', null);
-	      if (this.props.episode.date) {
-	        var date = new Date(this.props.episode.date);
-	        formattedDate = date.toLocaleDateString();
-	      }
-	
-	      // preview
-	      var preview = _react2.default.createElement('span', null);
-	      if (this.state.preview) {
-	        preview = _react2.default.createElement(_episodePreview2.default, { episode: this.props.episode, handler: this.hidePreview });
-	      }
-	
-	      // owner check
-	      var controls = void 0;
-	      if (this.props.owner) {
-	        controls = [_react2.default.createElement(
-	          'td',
-	          { className: 'buttonItem', key: 'button1' },
-	          _react2.default.createElement(
-	            'span',
-	            { className: 'icon', onClick: this.props.update.bind(null, this.props.index, 'delete') },
-	            _react2.default.createElement('i', { className: 'generalIcon fa fa-trash' })
-	          )
-	        ), _react2.default.createElement(
-	          'td',
-	          { className: 'buttonItem', key: 'button2' },
-	          _react2.default.createElement(
-	            'span',
-	            { className: 'icon', onClick: this.props.update.bind(null, this.props.index, 'up') },
-	            _react2.default.createElement('i', { className: 'generalIcon fa fa-arrow-up' })
-	          )
-	        ), _react2.default.createElement(
-	          'td',
-	          { className: 'buttonItem', key: 'button3' },
-	          _react2.default.createElement(
-	            'span',
-	            { className: 'icon', onClick: this.props.update.bind(null, this.props.index, 'down') },
-	            _react2.default.createElement('i', { className: 'generalIcon fa fa-arrow-down' })
-	          )
-	        )];
-	      } else {
-	        controls = _react2.default.createElement(
-	          'td',
-	          null,
-	          ' ',
-	          _react2.default.createElement(_addToPlaylist2.default, { episode: this.props.episode,
-	            playlists: this.props.playlists,
-	            loggedIn: this.props.loggedIn }),
-	          ' '
-	        );
-	      }
-	
-	      return _react2.default.createElement(
-	        'tr',
-	        null,
-	        _react2.default.createElement(
-	          'td',
-	          { className: 'clickableTitle', onClick: this.showPreview },
-	          _react2.default.createElement(
-	            'span',
-	            { className: 'flexItem' },
-	            this.props.episode.title
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'td',
-	          null,
-	          ' ',
-	          this.props.episode.podcast.title,
-	          ' '
-	        ),
-	        _react2.default.createElement(
-	          'td',
-	          null,
-	          ' ',
-	          formattedDate,
-	          ' ',
-	          preview
-	        ),
-	        controls
-	      );
-	    }
-	  }]);
-	
-	  return Episode;
-	}(_react2.default.Component);
-	
-	;
-	
-	exports.default = Episode;
 
 /***/ }
 /******/ ]);
