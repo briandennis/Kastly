@@ -2,6 +2,8 @@ import React from 'react';
 
 const EpisodePreview = (props) => {
 
+  console.log(props.episode.link);
+
   return (
     <div className="modal is-active">
       <div className="modal-background"></div>
@@ -12,11 +14,24 @@ const EpisodePreview = (props) => {
           <button className="delete" onClick={props.handler}></button>
         </header>
         <section className="modal-card-body">
-          <div className="podcastAudio">
-            <audio src={props.episode.link} controls="controls" />
-          </div>
-          <p dangerouslySetInnerHTML={{ __html: props.episode.description }}>
-          </p>
+          {
+            props.episode.link && props.episode.length
+            ? (
+              <div className="podcastAudio">
+                <audio src={props.episode.link} controls="controls" />
+              </div>
+            )
+            : ''
+          }
+          {
+            props.episode.description
+            ? (
+              <p dangerouslySetInnerHTML={{ __html: props.episode.description }}></p>
+            )
+            : (
+              <p> Darn, looks like there is no description for this episode!</p>
+            )
+          }
         </section>
         <footer className="modal-card-foot">
           <a className="button" onClick={props.handler}>Cancel</a>

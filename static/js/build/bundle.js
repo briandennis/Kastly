@@ -36927,7 +36927,7 @@
 	                date: date,
 	                title: title,
 	                description: description,
-	                link: episode.enclosures ? episode.enclosures[0].url : [],
+	                link: episode.enclosures && episode.enclosures.length ? episode.enclosures[0].url : [],
 	                podcast: {
 	                  title: cast.collectionName,
 	                  castId: cast.collectionId,
@@ -44071,6 +44071,8 @@
 	
 	var EpisodePreview = function EpisodePreview(props) {
 	
+	  console.log(props.episode.link);
+	
 	  return _react2.default.createElement(
 	    "div",
 	    { className: "modal is-active" },
@@ -44091,12 +44093,16 @@
 	      _react2.default.createElement(
 	        "section",
 	        { className: "modal-card-body" },
-	        _react2.default.createElement(
+	        props.episode.link && props.episode.length ? _react2.default.createElement(
 	          "div",
 	          { className: "podcastAudio" },
 	          _react2.default.createElement("audio", { src: props.episode.link, controls: "controls" })
-	        ),
-	        _react2.default.createElement("p", { dangerouslySetInnerHTML: { __html: props.episode.description } })
+	        ) : '',
+	        props.episode.description ? _react2.default.createElement("p", { dangerouslySetInnerHTML: { __html: props.episode.description } }) : _react2.default.createElement(
+	          "p",
+	          null,
+	          " Darn, looks like there is no description for this episode!"
+	        )
 	      ),
 	      _react2.default.createElement(
 	        "footer",

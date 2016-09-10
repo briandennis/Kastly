@@ -56,7 +56,7 @@ const PodcastService = {
                   date,
                   title,
                   description,
-                  link: episode.enclosures ? episode.enclosures[0].url : [],
+                  link: episode.enclosures && episode.enclosures.length ? episode.enclosures[0].url : [],
                   podcast: {
                     title: cast.collectionName,
                     castId: cast.collectionId,
