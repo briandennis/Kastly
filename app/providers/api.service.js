@@ -100,6 +100,7 @@ const PlaylistService = {
       if (playlistId && update) {
         axios.put(`${host}/api/playlist/${playlistId}`, update)
           .then ( (result) => {
+            console.log('did i get here?');
             resolve(result.data);
           })
           .catch(reject);

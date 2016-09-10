@@ -59,6 +59,7 @@ class Playlist extends React.Component {
         this.props.fetchingPlaylists();
         axios.get(`/api/user/${this.props.user._id}/playlist`)
           .then( (response) => {
+            console.log('got it!');
             this.props.setPlaylists(true, response.data);
           })
           .catch( (err) => {
