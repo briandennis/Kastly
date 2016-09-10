@@ -42,7 +42,8 @@
     "react-router": "^2.6.0",
     "react-spinkit": "^1.1.9",
     "redux": "^3.5.2",
-    "swig": "^1.4.2"
+    "swig": "^1.4.2",
+    "webpack": "^1.13.1",
   },
   "devDependencies": {
     "babel-core": "^6.10.4",
@@ -60,7 +61,6 @@
     "rollup-watch": "^2.5.0",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   }
 }
