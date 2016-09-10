@@ -42,7 +42,7 @@ function putHandler (req, res) {
   if (req.params.playlistId && req.body) {
     Playlist.findOne({ _id: req.params.playlistId })
       .then( (playlist) => {
-        if (playlist.authorId !== req.session.user._id) {
+        if (playlist.authorId !== req.session.user._id && (!req.body.likes || req.body.comments || req.body.content)) {
           res.status(403).send();
         }
         if (req.body.content) {
