@@ -1,8 +1,8 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { setPlaylists, fetchingPlaylists } from './../actions';
-import { Link } from 'react-router';
+import { setPlaylists, fetchingPlaylists, setSearch } from './../actions';
+import { Link, withRouter } from 'react-router';
 import { PlaylistService } from './../providers/api.service';
 
 
@@ -23,6 +23,7 @@ class Nav extends React.Component {
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
     this.addPlaylist = this.addPlaylist.bind(this);
+    this.gotoDiscover = this.gotoDiscover.bind(this);
   }
 
   showModal () {
@@ -36,6 +37,11 @@ class Nav extends React.Component {
     this.setState({
       showModal: false
     });
+  }
+
+  gotoDiscover () {
+    this.props.setSearch('');
+    this.props.router.push('/discover')
   }
 
   addPlaylist (playlist) {
@@ -129,9 +135,9 @@ class Nav extends React.Component {
             <Link className="nav-item nav-item-underline" to={'/playlists'}>
               Playlists
             </Link>
-            <Link className="nav-item nav-item-underline" to={'/discover'}>
+            <a className="nav-item nav-item-underline" onClick={this.gotoDiscover}>
               Podcasts
-            </Link>
+            </a>
             {playlistButton}
             {avatar}
             <span className="nav-item nav-login">
@@ -155,9 +161,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     setPlaylists,
-    fetchingPlaylists
+    fetchingPlaylists,
+    setSearch
   }, dispatch);
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Nav);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Nav));

@@ -37130,6 +37130,7 @@
 	    _this.showModal = _this.showModal.bind(_this);
 	    _this.hideModal = _this.hideModal.bind(_this);
 	    _this.addPlaylist = _this.addPlaylist.bind(_this);
+	    _this.gotoDiscover = _this.gotoDiscover.bind(_this);
 	    return _this;
 	  }
 	
@@ -37147,6 +37148,12 @@
 	      this.setState({
 	        showModal: false
 	      });
+	    }
+	  }, {
+	    key: 'gotoDiscover',
+	    value: function gotoDiscover() {
+	      this.props.setSearch('');
+	      this.props.router.push('/discover');
 	    }
 	  }, {
 	    key: 'addPlaylist',
@@ -37266,8 +37273,8 @@
 	              'Playlists'
 	            ),
 	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { className: 'nav-item nav-item-underline', to: '/discover' },
+	              'a',
+	              { className: 'nav-item nav-item-underline', onClick: this.gotoDiscover },
 	              'Podcasts'
 	            ),
 	            playlistButton,
@@ -37297,11 +37304,12 @@
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return (0, _redux.bindActionCreators)({
 	    setPlaylists: _actions.setPlaylists,
-	    fetchingPlaylists: _actions.fetchingPlaylists
+	    fetchingPlaylists: _actions.fetchingPlaylists,
+	    setSearch: _actions.setSearch
 	  }, dispatch);
 	};
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Nav);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)((0, _reactRouter.withRouter)(Nav));
 
 /***/ },
 /* 562 */
