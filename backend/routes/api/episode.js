@@ -26,7 +26,7 @@ function postHandler (req, res) {
           description: req.body.description,
           title: req.body.title,
           date: req.body.date,
-          link: req.body.date
+          link: req.body.link
         });
         playlist.content.push(episode);
         return playlist.save()
