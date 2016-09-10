@@ -62,7 +62,7 @@ const Home = (props) => {
             <div className="paragraph">
               <div className="paragraph-heading">
                 <h3 className="title is-3">
-                  Vast Community Features
+                  Vast Features
                 </h3>
               </div>
               <div className="paragraph-content">

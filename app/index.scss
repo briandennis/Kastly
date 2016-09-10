@@ -164,11 +164,11 @@ body {
 
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
 
+
       .paragraph-heading {
-        text-align: center;
       }
       .paragraph-content {
         margin-top: 20px;
