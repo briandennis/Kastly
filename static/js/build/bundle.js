@@ -37578,8 +37578,6 @@
 	
 	function Login(props) {
 	
-	  console.log('logged in: ' + props.loggedIn);
-	
 	  function navigate() {
 	    if (props.loggedIn) {
 	      window.location.assign('/logout?redirect=' + encodeURIComponent(window.location.pathname));
