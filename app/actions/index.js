@@ -16,6 +16,13 @@ export function setUser(success, user, error) {
   }
 }
 
+export function setSearch (term) {
+  return {
+    type: 'SET_SEARCH',
+    term
+  }
+}
+
 export function fetchingPlaylists() {
   return { type: 'FETCH_PLAYLIST' };
 }

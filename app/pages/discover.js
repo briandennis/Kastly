@@ -1,6 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Api from './../apiService.js';
+import { setSearch } from './../actions';
 
 import SearchBox from './../components/search';
 import MediaItemsContainer from './../components/mediaItemsContainer';
@@ -23,7 +25,13 @@ class Discover extends React.Component {
     this.search = this.search.bind(this);
   }
 
-  search(query) {
+  componentWillMount () {
+    if (this.props.initialTerm) {
+      this.search(this.props.initialTerm);
+    }
+  }
+
+  search (query) {
     this.setState({ loading: true });
     Api.search(query)
       .then( (casts) => {
@@ -32,9 +40,11 @@ class Discover extends React.Component {
       .catch( () => {
         this.setState({ casts: [], error: true });
       });
+
+    this.props.setSearch(query);
   }
 
-  render() {
+  render () {
     return (
       <div className="app-container">
         <div className="columns is-multiline">
@@ -70,4 +80,15 @@ class Discover extends React.Component {
   }
 }
 
-export default Discover;
+function mapStateToProps (state) {
+  console.log('new state!' + state);
+  return {
+    initialTerm: state.search.term
+  };
+}
+
+function mapDispatchToProps (dispatch) {
+  return bindActionCreators({ setSearch }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Discover);
