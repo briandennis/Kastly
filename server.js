@@ -13,7 +13,7 @@ const port = process.env.PORT || 8000;
 const app = express(http);
 
 // configure db
-if (process.env.NODE_ENV === 'PROD') {
+if (process.env.NODE_ENV === 'production') {
   mongoose.connect(`mongodb://${config.DB_USERNAME}:${config.DB_PASSWORD}@${config.DB_LINK}/${config.DB_NAME}`);
 } else {
   mongoose.connect(`mongodb://${config.DB_LINK}/${config.DB_NAME}`);

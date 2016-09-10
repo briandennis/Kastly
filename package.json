@@ -8,8 +8,9 @@
   },
   "scripts": {
     "start": "node server.js",
-    "production": "webpack -p",
-    "serve": " concurrently \"nodemon server.js --watch passportConfig.js --watch backend --watch templates \" \"webpack --watch\""
+    "buildProd": "webpack -p --config ./webpack.production.config.js",
+    "dev": " concurrently \"nodemon server.js --watch passportConfig.js --watch backend --watch templates \" \"webpack --watch\"",
+    "heroku-postbuild": "npm run buildProd"
   },
   "repository": {
     "type": "git",
