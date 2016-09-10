@@ -43,12 +43,7 @@ class Profile extends React.Component {
       // get users playlists
       PlaylistService.get()
         .then( (playlists) => {
-          return playlists.filter( (playlist) => {
-            return playlist.authorId === props.params.userId;
-          })
-        })
-        .then( (userPlaylists) => {
-          this.setState({ playlists: userPlaylists });
+          this.setState({ playlists: playlists });
         })
         .catch(console.error);
 
@@ -73,10 +68,16 @@ class Profile extends React.Component {
 
   render () {
     let playlists = [];
-    if (this.state.playlists && !this.state.showPlaylistView) {
-      playlists = this.state.playlists.filter( (playlist) => {
-        return playlist.likes.indexOf(this.state.user._id) !== -1;
-      });
+    if (this.state.playlists) {
+      if (!this.state.showPlaylistView) {
+        playlists = this.state.playlists.filter( (playlist) => {
+          return playlist.likes.indexOf(this.state.user._id) !== -1;
+        });
+      } else if (this.state.user) {
+        playlists = this.state.playlists.filter( (playlist) => {
+          return playlist.authorId === this.state.user._id;
+        });
+      }
     }
 
     let page = (
