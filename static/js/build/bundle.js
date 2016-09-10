@@ -37770,7 +37770,7 @@
 	            _react2.default.createElement(
 	              'p',
 	              { className: 'page-description' },
-	              'Search an immense library of podcasts.'
+	              'Search an immense library of podcasts'
 	            )
 	          ),
 	          _react2.default.createElement(

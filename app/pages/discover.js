@@ -42,7 +42,7 @@ class Discover extends React.Component {
             <h1 className='title is-1'>Podcast Search</h1>
           </div>
           <div className="column center is-12">
-            <p className="page-description">Search an immense library of podcasts.</p>
+            <p className="page-description">Search an immense library of podcasts</p>
           </div>
           <div className="column center">
             <div className="columns">
