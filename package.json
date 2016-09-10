@@ -1,11 +1,12 @@
 {
-  "name": "react-fun",
+  "name": "kastly",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "engines": {
     "node": "6.3.1"
   },
+  "description": "A website for building and sharing podcast playlists.",
   "scripts": {
     "start": "node server.js",
     "buildProd": "webpack -p --config ./webpack.production.config.js",
@@ -13,12 +14,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/briandennis/Test.git"
+    "url": "git+https://github.com/briandennis/Kastly.git"
   },
   "author": "Brian Dennis",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/briandennis/Test/issues"
+    "url": "https://github.com/briandennis/Kastly/issues"
   },
   "homepage": "https://github.com/briandennis/Test#readme",
   "dependencies": {
