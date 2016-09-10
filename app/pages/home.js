@@ -15,7 +15,7 @@ const Home = (props) => {
           <div className="homeTitleContainer">
             <h1 className="title is-1"> Welcome to Kastly </h1>
             <h4 className="subtitle is-4 sub-heading">
-              A podcast playlist website with a sense of humor.
+              A community for creating and sharing podcast playlists.
             </h4>
           </div>
         </section>
@@ -25,7 +25,7 @@ const Home = (props) => {
                 <i className="fa fa-headphones"></i>
               </div>
               <div className="info-text">
-                Search an immense library of podcasts. Seriously, there are hundreds of thousands of them.
+                Search an immense library of podcasts. With such a large and broad selection to choose from, there is bound to be something for everyone!
               </div>
             </div>
             <div className="info-item">
@@ -33,7 +33,7 @@ const Home = (props) => {
                 <i className="fa fa-list"></i>
               </div>
               <div className="info-text">
-                Maybe even make your own, if that is your cup of tea. If not, that's cool too, keep reading the third section.
+                Take the episodes you like and make a playlist out of them! They are a great way to organize your favorite content and building one has never been easier.
               </div>
             </div>
             <div className="info-item">
@@ -41,7 +41,7 @@ const Home = (props) => {
                 <i className="fa fa-users"></i>
               </div>
               <div className="info-text">
-                Or you could take a look what other people have come up with. That can be a good time as well.
+                Check out what playlists other users have built. Favorite the ones you like and discuss with the rest of the Kastly community!
               </div>
             </div>
         </section>
@@ -50,24 +50,24 @@ const Home = (props) => {
             <div className="paragraph">
               <div className="paragraph-heading">
                 <h3 className="title is-3">
-                  Lorem Ipsum
+                  Podcasts Galore
                 </h3>
               </div>
               <div className="paragraph-content">
                 <p>
-                Chillwave aesthetic art party, street art scenester cronut cray pinterest blog forage   selfies. Irony fap scenester etsy austin 90's. Sartorial gastropub +1, cornhole tofu heirloom pabst hoodie four dollar toast. Fap vice scenester, lumbersexual ugh raw denim forage kogi. Wolf keytar literally, selfies sriracha pour-over listicle lo-fi. Small batch narwhal truffaut, photo booth blue bottle kitsch chicharrones fap chia banh mi pinterest whatever. Helvetica direct trade cold-pressed gastropub skateboard, leggings ennui bespoke +1 chartreuse sartorial humblebrag.
+                Leverage the power of the world’s largest podcast library. There are hundreds of thousands of casts contained within it. Easily browse your favorites, listen to the episodes you like, and easily add them to your playlists for the most streamlined experience available.
                 </p>
               </div>
             </div>
             <div className="paragraph">
               <div className="paragraph-heading">
                 <h3 className="title is-3">
-                  Lorem Ipsum
+                  Vast Community Features
                 </h3>
               </div>
               <div className="paragraph-content">
                 <p>
-                  Kale chips before they sold out twee, truffaut asymmetrical bicycle rights messenger bag cold-pressed disrupt pug brunch shoreditch cred fixie marfa. Locavore tousled blog everyday carry, butcher helvetica forage. 3 wolf moon VHS meggings tacos lumbersexual. Wayfarers brunch kitsch, shoreditch crucifix kickstarter etsy master cleanse flexitarian squid venmo austin intelligentsia you probably haven't heard of them viral. Gastropub sriracha authentic normcore keffiyeh. Godard synth gastropub pug. Hammock fanny pack sriracha, brunch small batch food truck shoreditch stumptown tote bag thundercats ethical.
+                  Kastly provides a great environment to interact with fellow podcast aficionados. You can easily find community playlists and discuss with the authors themselves. Liking a playlist ensures you’ll always have it at your fingertips.
                 </p>
               </div>
             </div>
@@ -77,7 +77,7 @@ const Home = (props) => {
           <div className="sarcasm-wrapper">
             <div className="sarcasm-heading">
               <h5 className="">
-                Still interested? Cool cool. Check out some playlists the community have built!
+                Still interested? Check out what the community has already built!
               </h5>
             </div>
             <div className="sarcasm-button">
@@ -94,7 +94,7 @@ const Home = (props) => {
             <div className="icon-block">
               <div className="icons-title">
                 <h3 className="title is-3">
-                  Want to reach out for some reason?
+                  Questions? Get in touch!
                 </h3>
               </div>
             </div>
