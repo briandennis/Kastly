@@ -8,7 +8,6 @@ Api.search = (query) => {
     // config host for deployment
     let host = 'http://localhost:8000/';
     if (location.host !== 'localhost:8000') {
-      console.log('New host!');
       host = 'http://kastly.herokuapp.com/'
     }
 

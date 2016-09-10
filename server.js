@@ -16,6 +16,7 @@ const app = express(http);
 if (process.env.NODE_ENV === 'production') {
   mongoose.connect(`mongodb://${config.DB_USERNAME}:${config.DB_PASSWORD}@${config.DB_LINK}/${config.DB_NAME}`);
 } else {
+  console.log('non production!');
   mongoose.connect(`mongodb://${config.DB_LINK}/${config.DB_NAME}`);
 }
 const db = mongoose.connection;
