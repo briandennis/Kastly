@@ -528,6 +528,17 @@ tr td:first-child {
 #playlistContainer {
   margin-top: 50px;
   width: 100vw;
+
+  .like-indicator {
+    margin-left: 100px;
+    .card-star {
+      position: relative;
+      top: 3px;
+      margin-right: 10px;
+      color: $star;
+      font-size: 15px;
+    }
+  }
 }
 
 .mediaItem {

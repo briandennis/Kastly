@@ -17,7 +17,17 @@ function MediaItem (props) {
               <h5 className="title is-5">{props.item.name}</h5>
             </Link>
             <div className="cardInfo">
-              {props.item.size ? `Length: ${props.item.size}` : ''}
+              {props.item.size ? `${props.item.size} ${props.item.size === 1 ? 'episode' : 'episodes'}` : ''}
+              {
+                props.item.likes
+                ? (
+                  <span className="like-indicator">
+                    <i className="card-star fa fa-star"></i>
+                    {props.item.likes}
+                  </span>
+                )
+                : ''
+              }
             </div>
           </div>
         </div>

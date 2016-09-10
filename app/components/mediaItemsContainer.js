@@ -27,6 +27,7 @@ function MediaItemsContainer(props) {
           name: curr.title,
           size: curr.content.length,
           image: <PlaylistImage size="Large" episodes={curr.content} />,
+          likes: curr.likes.length,
           link: `/playlist/${curr._id}`
         };
 
