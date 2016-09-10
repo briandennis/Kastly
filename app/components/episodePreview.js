@@ -2,8 +2,6 @@ import React from 'react';
 
 const EpisodePreview = (props) => {
 
-  console.log(props.episode.link);
-
   return (
     <div className="modal is-active">
       <div className="modal-background"></div>
