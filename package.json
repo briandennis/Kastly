@@ -1,0 +1,65 @@
+{
+  "name": "kastly",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "engines": {
+    "node": "6.3.1"
+  },
+  "description": "A website for building and sharing podcast playlists.",
+  "scripts": {
+    "start": "node server.js",
+    "buildProd": "webpack -p --config ./webpack.production.config.js",
+    "dev": " concurrently \"nodemon server.js --watch passportConfig.js --watch backend --watch templates \" \"webpack --watch\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/briandennis/Kastly.git"
+  },
+  "author": "Brian Dennis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/briandennis/Kastly/issues"
+  },
+  "homepage": "https://github.com/briandennis/Test#readme",
+  "dependencies": {
+    "axios": "^0.12.0",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.0",
+    "mongoose": "^4.5.8",
+    "mongoose-findorcreate": "^0.1.2",
+    "morgan": "^1.7.0",
+    "node-fetch": "^1.5.3",
+    "nodemon": "^1.10.0",
+    "passport": "^0.3.2",
+    "passport-twitter": "^1.0.4",
+    "radium": "^0.18.1",
+    "react": "^15.2.1",
+    "react-burger-menu": "^1.10.4",
+    "react-dom": "^15.2.1",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.6.0",
+    "react-spinkit": "^1.1.9",
+    "redux": "^3.5.2",
+    "swig": "^1.4.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-es2015-destructuring": "^6.9.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.11.5",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "bulma": "^0.1.2",
+    "concurrently": "^2.2.0",
+    "css-loader": "^0.23.1",
+    "html-webpack-plugin": "^2.22.0",
+    "node-sass": "^3.8.0",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
