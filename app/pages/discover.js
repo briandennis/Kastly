@@ -35,7 +35,6 @@ class Discover extends React.Component {
   }
 
   render() {
-    console.log('Loading: ' + this.state.loading);
     return (
       <div className="app-container">
         <div className="columns is-multiline">
