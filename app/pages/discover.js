@@ -81,7 +81,6 @@ class Discover extends React.Component {
 }
 
 function mapStateToProps (state) {
-  console.log('new state!' + state);
   return {
     initialTerm: state.search.term
   };
