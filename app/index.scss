@@ -16,7 +16,6 @@ html {
 
 body {
   background: $purp;
-  //font-size: calc( 1em + 1vw);
 }
 
 @media (min-width: 768px) {
@@ -713,6 +712,10 @@ footer {
     &:last-child {
       padding-top: 15px;
     }
+  }
+
+  .bottom {
+    padding-top: 20px !important;
   }
 }
 
