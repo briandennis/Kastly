@@ -127,7 +127,7 @@ class Nav extends React.Component {
 
           <span className="burger-container">
             <div className="dropdown-menu">
-              <Dropdown loggedIn={this.props.loggedIn} userId={userId} toggle={this.showModal} />
+              <Dropdown navigate={this.props.router.push} loggedIn={this.props.loggedIn} userId={userId} toggle={this.showModal} />
             </div>
           </span>
 

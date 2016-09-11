@@ -13,7 +13,13 @@ class Dropdown extends React.Component {
     };
 
     this.toggle = this.toggle.bind(this);
-    this.createClicked= this.createClicked.bind(this);
+    this.createClicked = this.createClicked.bind(this);
+    this.navigate = this.navigate.bind(this);
+  }
+
+  navigate (route) {
+    this.toggle();
+    this.props.navigate(route);
   }
 
   toggle () {
@@ -42,10 +48,10 @@ class Dropdown extends React.Component {
         <div className="dropdown-content box" style={contentStyle}>
           <ul>
             <li>
-              <Link to="/discover">Podcasts</Link>
+              <a onClick={this.navigate.bind(null, '/discover')}>Podcasts</a>
             </li>
             <li>
-              <Link to="/playlists">Playlists</Link>
+              <a onClick={this.navigate.bind(null, '/playlists')}>Playlists</a>
             </li>
             <li>
               <Login loggedIn={this.props.loggedIn} logOutType="is-primary" />

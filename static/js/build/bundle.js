@@ -37306,7 +37306,7 @@
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'dropdown-menu' },
-	              _react2.default.createElement(_dropdown2.default, { loggedIn: this.props.loggedIn, userId: userId, toggle: this.showModal })
+	              _react2.default.createElement(_dropdown2.default, { navigate: this.props.router.push, loggedIn: this.props.loggedIn, userId: userId, toggle: this.showModal })
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -37582,10 +37582,17 @@
 	
 	    _this.toggle = _this.toggle.bind(_this);
 	    _this.createClicked = _this.createClicked.bind(_this);
+	    _this.navigate = _this.navigate.bind(_this);
 	    return _this;
 	  }
 	
 	  _createClass(Dropdown, [{
+	    key: 'navigate',
+	    value: function navigate(route) {
+	      this.toggle();
+	      this.props.navigate(route);
+	    }
+	  }, {
 	    key: 'toggle',
 	    value: function toggle() {
 	      this.setState({
@@ -37625,8 +37632,8 @@
 	              'li',
 	              null,
 	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: '/discover' },
+	                'a',
+	                { onClick: this.navigate.bind(null, '/discover') },
 	                'Podcasts'
 	              )
 	            ),
@@ -37634,8 +37641,8 @@
 	              'li',
 	              null,
 	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: '/playlists' },
+	                'a',
+	                { onClick: this.navigate.bind(null, '/playlists') },
 	                'Playlists'
 	              )
 	            ),
